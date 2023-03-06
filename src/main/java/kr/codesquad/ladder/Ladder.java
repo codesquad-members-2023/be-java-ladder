@@ -10,8 +10,6 @@ public class Ladder {
     private final char LADDER_ROUTE = '-';
     private final char LADDER_BLOCK = ' ';
     private InputView inputView = new InputView();
-    private Random r = new Random();
-    private char[][] ladder;
 
     public void run() {
         int personNum = inputView.getPersonNum();
@@ -35,20 +33,7 @@ public class Ladder {
         }
     }
 
-    private void generateLadder(int stepNum) {
-        for (int i = 0; i< stepNum; i++) {
-            pathGenerate(i);
-            for (int j=1; j<ladder[i].length; j+=2) {
-                ladder[i][j] = routeGenerate();
-            }
-        }
-    }
 
-    private void pathGenerate(int i) {
-        for (int j = 0; j< ladder.length; j+=2) {
-            ladder[i][j] = LADDER_BAR;
-        }
-    }
 
     private char routeGenerate() {
         if (r.nextBoolean()) {
