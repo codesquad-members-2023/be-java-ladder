@@ -10,6 +10,6 @@ public class Basic_function {
 
         // 사다리 출력
         System.out.println();
-        ladder.print_Ladder(0);
+        ladder.print_Ladder();
     }
 }

@@ -1,5 +1,6 @@
 package Ladder_game;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 public class Ladder {
     private int num;
     private int height;
-    String[][] ladder;
+    List<List<String>> ladders;
     List<String> name;
 
     // 초기값 세팅
@@ -21,7 +22,7 @@ public class Ladder {
         System.out.print("최대 사다리 높이는 몇 개인가요?\n");
         this.height = in.nextInt();
 
-        ladder = new String[height][num * 2 - 1];
+        ladders = new ArrayList<>();
     }
 
     // 이름 분리
@@ -33,7 +34,10 @@ public class Ladder {
 
     // 사다리 설정
     public void set_Ladder(int line) {
-        for (int j = 0; j < num * 2 - 1; j++) ladder[line][j] = ladder_Check(j);
+        List<String> temp_List = new ArrayList<>();
+
+        for (int j = 0; j < num * 2 - 1; j++) temp_List.add(ladder_Check(j));
+        ladders.add(temp_List);
 
         if (line + 1 < height) set_Ladder(line + 1);
     }
@@ -55,17 +59,16 @@ public class Ladder {
 
     // 빈 공간 출력
     public void print_Space(int length) {
-        for (int i = 6 - length; i > 0; i--) {
-            System.out.print(" ");
-        }
+        for (int i = 6 - length; i > 0; i--) System.out.print(" ");
     }
 
     // 사다리 출력
-    public void print_Ladder(int line) {
-        if (line == 0) print_Name();
-        for (int j = 0; j < num * 2 - 1; j++) System.out.print(ladder[line][j]);
-        System.out.println();
+    public void print_Ladder() {
+        print_Name();
 
-        if (line + 1 < height) print_Ladder(line + 1);
+        for(List<String> temp_List: ladders){
+            temp_List.forEach(System.out::print);
+            System.out.println();
+        }
     }
 }
