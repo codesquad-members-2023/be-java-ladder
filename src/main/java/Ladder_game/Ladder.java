@@ -26,7 +26,9 @@ public class Ladder {
 
     // 이름 분리
     public List<String> parsing_Name(String str) {
-        return Arrays.stream(str.split(",")).collect(Collectors.toList());
+        return Arrays.stream(str.split(","))
+                .map(s -> s.length() > 5 ? s.substring(0,5) : s)
+                .collect(Collectors.toList());
     }
 
     // 사다리 설정
