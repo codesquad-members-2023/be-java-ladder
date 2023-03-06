@@ -15,6 +15,5 @@ public class Main {
         LadderController ladderController = new LadderController(inputView, outputView, ladder);
 
         ladderController.startApplication();
-
     }
 }

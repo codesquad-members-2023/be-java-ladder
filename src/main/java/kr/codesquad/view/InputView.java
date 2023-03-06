@@ -1,6 +1,5 @@
 package kr.codesquad.view;
 
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class InputView {
