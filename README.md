@@ -1,6 +1,8 @@
-# Java Lotto
+# Java Ladder
 
-- Last Update: 2022-12-28
+- Last Update: 2023-03-06
+
+
 
 ## 코드 리뷰
 
