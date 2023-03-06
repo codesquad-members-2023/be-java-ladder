@@ -18,4 +18,7 @@ public class InputView {
         return input;
     }
 
+    public int userInputNumberOfPeople() {
+        return Integer.parseInt(globalReadLine());
+    }
 }
