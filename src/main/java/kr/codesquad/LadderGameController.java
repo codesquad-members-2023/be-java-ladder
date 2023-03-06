@@ -13,6 +13,7 @@ public class LadderGameController {
     public void LadderGameStart() {
         outputView.printAskHowManyPeople();
         int numberOfPeople = inputView.userInputNumberOfPeople();
-
+        outputView.printAskHeightOfLadder();
+        int heightOfLadder = inputView.userInputHeightOfLadder();
     }
 }
