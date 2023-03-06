@@ -11,7 +11,6 @@ public class OutputView {
 
     public void printLadderResult(String[][] ladderResult) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n");
         for (int i = 0; i < ladderResult.length; i++) {
             for (int j = 0; j < ladderResult[0].length; j++) {
                 stringBuilder.append(ladderResult[i][j]);
