@@ -1,9 +1,11 @@
-# Java Lotto
+# Java Ladder
 
-- Last Update: 2022-12-28
+## 학습 리스트
 
-## 코드 리뷰
+- [ ] StringBuilder VS StringBuffer 중 어떤 것이 더 효율적인가?
+- [ ] 자바에서 배열대신 List 사용해야 하는 이유
+- [ ] HashCode 에 대해 공부하기
+- [ ] SparkJava 에 대해 공부하기
+- [ ] JVM 의 동작 원리 공부하기
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
-
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+## 사다리 게임 1 단계 - 기본 기능 구현
