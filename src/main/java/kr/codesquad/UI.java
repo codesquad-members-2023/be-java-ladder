@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public class UI {
 
     private final Ladder ladder;
@@ -8,10 +10,15 @@ public class UI {
         this.ladder = ladder;
     }
 
+    public void printName() {
+        List<String> people = ladder.getPeople();
+        people.forEach(name -> System.out.printf("%-6s", name));
+        System.out.println();
+    }
     public void drawBridge() {
         boolean[][] ladderMap = ladder.getLadder();
         for (int y = 0; y < ladderMap.length; y++) {
-            System.out.print("|");
+            System.out.print("  |");
             drawLine(ladderMap, y);
             System.out.println();
         }
@@ -19,7 +26,7 @@ public class UI {
 
     private static void drawLine(boolean[][] ladderMap, int y) {
         for (int x = 0; x < ladderMap[0].length; x++) {
-            System.out.print(ladderMap[y][x] ? "-|" : " |" );
+            System.out.print(ladderMap[y][x] ? "-----|" : "     |" );
         }
     }
 

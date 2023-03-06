@@ -11,7 +11,7 @@ class LadderTest {
 
     @Test
     void makeBridge() {
-        Ladder ladder = new Ladder(3, 5, List.of(true, false, false, true, false, false, true, true, false, true));
+        Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
         boolean[][] ladderMap = ladder.getLadder();
 

@@ -5,13 +5,15 @@ import java.util.Random;
 
 public class Ladder {
 
+    private final List<String> people;
     private final int ladderWidth;
     private final int ladderHeight;
     private final boolean[][] ladder;
     private final List<Boolean> booleans;
 
-    public Ladder(int peopleCount, int ladderHeight, List<Boolean> booleans) {
-        this.ladderWidth = peopleCount - 1;
+    public Ladder(List<String> people, int ladderHeight, List<Boolean> booleans) {
+        this.people = people;
+        this.ladderWidth = people.size() - 1;
         this.ladderHeight = ladderHeight;
         ladder = new boolean[this.ladderHeight][ladderWidth];
         this.booleans = booleans;
@@ -25,6 +27,10 @@ public class Ladder {
 
     public boolean[][] getLadder() {
         return ladder;
+    }
+
+    public List<String> getPeople() {
+        return people;
     }
 
     private void makeLine(int y) {
