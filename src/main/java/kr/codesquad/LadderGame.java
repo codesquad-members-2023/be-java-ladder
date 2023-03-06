@@ -1,6 +1,7 @@
 package kr.codesquad;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class LadderGame {
     private InputView inputView;
@@ -57,10 +58,24 @@ public class LadderGame {
     // 전달 받은 인원수와 사다리 높이를 기준으로 2차원 배열 만들기
     private void makeLadder() {
         LADDER = new String[ladderHeight][participants + participants - 1];
+        for (int i = 0; i < LADDER.length; i++) {
+            for (int j = 0; j < LADDER[i].length; j++) {
+                if (j % 2 == 0) {
+                    LADDER[i][j] = "|";
+                    continue;
+                }
+                drawLine(i, j);
+            }
+        }
     }
 
-    // 2차워 배열의 값들을 가지고 사다리 출력하기
+    private void printLadder() {
+    }
 
-    private void 
-
+    private void drawLine(int x, int y) {
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            LADDER[x][y] = "-";
+        }
+    }
 }
