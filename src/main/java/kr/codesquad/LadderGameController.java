@@ -6,6 +6,9 @@ public class LadderGameController {
         final int ladderHeight = View.readLadderHeight();
 
         Ladder ladder = new Ladder(participants, ladderHeight);
+        Renderer renderer = new Renderer();
+        String map = renderer.renderMap(ladder.getLadderMap());
 
+        System.out.println(map);
     }
 }

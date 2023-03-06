@@ -19,4 +19,8 @@ public class Ladder {
             }
         }
     }
+
+    public boolean[][] getLadderMap() {
+        return ladderMap;
+    }
 }
