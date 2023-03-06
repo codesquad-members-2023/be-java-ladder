@@ -50,3 +50,11 @@
 - new로 생성하면 객체 생성과 동일하게 heap 메모리 공간에 생성된다. 동일한 스트링을 생성해도 다른 객체로 생성된다.
   https://hs-archive.tistory.com/28
 
+#### String + String vs StringBuilder vs StringBuffer
+- String은 Immutable이므로 객체 간 더하면 새로운 객체가 생성되야하므로, 메모리 할당과 해제가 발생한다.
+- StringBuilder는 Immutable이 아닌 mutable로 기존 데이터에 새 데이터를 추가하는 방식으로 속도가 빠르다.
+- StringBuffer는 Synchronized 키워드를 지원하여, 여러 스레드가 한 개의 자원에 접근하려고 할 때, 현재 데이터를 사용하고 있는 스레드를 제외하고 나머지 스레드의 접근을 막는다.
+비교
+- String :  문자열 연산이 적고 멀티쓰레드 환경일 경우
+- StringBuffer :  문자열 연산이 많고 멀티쓰레드 환경일 경우
+- StringBuilder :  문자열 연산이 많고 단일쓰레드이거나 동기화를 고려하지 않아도 되는 경우  
