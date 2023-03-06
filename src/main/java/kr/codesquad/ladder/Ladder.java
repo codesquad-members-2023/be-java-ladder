@@ -3,11 +3,7 @@ package kr.codesquad.ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Ladder {
-
     private InputView inputView;
     private OutputView outputView;
     private LadderMaker ladderMaker;
