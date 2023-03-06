@@ -13,7 +13,7 @@ public class StepOneLadder implements LadderGenerator{
     @Override
     public String[][] ladder(int people, int height) {
 
-        return addRandomLadder(ladderSetting(people, height));
+        return makeRandomLadder(ladderSetting(people, height));
     }
 
     private String[][] ladderSetting(int people, int height) {
@@ -32,7 +32,7 @@ public class StepOneLadder implements LadderGenerator{
         return ladder;
     }
 
-    private String[][] addRandomLadder(String[][] ladder) {
+    private String[][] makeRandomLadder(String[][] ladder) {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
                 if (j % 2 == 1) {
