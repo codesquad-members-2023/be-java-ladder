@@ -14,9 +14,13 @@ public class Ladder {
 
     private void initLadderMap() {
         for (int floor = 0; floor < height; floor++) {
-            for (int section = 0; section < participant - 1; section++) {
-                ladderMap[floor][section] = RandomGenerator.generate();
-            }
+            initFloor(floor);
+        }
+    }
+
+    private void initFloor(int floor) {
+        for (int section = 0; section < participant - 1; section++) {
+            ladderMap[floor][section] = RandomGenerator.generate();
         }
     }
 
