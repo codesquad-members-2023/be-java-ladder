@@ -1,22 +1,21 @@
 package kr.codesquad.ladder;
 
+import kr.codesquad.view.InputView;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Ladder {
-    private final String GET_PERSON_MESSAGE = "참여할 사람은 몇 명인가요?";
-    private final String GET_STEP_MESSAGE = "최대 사다리 높이는 몇 개인가요?";
     private final char LADDER_BAR = '|';
     private final char LADDER_ROUTE = '-';
     private final char LADDER_BLOCK = ' ';
-
-    private Scanner sc = new Scanner(System.in);
+    private InputView inputView = new InputView();
     private Random r = new Random();
     private char[][] ladder;
 
     public void run() {
-        int personNum = getNum(GET_PERSON_MESSAGE);
-        int stepNum = getNum(GET_STEP_MESSAGE);
+        int personNum = inputView.getPersonNum();
+        int stepNum = inputView.getStepNum();
         ladder = new char[stepNum][(personNum*2)-1];
 
 
@@ -43,12 +42,6 @@ public class Ladder {
                 ladder[i][j] = routeGenerate();
             }
         }
-    }
-
-    private int getNum(String GET_PERSON_MESSAGE) {
-        System.out.println(GET_PERSON_MESSAGE);
-        int personNum = sc.nextInt();
-        return personNum;
     }
 
     private void pathGenerate(int i) {
