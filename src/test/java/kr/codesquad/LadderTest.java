@@ -1,26 +1,24 @@
 package kr.codesquad;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class LadderTest {
 
     @Test
     void makeBridge() {
-        Ladder ladder = new Ladder(3, 5);
-
+        Ladder ladder = new Ladder(3, 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
         boolean[][] ladderMap = ladder.getLadder();
 
-        for (int y = 0; y < 5; y++) {
-            for (int x = 0; x < 2; x++) {
-                System.out.print(ladderMap[y][x] + " ");
-            }
-            System.out.println();
-        }
+        assertThat(ladderMap[0]).containsExactly(true, false);
+        assertThat(ladderMap[1]).containsExactly(false, true);
+        assertThat(ladderMap[2]).containsExactly(false, false);
+        assertThat(ladderMap[3]).containsExactly(true, true);
+        assertThat(ladderMap[4]).containsExactly(false, true);
     }
 }

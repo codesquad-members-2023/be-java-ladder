@@ -10,7 +10,6 @@ public class UI {
 
     public void drawBridge() {
         boolean[][] ladderMap = ladder.getLadder();
-        System.out.println();
         for (int y = 0; y < ladderMap.length; y++) {
             System.out.print("|");
             drawLine(ladderMap, y);

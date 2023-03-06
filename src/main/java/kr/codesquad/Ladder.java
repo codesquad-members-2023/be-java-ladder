@@ -1,5 +1,6 @@
 package kr.codesquad;
 
+import java.util.List;
 import java.util.Random;
 
 public class Ladder {
@@ -7,17 +8,18 @@ public class Ladder {
     private final int ladderWidth;
     private final int ladderHeight;
     private final boolean[][] ladder;
-    private final Random random = new Random();
+    private final List<Boolean> booleans;
 
-    public Ladder(int peopleCount, int ladderHeight) {
+    public Ladder(int peopleCount, int ladderHeight, List<Boolean> booleans) {
         this.ladderWidth = peopleCount - 1;
         this.ladderHeight = ladderHeight;
         ladder = new boolean[this.ladderHeight][ladderWidth];
+        this.booleans = booleans;
     }
 
     public void makeBridge() {
-        for (int height = 0; height < ladderHeight; height++) {
-            makeLine(height);
+        for (int y = 0; y < ladderHeight; y++) {
+            makeLine(y);
         }
     }
 
@@ -25,9 +27,9 @@ public class Ladder {
         return ladder;
     }
 
-    private void makeLine(int height) {
-        for (int width = 0; width < ladderWidth; width++) {
-            ladder[height][width] = random.nextBoolean();
+    private void makeLine(int y) {
+        for (int x = 0; x < ladderWidth; x++) {
+            ladder[y][x] = booleans.get(y * ladderWidth + x);
         }
     }
 }
