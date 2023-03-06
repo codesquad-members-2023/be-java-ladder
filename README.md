@@ -4,6 +4,8 @@
 ### 사다리 게임 1단계
 * 학습 키워드
     * enum, mvc 패턴
+    * main 메서드의 역할(controller 필드를 생성자에서 추가, main 메서드에서 주입)
+    * controller가 여러개인데 하나의 모델 인스턴스를 공유해야 하니까 main에서 주입
 * 클래스 설계
     * InputClass : 사용자 입력을 받는 클래스
     * OutputClass : 결과를 출력하는 클래스
