@@ -41,7 +41,8 @@ public class LadderGame {
             System.out.println();
 
             makeLadder();
-
+            printLadder();
+            System.out.println();
         }
     }
 
@@ -70,12 +71,20 @@ public class LadderGame {
     }
 
     private void printLadder() {
+        for (String[] line : LADDER) {
+            for (String area : line) {
+                System.out.print(area);
+            }
+            System.out.println();
+        }
     }
 
     private void drawLine(int x, int y) {
         Random random = new Random();
         if (random.nextBoolean()) {
             LADDER[x][y] = "-";
+        } else {
+            LADDER[x][y] = " ";
         }
     }
 }
