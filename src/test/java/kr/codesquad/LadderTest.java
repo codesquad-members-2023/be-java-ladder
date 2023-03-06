@@ -22,6 +22,5 @@ class LadderTest {
             System.out.println();
         }
     }
-    
 
 }
