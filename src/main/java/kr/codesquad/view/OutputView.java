@@ -21,7 +21,14 @@ package kr.codesquad.view;public class OutputView {
 
     private void getStringLadderALine(boolean[][] ladder, int i) {
         for (int j = 0; j< ladder[i].length; j++) {
-            stringBuilder.append(ladder[i][j] ? LADDER_PATH : LADDER_BLOCK).append(LADDER_BAR);
+            stringBuilder.append(getPath(ladder[i][j])).append(LADDER_BAR);
         }
+    }
+
+    private char getPath(boolean path) {
+        if (path) {
+            return LADDER_PATH;
+        }
+        return LADDER_BLOCK;
     }
 }
