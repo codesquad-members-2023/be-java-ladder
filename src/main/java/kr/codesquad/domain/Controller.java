@@ -8,10 +8,16 @@ import kr.codesquad.view.OutputView;
 
 public class Controller {
 
-    AppConfig appConfig = new AppConfig();
-    InputView inputView = appConfig.inputView();
-    OutputView outputView = appConfig.outputView();
-    LadderGenerator ladderGenerator = appConfig.ladderGenerator();
+    private final InputView inputView;
+    private final OutputView outputView;
+    //    LadderGenerator ladderGenerator = appConfig.ladderGenerator();
+    private final LadderGenerator ladderGenerator;
+
+    public Controller(InputView inputView, OutputView outputView, LadderGenerator ladderGenerator) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.ladderGenerator = ladderGenerator;
+    }
 
     public void startGame(){
         outputView.askPeopleNumber();
