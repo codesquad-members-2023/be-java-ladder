@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 public class InputView {
 
+    private static LadderMaker ladderMaker;
+
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public static void initLadder() throws IOException {
@@ -15,8 +17,8 @@ public class InputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int heightOfLadder = Integer.parseInt(br.readLine());
 
-        /**
-         * 사다리 만드는 로직에 데이터 전달
-         */
+        ladderMaker = new LadderMaker(numOfParticipants, heightOfLadder);
+
+        OutputView.printLadder(ladderMaker.ladder);
     }
 }
