@@ -1,13 +1,21 @@
 package Ladder_game;
 
+import java.util.Scanner;
+
 public class Ladder {
     private int N;
     private int M;
     String[][] ladder;
 
-    public Ladder(int N, int M) {
-        this.N = N;
-        this.M = M;
+    public Ladder() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("참여할 사람은 몇 명인가요?\n");
+        int n = in.nextInt();
+        System.out.print("최대 사다리 높이는 몇 개인가요?\n");
+        int m = in.nextInt();
+        
+        this.N = n;
+        this.M = m;
         ladder = new String[M][N * 2 - 1];
     }
 
