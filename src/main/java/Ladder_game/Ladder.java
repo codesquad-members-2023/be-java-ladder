@@ -13,26 +13,27 @@ public class Ladder {
         int n = in.nextInt();
         System.out.print("최대 사다리 높이는 몇 개인가요?\n");
         int m = in.nextInt();
-        
+
         this.N = n;
         this.M = m;
         ladder = new String[M][N * 2 - 1];
     }
 
-    public void set_Ladder() {
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N * 2 - 1; j++) {
-                if (j % 2 == 0) ladder[i][j] = "|";
-                else ladder[i][j] = (int) (Math.random() * 2) == 0 ? " " : "-";
-            }
-        }
+    public void set_Ladder(int line) {
+        for (int j = 0; j < N * 2 - 1; j++) ladder[line][j] = ladder_Check(j);
+
+        if (line + 1 < M) set_Ladder(line + 1);
     }
 
-    public void print_Ladder() {
+    public String ladder_Check(int check) {
+        if (check % 2 == 0) return "|";
+        return (int) (Math.random() * 2) == 0 ? " " : "-";
+    }
+
+    public void print_Ladder(int line) {
+        for (int j = 0; j < N * 2 - 1; j++) System.out.print(ladder[line][j]);
         System.out.println();
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N * 2 - 1; j++) System.out.print(ladder[i][j]);
-            System.out.println();
-        }
+
+        if (line + 1 < M) set_Ladder(line + 1);
     }
 }
