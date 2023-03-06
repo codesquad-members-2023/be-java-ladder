@@ -21,4 +21,8 @@ public class InputView {
     public int userInputNumberOfPeople() {
         return Integer.parseInt(globalReadLine());
     }
+
+    public int userInputHeightOfLadder() {
+        return Integer.parseInt(globalReadLine());
+    }
 }
