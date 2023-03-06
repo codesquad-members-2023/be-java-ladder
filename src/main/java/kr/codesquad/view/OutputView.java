@@ -8,8 +8,19 @@ public class OutputView {
         System.out.println(ASK_PEOPLE_NUMBER);
     }
 
-    public void askLadder() {
+    public void askLadderHeight() {
         System.out.println(ASK_LADDER);
+    }
+
+    public void printLadder(String[][] ladder) {
+        StringBuilder ladderPrinter = new StringBuilder();
+        for (int i = 0; i < ladder.length; i++) {
+            for (int j = 0; j < ladder[i].length; j++) {
+                ladderPrinter.append(ladder[i][j]);
+            }
+            ladderPrinter.append("\n");
+        }
+        System.out.println(ladderPrinter);
     }
 
 }
