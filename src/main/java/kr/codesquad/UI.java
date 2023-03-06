@@ -13,10 +13,14 @@ public class UI {
         System.out.println();
         for (int y = 0; y < ladderMap.length; y++) {
             System.out.print("|");
-            for (int x = 0; x < ladderMap[0].length; x++) {
-                System.out.print(ladderMap[y][x] ? "-|" : " |" );
-            }
+            drawLine(ladderMap, y);
             System.out.println();
+        }
+    }
+
+    private static void drawLine(boolean[][] ladderMap, int y) {
+        for (int x = 0; x < ladderMap[0].length; x++) {
+            System.out.print(ladderMap[y][x] ? "-|" : " |" );
         }
     }
 

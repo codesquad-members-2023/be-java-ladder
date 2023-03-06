@@ -12,18 +12,22 @@ public class Ladder {
     public Ladder(int peopleCount, int ladderHeight) {
         this.ladderWidth = peopleCount - 1;
         this.ladderHeight = ladderHeight;
-        ladder = new boolean[ladderHeight][ladderWidth];
+        ladder = new boolean[this.ladderHeight][ladderWidth];
     }
 
     public void makeBridge() {
         for (int height = 0; height < ladderHeight; height++) {
-            for (int width = 0; width < ladderWidth; width++) {
-                ladder[height][width] = random.nextBoolean();
-            }
+            makeLine(height);
         }
     }
 
     public boolean[][] getLadder() {
         return ladder;
+    }
+
+    private void makeLine(int height) {
+        for (int width = 0; width < ladderWidth; width++) {
+            ladder[height][width] = random.nextBoolean();
+        }
     }
 }
