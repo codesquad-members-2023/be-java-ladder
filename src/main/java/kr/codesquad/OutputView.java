@@ -17,4 +17,8 @@ public class OutputView {
             e.printStackTrace();
         }
     }
+
+    public void printAskHowManyPeople() {
+        globalPrintln("참여할 사람은 몇 명인가요?");
+    }
 }
