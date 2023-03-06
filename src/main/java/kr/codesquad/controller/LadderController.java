@@ -14,4 +14,13 @@ public class LadderController {
         this.outputView = outputView;
         this.ladder = ladder;
     }
+
+    public void startApplication() {
+        outputView.printJoinMembers();
+        String joinMember = inputView.inputUserString();
+        outputView.printMaxLadderHeight();
+        String maxLadderHeight = inputView.inputUserString();
+        String[][] ladderResult = ladder.makeLadder(joinMember, maxLadderHeight);
+        outputView.printLadderResult(ladderResult);
+    }
 }
