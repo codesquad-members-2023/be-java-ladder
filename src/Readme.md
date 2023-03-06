@@ -3,9 +3,11 @@
 
 ### 사다리 게임 1단계
 * 학습 키워드
+  * enum, mvc 패턴
 * 클래스 설계
   * InputClass : 사용자 입력을 받는 클래스
   * OutputClass : 결과를 출력하는 클래스
+  * LadderController : model과 view의 이벤트 처리
   * GeneratorInterface: 사다리 생성 인터페이스
   * Ladder : GeneratorInterface 구현체
 * 기능 목록

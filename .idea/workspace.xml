@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="Feat : branch 생성">
-      <change afterPath="$PROJECT_DIR$/src/Readme.md" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="Docs : ReadMe 생성 및 1단계 미션 설계">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/model/Generator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +23,14 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -30,7 +44,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JX36oPCnvQiefE3cZVtAUCgNFD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,15 +55,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "프로젝트",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.folding",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,6 +93,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -86,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
-      <workItem from="1678070100884" duration="4304000" />
+      <workItem from="1678070100884" duration="5861000" />
     </task>
     <task id="LOCAL-00001" summary="Feat : branch 생성">
       <created>1678071855084</created>
@@ -95,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678071855084</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Docs : ReadMe 생성 및 1단계 미션 설계">
+      <created>1678081124011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678081124011</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Feat : branch 생성" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat : branch 생성" />
+    <MESSAGE value="Docs : ReadMe 생성 및 1단계 미션 설계" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docs : ReadMe 생성 및 1단계 미션 설계" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
