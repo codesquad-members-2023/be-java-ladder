@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LadderTest {
 
     @Test
-    @DisplayName("사다리 정보값 테스트")
+    @DisplayName("불리언 리스트를 이용해 사다리 맵이 정상적으로 생성되어야 한다.")
     void makeBridge() {
         Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
@@ -25,7 +25,7 @@ class LadderTest {
     }
 
     @Test
-    @DisplayName("사다리에 겹치는 라인이 있는지 테스트")
+    @DisplayName("사다리 검증 메서드 호출 시 사다리에 겹치는 라인이 있다면 false를, 겹치는 라인이 있다면 true를 반환해야 한다.")
     void isPossible() {
         Ladder ladder1 = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder1.makeBridge();

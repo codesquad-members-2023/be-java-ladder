@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UITest {
 
     @Test
-    @DisplayName("사다리 출력 테스트")
+    @DisplayName("사용자 이름과 불리언 리스트를 이용해 사다리를 만들고, UI가 사다리를 제대로 출력해야 한다.")
     void printNameAndBridge() {
         Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
@@ -38,7 +38,7 @@ class UITest {
     }
 
     @Test
-    @DisplayName("콘솔 출력 테스트")
+    @DisplayName("콘솔값 출력 테스트를 어떻게 하는지 연습해보았다.")
     void consoleOutTest() {
         ByteArrayOutputStream outputMessage = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputMessage));
