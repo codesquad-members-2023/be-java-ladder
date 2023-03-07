@@ -1,6 +1,4 @@
-package kr.codesquad.domain.ladder.stepone;
-
-import kr.codesquad.domain.ladder.LadderGenerator;
+package kr.codesquad.domain.laddergenerator;
 
 import java.util.Random;
 
