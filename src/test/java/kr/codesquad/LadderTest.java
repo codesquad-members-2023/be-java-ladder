@@ -15,13 +15,13 @@ class LadderTest {
     void makeBridge() {
         Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
-        boolean[][] ladderMap = ladder.getLadder();
+        List<List<Boolean>> ladderMap = ladder.getLadder();
 
-        assertThat(ladderMap[0]).containsExactly(true, false);
-        assertThat(ladderMap[1]).containsExactly(false, true);
-        assertThat(ladderMap[2]).containsExactly(false, false);
-        assertThat(ladderMap[3]).containsExactly(true, true);
-        assertThat(ladderMap[4]).containsExactly(false, true);
+        assertThat(ladderMap.get(0)).containsExactly(true, false);
+        assertThat(ladderMap.get(1)).containsExactly(false, true);
+        assertThat(ladderMap.get(2)).containsExactly(false, false);
+        assertThat(ladderMap.get(3)).containsExactly(true, true);
+        assertThat(ladderMap.get(4)).containsExactly(false, true);
     }
 
     @Test
