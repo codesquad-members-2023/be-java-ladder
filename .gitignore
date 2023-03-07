@@ -40,3 +40,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+*.xml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/workspace.xml
