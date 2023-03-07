@@ -2,10 +2,10 @@ package kr.codesquad;
 
 public class InputAdaptor {
 
-    public int[][] handle(int lineNum, int lineLength, MakeLadder handler) {
+    public Point[][] handle(int lineNum, int lineLength, MakeLadder handler) {
         Point[][] pointMap = makePointMap(lineNum, lineLength);
         init(pointMap);
-        return handler.process(pointMap);
+        return pointMap;
     }
 
     private static Point[][] makePointMap(int lineNum, int lineLength) {
@@ -42,7 +42,7 @@ public class InputAdaptor {
                     pointMap[0][j] = new Point(j, 0, Type.Line);
                     continue;
                 }
-                pointMap[0][j] = new Point(j, 0, Type.Ladder;
+                pointMap[0][j] = new Point(j, 0, Type.Ladder);
             }
         }
     }
@@ -55,7 +55,7 @@ public class InputAdaptor {
                 pointMap[lineHeight - 1][i] = new Point(i, 0, Type.Destination);
                 continue;
             }
-            pointMap[lineHeight - 1][i] = new Point(i, 0, Type.Block;
+            pointMap[lineHeight - 1][i] = new Point(i, 0, Type.Block);
         }
     }
 }
