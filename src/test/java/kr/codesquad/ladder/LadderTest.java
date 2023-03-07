@@ -1,7 +1,6 @@
 package kr.codesquad.ladder;
 
-import kr.codesquad.ladder.util.RandomBoolean;
-import kr.codesquad.ladder.util.RandomUtil;
+import kr.codesquad.util.RandomBoolean;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
