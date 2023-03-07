@@ -4,27 +4,34 @@ import java.util.Random;
 
 public class LadderMaker {
 
-    public String createLadder(int people, int height) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < height; i++) {
-            stringBuilder.append(createLadderRow(people));
-            stringBuilder.append("\n");
+    private String[][] ladder;
+
+    public String[][] createLadder(int people, int height) {
+        ladder = new String[height][people + (people - 1)];
+
+        for (int i = 0; i < ladder.length; i++) {
+            fillLadderRow(i);
         }
-        return stringBuilder.toString();
+
+        return ladder;
     }
 
-    public String createLadderRow(int people) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < people - 1; i++) {
-            stringBuilder.append("|");
-            if (randomBooleanGenerator()) {
-                stringBuilder.append("-");
+    public void fillLadderRow(int row) {
+        boolean checkConnected = false;
+        for (int i = 0; i < ladder[row].length; i++) {
+            if (i % 2 == 0) {
+                ladder[row][i] = "|";
                 continue;
             }
-            stringBuilder.append(" ");
+            ladder[row][i] = decideWhetherConnected();
         }
-        stringBuilder.append("|");
-        return stringBuilder.toString();
+    }
+
+    private String decideWhetherConnected() {
+        if (randomBooleanGenerator()) {
+            return "-----";
+        }
+        return "     ";
     }
 
     private boolean randomBooleanGenerator() {
