@@ -1,9 +1,14 @@
-package kr.codesquad.view;public class OutputView {
+package kr.codesquad.view;
 
-    private final char LADDER_BAR = '|';
-    private final char LADDER_PATH = '-';
-    private final char LADDER_BLOCK = ' ';
-    private final char NEW_LINE = '\n';
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderStep;
+
+public class OutputView {
+
+    private final String LADDER_BAR = "|";
+    private final String LADDER_PATH = "------";
+    private final String LADDER_BLOCK = "      ";
+    private final String NEW_LINE = System.lineSeparator();
     private StringBuilder stringBuilder;
 
     public OutputView() {
