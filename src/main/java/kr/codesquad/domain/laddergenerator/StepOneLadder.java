@@ -1,51 +1,33 @@
 package kr.codesquad.domain.laddergenerator;
 
+import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-public class StepOneLadder implements LadderGenerator{
-    @Override
-    public boolean randomGenerateLadder() {
-        Random random = new Random();
-
-        return random.nextBoolean();
-    }
+public class StepOneLadder implements LadderGenerator {
 
     @Override
     public String[][] ladder(int people, int height) {
-
-        return makeRandomLadder(ladderSetting(people, height));
+        return IntStream.range(0, height)
+                .mapToObj(i -> IntStream.range(0, people * 2 - 1)
+                        .mapToObj(j -> {
+                            if (j % 2 == 0) {
+                                return "|";
+                            }
+                            if (randomGenerateLadder() == true) {
+                                return "-";
+                            }
+                            return " ";
+                        })
+                        .toArray(String[]::new))
+                .toArray(String[][]::new);
     }
+    // 스트림 중간에 외부 메서드를 호출해도 괜찮을까? 찾아보기
 
-    private String[][] ladderSetting(int people, int height) {
-        String[][] ladder = new String[height][people * 2 - 1];
+    private boolean randomGenerateLadder() {
+        Random random = new Random();
 
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 == 0 || j == 0) {
-                    ladder[i][j] = "|";
-                    continue;
-                }
-                ladder[i][j] = " ";
-            }
-        }
-
-        return ladder;
-    }
-
-    private String[][] makeRandomLadder(String[][] ladder) {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 == 1) {
-                    if (randomGenerateLadder() == true) {
-                        ladder[i][j] = "-";
-                        continue;
-                    }
-                    ladder[i][j] = " ";
-                }
-
-            }
-        }
-
-        return ladder;
+        return random.nextBoolean();
     }
 }
