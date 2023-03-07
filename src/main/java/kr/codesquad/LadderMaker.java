@@ -52,7 +52,14 @@ public class LadderMaker {
             int r = randoms[i] % height;
             int c = randoms[i] / height * 2 + 1;
 
-            ladder[r][c] = "-";
+            ladder[r][c] = validationBridge(ladder[r][c]);
         }
+    }
+
+    private String validationBridge(String now) {
+        if (now.equals("-")) {
+            return now;
+        }
+        return "-";
     }
 }
