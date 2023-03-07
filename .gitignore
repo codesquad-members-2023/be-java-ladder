@@ -44,3 +44,7 @@ bin/
 .idea/misc.xml
 .idea/workspace.xml
 .idea/workspace.xml
+*.xml
+.idea/gradle.xml
+.idea/workspace.xml
+.idea/gradle.xml
