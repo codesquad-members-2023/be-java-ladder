@@ -3,8 +3,8 @@ package kr.codesquad;
 public class Renderer {
     public static final String LADDER_BAR = "|";
     public static final String BREAK_LINE = "\n";
-    public static final String LADDER_FULL = "-";
-    public static final String LADDER_EMPTY = " ";
+    public static final String LADDER_FULL = "-----";
+    public static final String LADDER_EMPTY = "     ";
 
     public String renderMap(boolean[][] ladderMap) {
         StringBuilder sb = new StringBuilder();
