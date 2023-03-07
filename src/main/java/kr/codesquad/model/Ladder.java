@@ -12,19 +12,33 @@ public class Ladder {
     public String[][] makeLadder(String joinMember, String maxLadderHeight) {
         String[][] ladder = new String[Integer.parseInt(maxLadderHeight)][
                 Integer.parseInt(joinMember) + Integer.parseInt(joinMember) - 1];
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[0].length; j++) {
-                if (j % 2 == 0) {
-                    ladder[i][j] = "|";
-                    continue;
-                }
-                if (random.nextBoolean()) {
-                    ladder[i][j] = "-";
-                    continue;
-                }
-                ladder[i][j] = " ";
-            }
-        }
+        makeColumn(ladder);
         return ladder;
+    }
+
+    public void makeColumn(String[][] ladder) {
+        for (int i = 0; i < ladder.length; i++) {
+            makeRow(ladder[i]);
+        }
+    }
+
+    public void makeRow(String[] row) {
+        for (int i = 0; i < row.length; i++) {
+            row[i] = isEven(i);
+        }
+    }
+
+    public String isEven(int idx) {
+        if (idx % 2 == 0) {
+            return "|";
+        }
+        return makeLine();
+    }
+
+    public String makeLine() {
+        if (random.nextBoolean()) {
+            return "-";
+        }
+        return " ";
     }
 }

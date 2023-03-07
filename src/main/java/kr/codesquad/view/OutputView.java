@@ -17,7 +17,8 @@ public class OutputView {
         System.out.println();
         StringBuilder stringBuilder = new StringBuilder();
         for (String[] strings : ladderResult) {
-            Arrays.stream(strings).forEach(stringBuilder::append);
+            Arrays.stream(strings)
+                    .forEach(stringBuilder::append);
             System.out.println(stringBuilder);
             stringBuilder.setLength(0);
         }
