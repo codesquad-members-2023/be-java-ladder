@@ -13,9 +13,9 @@ public class LadderGame {
         inputView = new InputView();
     }
 
-    public void startGame() {
+    public void start() {
         while (true) {
-            System.out.println(OutView.HOW_MANY_PARTICIPATE.getMessage());
+            OutView.printHowManyParticipates();
             try {
                 participants = inputView.getIntegerInput();
                 if (participants <= 1) {
@@ -27,7 +27,7 @@ public class LadderGame {
                 continue;
             }
 
-            System.out.println(OutView.HOW_MUCH_HIGH.getMessage());
+            OutView.printHowMuchHigh();
             try {
                 ladderHeight = inputView.getIntegerInput();
                 if (ladderHeight <= 1) {
