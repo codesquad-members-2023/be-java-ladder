@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomBoolean {
-    static RandomUtil randomUtil;
+    private static RandomUtil randomUtil;
+    private static Random random = new Random();
 
     public RandomBoolean(RandomUtil randomUtil) {
         this.randomUtil = randomUtil;
@@ -17,11 +18,21 @@ public class RandomBoolean {
 
     public static List<Boolean> generate(int n) {
         List<Boolean> result = new ArrayList<>();
-        Random random = new Random();
+        result.add(random.nextBoolean());
 
-        for (int i = 0; i < n; i++) {
-            result.add(random.nextBoolean());
+        while (result.size() < n) {
+            result.add(getValidRandomBoolean(result.get(result.size()-1)));
         }
         return result;
+    }
+
+    /**
+     * 직전 리스트 값이 true일 경우, 무조건 false를 반환하는 함수
+     * */
+    private static boolean getValidRandomBoolean(boolean lastValue) {
+        if (lastValue) {
+            return false;
+        }
+        return random.nextBoolean();
     }
 }
