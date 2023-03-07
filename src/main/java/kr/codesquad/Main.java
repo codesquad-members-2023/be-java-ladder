@@ -1,7 +1,7 @@
 package kr.codesquad;
 
 import java.util.Random;
-import kr.codesquad.controller.LadderController;
+import kr.codesquad.controller.ApplicationController;
 import kr.codesquad.model.Ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -11,8 +11,8 @@ public class Main {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
         Ladder ladder = new Ladder(new Random());
-        LadderController ladderController = new LadderController(inputView, outputView, ladder);
+        ApplicationController applicationController = new ApplicationController(inputView, outputView, ladder);
 
-        ladderController.startApplication();
+        applicationController.run();
     }
 }
