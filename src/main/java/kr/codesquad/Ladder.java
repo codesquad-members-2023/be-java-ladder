@@ -1,13 +1,20 @@
 package kr.codesquad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ladder {
+    private List<String> names;
     private final int participant;
     private final int height;
     private ArrayList<ArrayList> ladderMap;
 
-    public Ladder(int participant, int height) {
+    public List<String> getNameList() {
+        return names;
+    }
+
+    public Ladder(List<String> names, int participant, int height) {
+        this.names = names;
         this.participant = participant;
         this.height = height;
         ladderMap = new ArrayList<>();
