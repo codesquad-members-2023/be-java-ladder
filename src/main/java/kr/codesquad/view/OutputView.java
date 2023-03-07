@@ -15,10 +15,16 @@ public class OutputView {
         stringBuilder = new StringBuilder();
     }
 
-    public String getPrintLadder(boolean[][] ladder) {
-        for (int i=0; i<ladder.length; i++) {
+    public String getStringLadder(Ladder ladder) {
+        stringBuilder.append(ladder.getAUser(0));
+        for (int i=1; i<ladder.getUserSize(); i++) {
+            stringBuilder.append(String.format("%6s", ladder.getAUser(i)));
+        }
+        stringBuilder.append(NEW_LINE);
+
+        for (int i=0; i<ladder.getStepSize(); i++) {
             stringBuilder.append(LADDER_BAR);
-            getStringLadderALine(ladder, i);
+            getStringLadderALine(ladder.getAStep(i));
             stringBuilder.append(NEW_LINE);
         }
         return stringBuilder.toString();

@@ -17,7 +17,7 @@ public class LadderGame {
 
             Ladder ladder = new Ladder(stepNum, userNames);
 
-            System.out.println(outputView.getPrintLadder(ladder));
+            System.out.println(outputView.getStringLadder(ladder));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
