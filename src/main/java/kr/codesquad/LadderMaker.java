@@ -4,7 +4,19 @@ import java.util.Arrays;
 
 public class LadderMaker {
 
-    public void makeLadder(int participants, int height) {
+    private int participants;
+    private int height;
+    String[][] ladder;
+
+    public LadderMaker(int participants, int height) {
+        this.participants = participants;
+        this.height = height;
+
+        this.ladder = new String[height][participants * 2 - 1];
+        makeLadder();
+    }
+
+    public void makeLadder() {
 
         String[][] ladder = new String[participants][height];
 
@@ -16,9 +28,9 @@ public class LadderMaker {
 
     }
 
-    private void insertLine() {
-        for (int i = 0; i < ladder.lines; i++) {
-            validationEachRow(i);
+    private void insertLines() {
+        for (int row = 0; row < ladder.length; row++) {
+            validationEachRow(row);
         }
     }
 
