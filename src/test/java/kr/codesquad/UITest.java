@@ -1,6 +1,7 @@
 package kr.codesquad;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UITest {
 
     @Test
+    @DisplayName("사다리 출력 테스트")
     void printNameAndBridge() {
         Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         ladder.makeBridge();
@@ -36,7 +38,8 @@ class UITest {
     }
 
     @Test
-    void printTest() {
+    @DisplayName("콘솔 출력 테스트")
+    void consoleOutTest() {
         ByteArrayOutputStream outputMessage = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputMessage));
 

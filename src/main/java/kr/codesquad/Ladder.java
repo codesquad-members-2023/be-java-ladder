@@ -6,17 +6,15 @@ import java.util.Random;
 public class Ladder {
 
     private final List<String> people;
-    private final int ladderWidth;
     private final int ladderHeight;
     private final boolean[][] ladder;
-    private final List<Boolean> booleans;
+    private final List<Boolean> randomBooleans;
 
-    public Ladder(List<String> people, int ladderHeight, List<Boolean> booleans) {
+    public Ladder(List<String> people, int ladderHeight, List<Boolean> randomBooleans) {
         this.people = people;
-        this.ladderWidth = people.size() - 1;
         this.ladderHeight = ladderHeight;
-        ladder = new boolean[this.ladderHeight][ladderWidth];
-        this.booleans = booleans;
+        ladder = new boolean[this.ladderHeight][people.size() - 1];
+        this.randomBooleans = randomBooleans;       // 외부에서 주입해주는 랜덤 부울 리스트, 2차원 배열인 ladder의 값들이 된다.
     }
 
     public void makeBridge() {
@@ -34,8 +32,9 @@ public class Ladder {
     }
 
     private void makeLine(int y) {
-        for (int x = 0; x < ladderWidth; x++) {
-            ladder[y][x] = booleans.get(y * ladderWidth + x);
+        int width = people.size() - 1;
+        for (int x = 0; x < width; x++) {
+            ladder[y][x] = randomBooleans.get(y * width + x);
         }
     }
 }
