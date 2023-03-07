@@ -1,7 +1,6 @@
 package kr.codesquad;
 
 import java.util.List;
-import java.util.Random;
 
 public class Ladder {
 
@@ -31,10 +30,24 @@ public class Ladder {
         return people;
     }
 
+    public boolean isPossible() {
+        for (int y = 0; y < ladderHeight; y++) {
+            if (overlappedLine(y)) return false;
+        }
+        return true;
+    }
+
     private void makeLine(int y) {
         int width = people.size() - 1;
         for (int x = 0; x < width; x++) {
             ladder[y][x] = randomBooleans.get(y * width + x);
         }
+    }
+
+    private boolean overlappedLine(int y) {
+        for (int x = 1; x < people.size() - 1; x++) {
+            if (ladder[y][x] && ladder[y][x - 1]) return true;
+        }
+        return false;
     }
 }

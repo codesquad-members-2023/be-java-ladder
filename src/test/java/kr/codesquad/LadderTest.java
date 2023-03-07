@@ -23,4 +23,18 @@ class LadderTest {
         assertThat(ladderMap[3]).containsExactly(true, true);
         assertThat(ladderMap[4]).containsExactly(false, true);
     }
+
+    @Test
+    @DisplayName("사다리에 겹치는 라인이 있는지 테스트")
+    void isPossible() {
+        Ladder ladder1 = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
+        ladder1.makeBridge();
+
+        assertThat(ladder1.isPossible()).isEqualTo(false);
+
+        Ladder ladder2 = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, false, true, false, true));
+        ladder2.makeBridge();
+
+        assertThat(ladder2.isPossible()).isEqualTo(true);
+    }
 }
