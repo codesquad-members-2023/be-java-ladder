@@ -25,4 +25,8 @@ public class OutputView {
     public void printAskHeightOfLadder() {
         globalPrintln("최대 사다리 높이는 몇 개인가요?");
     }
+
+    public void printLadder(String ladder) {
+        globalPrintln(ladder);
+    }
 }
