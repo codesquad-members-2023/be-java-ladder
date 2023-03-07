@@ -18,8 +18,7 @@ public class LadderMaker {
     }
 
     public void makeLadder() {
-
-        String[][] ladder = new String[participants][height];
+        randomsGenerator = new RandomsGenerator(participants, height);
 
         for (int i = 0; i < ladder.length; i++) {
             Arrays.fill(ladder[i], " ");
