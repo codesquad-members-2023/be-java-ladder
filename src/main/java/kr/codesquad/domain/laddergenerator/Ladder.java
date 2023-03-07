@@ -2,7 +2,7 @@ package kr.codesquad.domain.laddergenerator;
 
 import java.util.Random;
 
-public class StepOneLadder implements LadderGenerator {
+public class Ladder implements LadderGenerator {
     @Override
     public boolean randomGenerateLadder() {
         Random random = new Random();
