@@ -1,10 +1,11 @@
-package kr.codesquad.ladder;
+package kr.codesquad.domain;
 
 import kr.codesquad.util.RandomBoolean;
 
 import java.util.List;
 
 public class LadderMaker {
+
     private boolean[][] ladder;
 
     public LadderMaker(int personNum, int stepNum) {
