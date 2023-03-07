@@ -3,6 +3,7 @@ package kr.codesquad;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
 public class OutputView {
 
@@ -18,6 +19,24 @@ public class OutputView {
         }
     }
 
+    private void globalPrint(String output) {
+        try {
+            bw.write(output);
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void globalNewLine() {
+        try {
+            bw.newLine();
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void printAskHowManyPeople() {
         globalPrintln("참여할 사람은 몇 명인가요?");
     }
@@ -26,7 +45,12 @@ public class OutputView {
         globalPrintln("최대 사다리 높이는 몇 개인가요?");
     }
 
-    public void printLadder(String ladder) {
-        globalPrintln(ladder);
+    public void printLadder(String[][] ladder) {
+        for (int i = 0; i < ladder.length; i++) {
+            for (int j = 0; j < ladder[i].length; j++) {
+                globalPrint(ladder[i][j]);
+            }
+            globalNewLine();
+        }
     }
 }
