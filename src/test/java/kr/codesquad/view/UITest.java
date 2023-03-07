@@ -1,6 +1,7 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
-import org.assertj.core.api.Assertions;
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.view.UI;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
