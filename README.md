@@ -1,6 +1,8 @@
-# Java 사다리_게임
+# Java Ladder Game
 
-- Last Update: 2023-03-07
+자바로 구현하는 사다리 게임 프로젝트
+
+- Last Update: 2023-3-7
 
 ## 코드 리뷰
 
