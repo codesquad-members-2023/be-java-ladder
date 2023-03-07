@@ -1,9 +1,36 @@
-# Java Lotto
+# 학습 계획
+- 3/06월
+  1,2 단계를 구현해보자. `클린코드`, `리팩토링`, `문자열` 키워드를 학습하자.
+- 3/07화
+  3,4 단계를 구현한다. 
+- 3/08수
+- 3/09목
+- 3/10금
+# 미션 1단계
 
-- Last Update: 2022-12-28
+## git에 대해 학습
+
+## PR 가이드 학습하기
+
+##  Java의 문자(char)와 문자열(String)
+
+### new String()
+
+### String API
+
+## StringBuilder와 StringBuffer
+
+# 미션 2단계
+
+## 클린코드
+
+## 리팩토링
+
+# 미션 3단계
+
+## List와 ArrayList
+
+## 리스트와 제네릭
 
 ## 코드 리뷰
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
-
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
