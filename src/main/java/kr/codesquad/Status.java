@@ -1,4 +1,4 @@
-package v1;
+package kr.codesquad;
 
 public enum Status {
     Open, Close
