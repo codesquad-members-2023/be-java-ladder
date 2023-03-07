@@ -2,7 +2,7 @@ package kr.codesquad;
 
 public class InputAdaptor {
 
-    public Point[][] handle(int lineNum, int lineLength, MakeLadder handler) {
+    public Point[][] handle(int lineNum, int lineLength) {
         Point[][] pointMap = makePointMap(lineNum, lineLength);
         init(pointMap);
         return pointMap;
