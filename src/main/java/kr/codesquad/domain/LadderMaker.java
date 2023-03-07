@@ -1,30 +1,17 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.util.RandomBoolean;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class LadderMaker {
 
-    private boolean[][] ladder;
+    public static List<LadderStep> generate(int userNum, int floorNum) {
+        List<LadderStep> ladder = new ArrayList<>();
 
-    public LadderMaker(int personNum, int stepNum) {
-        ladder = new boolean[stepNum][personNum];
-    }
-
-    public boolean[][] generate() {
-        List<Boolean> generate = RandomBoolean.generate(ladder.length * ladder[0].length);
-
-        for (int i = 0; i<ladder.length; i++) {
-            generateALine(generate, i);
+        for (int i = 0; i<floorNum; i++) {
+            ladder.add(new LadderStep(userNum));
         }
         return ladder;
-    }
-
-    private void generateALine(List<Boolean> booleanList, int i) {
-        for (int j=0; j<ladder[0].length; j++) {
-            ladder[i][j] = booleanList.get((i * ladder[0].length) + j);
-        }
     }
 
 }
