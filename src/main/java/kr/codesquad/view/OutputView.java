@@ -24,9 +24,9 @@ public class OutputView {
         return stringBuilder.toString();
     }
 
-    private void getStringLadderALine(boolean[][] ladder, int i) {
-        for (int j = 0; j< ladder[i].length; j++) {
-            stringBuilder.append(getPath(ladder[i][j])).append(LADDER_BAR);
+    private void getStringLadderALine(LadderStep step) {
+        for (int j = 0; j< step.size(); j++) {
+            stringBuilder.append(getPath(step.getValidLung(j))).append(LADDER_BAR);
         }
     }
 
