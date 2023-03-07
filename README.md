@@ -1,6 +1,8 @@
-# Java Lotto
+# Java Ladder Game
 
-- Last Update: 2022-12-28
+자바로 구현하는 사다리 게임 프로젝트 
+
+- Last Update: 2023-3-7
 
 ## 코드 리뷰
 
