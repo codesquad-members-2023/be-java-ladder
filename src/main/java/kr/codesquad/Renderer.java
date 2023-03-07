@@ -1,6 +1,7 @@
 package kr.codesquad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Renderer {
 
@@ -9,12 +10,15 @@ public class Renderer {
     public static final String LADDER_FULL = "-----";
     public static final String LADDER_EMPTY = "     ";
 
-    public String renderMap(ArrayList<ArrayList> ladderMap) {
+    public String renderMap(ArrayList<ArrayList> ladderMap, List<String> names) {
         StringBuilder sb = new StringBuilder();
+
+
+        sb.append(names.stream().reduce((str1, str2) -> str1 + "\t" + str2).get()).append(BREAK_LINE);
+
         for (ArrayList floorMap : ladderMap) {
             renderFloor(floorMap, sb);
-            sb.append(LADDER_BAR);
-            sb.append(BREAK_LINE);
+            sb.append(LADDER_BAR).append(BREAK_LINE);
         }
         return sb.toString();
     }
