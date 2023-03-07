@@ -1,8 +1,10 @@
-package kr.codesquad.domain.laddergenerator;
+package kr.codesquad.domain.ladder.stepone;
+
+import kr.codesquad.domain.ladder.LadderGenerator;
 
 import java.util.Random;
 
-public class StepOneLadder implements LadderGenerator{
+public class StepOneLadder implements LadderGenerator {
     @Override
     public boolean randomGenerateLadder() {
         Random random = new Random();

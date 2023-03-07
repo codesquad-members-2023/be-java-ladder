@@ -1,4 +1,4 @@
-package kr.codesquad.domain.laddergenerator;
+package kr.codesquad.domain.ladder;
 
 public interface LadderGenerator {
     public boolean randomGenerateLadder();
