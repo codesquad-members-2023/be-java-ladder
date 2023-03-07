@@ -3,6 +3,7 @@ package kr.codesquad;
 public class InputAdaptor {
 
     public Point[][] handle(int lineNum, int lineLength) {
+
         Point[][] pointMap = makePointMap(lineNum, lineLength);
         init(pointMap);
         return pointMap;
@@ -43,6 +44,7 @@ public class InputAdaptor {
                     continue;
                 }
                 pointMap[i][j] = new Point(j, i, Type.Line);
+
             }
         }
     }
@@ -56,6 +58,7 @@ public class InputAdaptor {
                 continue;
             }
             pointMap[lineHeight - 1][i] = new Point(i, lineHeight, Type.Block);
+
         }
     }
 }
