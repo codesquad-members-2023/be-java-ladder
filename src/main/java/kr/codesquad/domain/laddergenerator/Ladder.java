@@ -2,15 +2,14 @@ package kr.codesquad.domain.laddergenerator;
 
 import java.util.Random;
 
-public class Ladder implements LadderGenerator {
-    @Override
+public class Ladder{
+
     public boolean randomGenerateLadder() {
         Random random = new Random();
 
         return random.nextBoolean();
     }
 
-    @Override
     public String[][] ladder(int people, int height) {
 
         return makeRandomLadder(ladderSetting(people, height));
