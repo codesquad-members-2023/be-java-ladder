@@ -19,6 +19,4 @@ public class LadderGameController {
         int heightOfLadder = inputView.userInputHeightOfLadder();
         outputView.printLadder(ladderMaker.createLadder(numberOfPeople, heightOfLadder));
     }
-
-
 }
