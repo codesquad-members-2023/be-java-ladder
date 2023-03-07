@@ -39,10 +39,10 @@ public class InputAdaptor {
         for (int i = 1; i < lineHeight - 1; i++) {
             for (int j = 0; j < lineWidth; j++) {
                 if (j % 2 == 0) {
-                    pointMap[0][j] = new Point(j, 0, Type.Line);
+                    pointMap[i][j] = new Point(j, i, Type.Ladder);
                     continue;
                 }
-                pointMap[0][j] = new Point(j, 0, Type.Ladder);
+                pointMap[i][j] = new Point(j, i, Type.Line);
             }
         }
     }
@@ -52,10 +52,10 @@ public class InputAdaptor {
         int lineHeight = pointMap.length;
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
-                pointMap[lineHeight - 1][i] = new Point(i, 0, Type.Destination);
+                pointMap[lineHeight - 1][i] = new Point(i, lineHeight, Type.Destination);
                 continue;
             }
-            pointMap[lineHeight - 1][i] = new Point(i, 0, Type.Block);
+            pointMap[lineHeight - 1][i] = new Point(i, lineHeight, Type.Block);
         }
     }
 }
