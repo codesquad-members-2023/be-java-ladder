@@ -1,7 +1,5 @@
 package LadderGame;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         // 사다리 값 입력
