@@ -9,6 +9,6 @@ public class LadderGameController {
         Renderer renderer = new Renderer();
         String map = renderer.renderMap(ladder.getLadderMap());
 
-        System.out.println(map);
+        View.printMap(map);
     }
 }
