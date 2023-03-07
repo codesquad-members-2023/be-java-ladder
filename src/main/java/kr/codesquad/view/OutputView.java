@@ -30,8 +30,8 @@ public class OutputView {
         }
     }
 
-    private char getPath(boolean path) {
-        if (path) {
+    private String getPath(boolean lung) {
+        if (lung) {
             return LADDER_PATH;
         }
         return LADDER_BLOCK;
