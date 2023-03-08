@@ -16,16 +16,16 @@ public class Ladder {
 
     public void makeLadder(int count) {
         for (int i = 0; i < count; i++) {
-            String temp = i<2? BLANK : ladder.get(i-2);
-            makeLadderLine(i,temp);
-            if (i == count-1) {
+            String temp = i < 2 ? BLANK : ladder.get(i - 2);
+            makeLadderLine(i, temp);
+            if (i == count - 1) {
                 ladder.add("\n");
             }
 
         }
     }
 
-    public List<String> makeLadderLine(int count,String temp) {
+    public List<String> makeLadderLine(int count, String temp) {
         if (count % 2 == 0) {
             ladder.add(DIVISION_LINE);
         }
@@ -37,7 +37,7 @@ public class Ladder {
 
     private String makeRandomLine(String temp) {
         int random = (int) (Math.random() * 2);
-        return random == 1 && temp.equals(BLANK)? HORIZONTAL_LINE : BLANK;
+        return random == 1 && temp.equals(BLANK) ? HORIZONTAL_LINE : BLANK;
     }
 
     public List<String> getLadder() {

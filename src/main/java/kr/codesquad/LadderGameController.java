@@ -25,14 +25,14 @@ public class LadderGameController {
         }
     }
 
-    public void requestHeight(int count) {
+    public void requestHeight(int userCount) {
         inputView.printHeightInputMessage();
 
         int height = Integer.parseInt(inputView.userInput());
-        ladderMaker.makeLadder(count,height);
+        ladderMaker.makeLadder(userCount, height);
     }
 
-    public void requestResult(){
+    public void requestResult() {
         outputView.printResultMessage();
         outputView.printUserInfo(inputView.getUserInfo());
         System.out.println();

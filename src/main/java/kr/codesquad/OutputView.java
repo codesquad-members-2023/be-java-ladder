@@ -16,8 +16,8 @@ public class OutputView {
 
     }
 
-    public void printUserInfo(List<User> user) {
-        for (User users : user) {
+    public void printUserInfo(List<User> userList) {
+        for (User users : userList) {
             System.out.print(users.getName() + " ");
         }
     }
