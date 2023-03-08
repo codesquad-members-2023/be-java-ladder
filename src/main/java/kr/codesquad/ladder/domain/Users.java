@@ -12,8 +12,9 @@ public class Users {
 
     // 중복 이름 제거
     private List<User> generateUserList(List<String> nameList) {
-        Set<String> removeDublicateNameSet = new HashSet<>(nameList);
-        return removeDublicateNameSet.stream().map(User::new).collect(Collectors.toList());
+        return nameList.stream().distinct()
+                .map(User::new)
+                .collect(Collectors.toList());
     }
 
     public int size () {
