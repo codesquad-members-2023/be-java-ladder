@@ -2,12 +2,9 @@ package kr.codesquad;
 
 public class LadderGameController {
     public static void run() {
-        final int participants = View.readParticipants();
-        final int ladderHeight = View.readLadderHeight();
-
-        Ladder ladder = new Ladder(participants, ladderHeight);
+        Ladder ladder = new Ladder(View.readNames(), View.readParticipantsNumber(), View.readLadderHeight());
         Renderer renderer = new Renderer();
-        String map = renderer.renderMap(ladder.getLadderMap());
+        String map = renderer.renderMap(ladder.getLadderMap(), ladder.getNameList());
 
         View.printMap(map);
     }

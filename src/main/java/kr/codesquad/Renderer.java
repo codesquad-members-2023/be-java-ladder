@@ -1,37 +1,44 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Renderer {
+
     public static final String LADDER_BAR = "|";
     public static final String BREAK_LINE = "\n";
-    public static final String LADDER_FULL = "-";
-    public static final String LADDER_EMPTY = " ";
+    public static final String LADDER_FULL = "-----";
+    public static final String LADDER_EMPTY = "     ";
 
-    public String renderMap(boolean[][] ladderMap) {
+    public String renderMap(ArrayList<ArrayList> ladderMap, List<String> names) {
         StringBuilder sb = new StringBuilder();
-        for (int floor = 0; floor < ladderMap.length; floor++) {
-            renderFloor(ladderMap, sb, floor);
-            sb.append(LADDER_BAR);
-            sb.append(BREAK_LINE);
+
+
+        sb.append(names.stream().reduce((str1, str2) -> str1 + "\t" + str2).get()).append(BREAK_LINE);
+
+        for (ArrayList floorMap : ladderMap) {
+            renderFloor(floorMap, sb);
+            sb.append(LADDER_BAR).append(BREAK_LINE);
         }
         return sb.toString();
     }
 
-    private void renderFloor(boolean[][] ladderMap, StringBuilder sb, int floor) {
-        for (int section = 0; section < ladderMap[0].length; section++) {
+    private void renderFloor(ArrayList<Boolean> floorMap, StringBuilder sb) {
+        for (int section = 0; section < floorMap.size(); section++) {
             sb.append(LADDER_BAR);
-            insertFullSection(ladderMap, sb, floor, section);
-            insertEmptySection(ladderMap, sb, floor, section);
+            insertFullSection(floorMap, sb, section);
+            insertEmptySection(floorMap, sb, section);
         }
     }
 
-    private void insertFullSection(boolean[][] ladderMap, StringBuilder sb, int floor, int section) {
-        if (ladderMap[floor][section]) {
+    private void insertFullSection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
+        if (floorMap.get(section)) {
             sb.append(LADDER_FULL);
         }
     }
 
-    private void insertEmptySection(boolean[][] ladderMap, StringBuilder sb, int floor, int section) {
-        if (!ladderMap[floor][section]) {
+    private void insertEmptySection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
+        if (!floorMap.get(section)) {
             sb.append(LADDER_EMPTY);
         }
     }
