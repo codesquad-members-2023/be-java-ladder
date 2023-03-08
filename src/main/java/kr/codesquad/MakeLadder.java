@@ -2,6 +2,7 @@ package kr.codesquad;
 
 public class MakeLadder {
     Point[][] pointMap = null;
+
     public int[][] process(Point[][] pointMap) {
         this.pointMap = pointMap;
 
@@ -48,12 +49,16 @@ public class MakeLadder {
             intMap[i] = new int[xLength];
         }
 
-        for (int i = 0; i < xLength; i++) {
-            for (int j = 0; j < yLength; j++) {
-                pointToIntByPosition(pointMap, intMap, i, j);
-            }
+        for (int j = 0; j < yLength; j++) {
+            pointToIntByRowPosition(pointMap, intMap, xLength, j);
         }
         return intMap;
+    }
+
+    private static void pointToIntByRowPosition(Point[][] pointMap, int[][] intMap, int xLength, int j) {
+        for (int i = 0; i < xLength; i++) {
+            pointToIntByPosition(pointMap, intMap, i, j);
+        }
     }
 
     private static void pointToIntByPosition(Point[][] pointMap, int[][] intMap, int i, int j) {
@@ -62,7 +67,9 @@ public class MakeLadder {
             case Block -> intMap[j][i] = 1;
             case Destination -> intMap[j][i] = 2;
             case Ladder -> intMap[j][i] = 3;
-            case Line -> intMap[j][i] = pointMap[j][i].getStatus() == Status.Open ?  4 : 5;
+            case Line -> intMap[j][i] = pointMap[j][i].getStatus() == Status.Open ? 4 : 5;
         }
     }
+
+
 }
