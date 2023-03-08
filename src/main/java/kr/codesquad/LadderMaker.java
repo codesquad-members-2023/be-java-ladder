@@ -1,24 +1,29 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LadderMaker {
 
-    private final String[][] ladder;
+    private final List<List<String>> ladder;
 
-    public String[][] getLadder() {
+    public List<List<String>> getLadder() {
         return ladder;
     }
 
     public LadderMaker(String[] participants, int height) {
         int numOfParticipants = participants.length;
-        this.ladder = new String[height][numOfParticipants * 2 - 1];
-        makeLadder();
+        this.ladder = new ArrayList<>();
+        makeLadder(numOfParticipants);
     }
 
-    public void makeLadder() {
-        for (String[] strings : ladder) {
-            Arrays.fill(strings, " ");
+    public void makeLadder(int numOfParticipants) {
+
+        for (int i = 0; i < numOfParticipants; i++) {
+            List<String> ladderRow = new ArrayList<>();
+            ladderRow.add("  |");
+            ladder.add(ladderRow);
         }
 
         RandomsGenerator randomsGenerator = new RandomsGenerator(ladder);
