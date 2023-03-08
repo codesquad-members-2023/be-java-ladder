@@ -14,6 +14,10 @@ public class Users {
         }
     }
 
+    public int size () {
+        return userList.size();
+    }
+
     /**
      * 사다리 순서에 맞는 유저 이름 반환
      * */
