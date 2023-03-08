@@ -3,11 +3,14 @@ package kr.codesquad;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class Viewer {
 
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private Header header;
     private LadderMaker ladderMaker;
+    private List<String> headerList;
 
     public String inputFromUser() throws IOException {
         return br.readLine();
@@ -16,7 +19,8 @@ public class Viewer {
     public void startGame() throws IOException {
         String[] participantsList = participantsList().split(",");
         int height = Integer.parseInt(howHigh());
-
+        header = new Header();
+        headerList = header.makeHeader(participantsList);
         ladderMaker = new LadderMaker(participantsList, height);
     }
 
@@ -28,6 +32,13 @@ public class Viewer {
     private String howHigh() throws IOException {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         return inputFromUser();
+    }
+
+    public void printHeader() {
+        for (String name : headerList) {
+            System.out.print(name);
+        }
+        System.out.println();
     }
 
 //    public void printLadder() {

@@ -41,7 +41,7 @@ public class LadderMaker {
 
     private void validationEachCol(int row, int col) {
         if (col % 2== 0) {
-            ladder[row][col] = "|";
+            ladder[row][col] = "  |  ";
         }
     }
 
