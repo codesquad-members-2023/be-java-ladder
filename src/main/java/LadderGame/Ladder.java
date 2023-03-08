@@ -31,6 +31,7 @@ public class Ladder {
 
     // 이름 분리
     public List<String> parsingName(String str) {
+        // map을 통하여 5글자 제한 기능 구현
         return Arrays.stream(str.split(","))
                 .map(s -> s.length() > 5 ? s.substring(0, 5) : s)
                 .collect(Collectors.toList());
