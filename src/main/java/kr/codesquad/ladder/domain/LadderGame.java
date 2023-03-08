@@ -25,9 +25,7 @@ public class LadderGame {
 
             System.out.println(outputView.getStringLadder(ladder));
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        } catch (IllegalArgumentException e) {
+        } catch (IOException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
