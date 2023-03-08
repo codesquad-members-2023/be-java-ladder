@@ -23,7 +23,7 @@ public class Line {
         return false;
     }
 
-    public List<Boolean> getPoints() {          // 테스트용
+    public List<Boolean> getPoints() {
         return points;
     }
 }

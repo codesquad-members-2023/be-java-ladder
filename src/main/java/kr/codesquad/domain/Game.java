@@ -17,15 +17,7 @@ public class Game {
 
     public void start(List<String> people, int ladderHeight) {
         validateNameLength(people);
-        List<Line> ladderMap = askLadder(people, ladderHeight);
-        print(people, ladderMap);
-    }
-
-    private List<Line> askLadder(List<String> people, int ladderHeight) {
-        return ladder.make(people, ladderHeight);
-    }
-
-    private void print(List<String> people, List<Line> ladderMap) {
+        List<Line> ladderMap = ladder.make(people, ladderHeight);
         view.printResult(people, ladderMap);
     }
 
