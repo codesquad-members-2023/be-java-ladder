@@ -8,7 +8,6 @@ public class Ladder {
     private final String SPACE = " ";
     private final String DASH = "-";
 
-
     public boolean randomGenerateLadder() {
         Random random = new Random();
 
