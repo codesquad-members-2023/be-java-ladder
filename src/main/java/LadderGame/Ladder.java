@@ -40,8 +40,10 @@ public class Ladder {
 
     // 사다리 설정
     public void setLadder(int line) {
-        for (int j = 0; j < num_people * 2 - 1; j++) {
-            ladder_set[line][j] = lineCheck(j);
+        List<String> temp_List = new ArrayList<>();
+
+        for (int j = 0; j < names.size() * 2 - 1; j++) {
+            temp_List.add(lineCheck(j));
         }
 
         if (line + 1 < ladder_height) {
