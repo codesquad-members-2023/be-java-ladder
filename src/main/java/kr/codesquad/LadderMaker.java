@@ -20,12 +20,19 @@ public class LadderMaker {
         checkConnected = false;
         for (int i = 0; i < ladder[row].length; i++) {
             initializeCheckConnected(i, connectedIndex);
-            if (i % 2 == 0) {
-                ladder[row][i] = "|";
+            if (createStick(row, i)) {
                 continue;
             }
             ladder[row][i] = decideWhetherConnected(i);
         }
+    }
+
+    private boolean createStick(int row, int i) {
+        if (i % 2 == 0) {
+            ladder[row][i] = "|";
+            return true;
+        }
+        return false;
     }
 
     private void initializeCheckConnected(int index, int connectedIndex) {
