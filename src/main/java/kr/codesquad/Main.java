@@ -10,8 +10,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("사용자의 수와 라인의 길이를 입력해주세요");
-        int lineLength = Integer.parseInt(sc.next());
         int userNum = Integer.parseInt(sc.next());
+        int lineLength = Integer.parseInt(sc.next());
 
         Point[][] pointMap = inputConverter.convertToPointMap(userNum, lineLength);
         int[][] intMap = ladderMaker.makeLadderFromPointMap(pointMap);
