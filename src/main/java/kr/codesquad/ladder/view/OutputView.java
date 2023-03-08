@@ -22,7 +22,7 @@ public class OutputView {
         }
         stringBuilder.append(NEW_LINE);
 
-        for (int i=0; i<ladder.getStepSize(); i++) {
+        for (int i=0; i<ladder.getNumStep(); i++) {
             stringBuilder.append(LADDER_BAR);
             getStringLadderALine(ladder.getAStep(i));
             stringBuilder.append(NEW_LINE);
