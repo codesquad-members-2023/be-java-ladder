@@ -3,20 +3,16 @@ package kr.codesquad;
 public class InputConverter {
     private int lineWidth;
     private int lineHeight;
-    private Point[][] pointMap;
 
     public Point[][] convertToPointMap(int lineNum, int lineLength) {
-        setMemberVariable(lineNum, lineLength);
+
+        Point[][] pointMap = makePointMap(lineNum, lineLength);
+        setHeightAndWidthOfLine(pointMap);
         initPointMap(pointMap);
         return pointMap;
     }
 
-    private void setMemberVariable(int lineNum, int lineLength) {
-        this.pointMap = makePointMap(lineNum, lineLength);
-        setHeightAndWidthOfLine();
-    }
-
-    private void setHeightAndWidthOfLine() {
+    private void setHeightAndWidthOfLine(Point[][] pointMap) {
         lineWidth = pointMap[0].length;
         lineHeight = pointMap.length;
     }
