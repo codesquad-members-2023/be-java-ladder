@@ -19,12 +19,9 @@ public class LadderMaker {
     }
 
 
-    private boolean isValidPosition(Point point) {
-        int x = point.getX();
-        int y = point.getY();
-        if (!(1 <= y && y < ladderHeight - 1)) return false; // y축 체크
-        if (!(0 <= x && x < ladderWidth)) return false; // x 축 체크
-        return true;
+    private boolean isValidPosition(int positionOfX, int positionOfY) {
+        if (!(1 <= positionOfY && positionOfY < ladderHeight - 1)) return false; // y축 체크
+        return 0 <= positionOfX && positionOfX < ladderWidth; // x 축 체크
     }
 
     private void OpenAtRandom(Point point) {
@@ -49,7 +46,7 @@ public class LadderMaker {
     }
 
     private void randOpenByPosition(Point[][] pointMap, int j, int i) {
-        if (isValidPosition(pointMap[j][i])) {
+        if (isValidPosition(i, j)) {
             OpenAtRandom(pointMap[j][i]);
         }
     }
@@ -63,7 +60,6 @@ public class LadderMaker {
         for (int j = 0; j < ladderHeight; j++) {
             pointToIntForRowPosition(pointMap, intMap, ladderWidth, j);
         }
-
 
         return intMap;
     }
