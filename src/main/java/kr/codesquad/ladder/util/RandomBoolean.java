@@ -1,8 +1,6 @@
 package kr.codesquad.ladder.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class RandomBoolean {
     private static RandomUtil randomUtil;
@@ -17,17 +15,17 @@ public class RandomBoolean {
     }
 
     public static List<Boolean> generate(int n) {
-        List<Boolean> result = new ArrayList<>();
+        Stack<Boolean> result = new Stack<>();
         result.add(random.nextBoolean());
 
         while (result.size() < n) {
-            result.add(getValidRandomBoolean(result.get(result.size()-1)));
+            result.add(getValidRandomBoolean(result.peek()));
         }
         return result;
     }
 
     /**
-     * 직전 리스트 값이 true일 경우, 무조건 false를 반환하는 함수
+     * 직전 value 값이 true일 경우, 무조건 false를 반환하는 함수
      * */
     private static boolean getValidRandomBoolean(boolean lastValue) {
         if (lastValue) {
