@@ -35,8 +35,9 @@ public class Ladder {
     }
 
     public void makeRow(String[] row) {
+        boolean[] visited = new boolean[row.length];
         for (int i = 0; i < row.length; i++) {
-            row[i] = checkEvenRow(i);
+            row[i] = checkEvenRow(i, visited);
         }
     }
 
@@ -47,17 +48,22 @@ public class Ladder {
         return "  ";
     }
 
-    public String checkEvenRow(int idx) {
+    public String checkEvenRow(int idx, boolean[] visited) {
         if (idx % 2 == 0) {
             return "|";
         }
-        return makeLine();
+        return makeLine(idx, visited);
     }
 
-    public String makeLine() {
-        if (random.nextBoolean()) {
+    public String makeLine(int idx, boolean[] visited) {
+        if (random.nextBoolean() && checkLine(idx, visited)) {
+            visited[idx] = true;
             return "------";
         }
         return "      ";
+    }
+
+    public boolean checkLine(int idx, boolean[] visited) {
+        return idx <= 1 || !visited[idx - 2];
     }
 }
