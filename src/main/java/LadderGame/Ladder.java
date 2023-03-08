@@ -7,12 +7,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Ladder {
-    // private int num_people;
     private int ladder_height;
 
     private List<List<String>> ladder_set;
     private List<String> names;
-    //private String[][] ladder_set;
 
     // 초기값 세팅
     public Ladder() {
@@ -55,9 +53,16 @@ public class Ladder {
     public void namePrint() {
         for (String temp : names) {
             System.out.print(temp);
-            print_Space(temp.length());
+            spacePrint(temp.length());
         }
         System.out.println();
+    }
+
+    // 빈 공간 출력
+    public void spacePrint(int length) {
+        for (int i = 6 - length; i > 0; i--) {
+            System.out.print(" ");
+        }
     }
 
     // 사다리 내부 값
@@ -73,7 +78,7 @@ public class Ladder {
 
     // 사다리 출력
     public void setPrint(int line) {
-        for (int j = 0; j < num_people * 2 - 1; j++) {
+        for (int j = 0; j < names.size() * 2 - 1; j++) {
             System.out.print(ladder_set[line][j]);
         }
         System.out.println();
