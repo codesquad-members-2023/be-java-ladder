@@ -20,18 +20,21 @@ public class Ladder {
 
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 == 0) {
-                    ladder[i][j] = STICK;
-                    continue;
-                }
-                if (randomGenerateLadder()) {
-                    ladder[i][j] = DASH;
-                    continue;
-                }
-                ladder[i][j] = SPACE;
+                ladder[i][j] = makeBridgeElement(j);
             }
         }
 
         return ladder;
     }
+
+    private String makeBridgeElement(int index) {
+        if (index % 2 == 0) {
+            return STICK;
+        }
+        if (randomGenerateLadder()) {
+            return DASH;
+        }
+        return SPACE;
+    }
+
 }
