@@ -11,12 +11,10 @@ public class Line {
     private List<Bridge> bridges;
 
     public Line(int userNum) {
-        this.bridges = generateBlocks(userNum);
+        this.bridges = generateBlocks(RandomBoolean.generate(userNum));
     }
 
-    private List<Bridge> generateBlocks(int userNum) {
-        List<Boolean> booleanList = RandomBoolean.generate(userNum - 1);
-
+    private List<Bridge> generateBlocks(List<Boolean> booleanList) {
         for (int i = 1; i < booleanList.size(); i++) {
             checkDoubleTrue(booleanList.get(i-1), booleanList.get(i));
         }
@@ -24,6 +22,9 @@ public class Line {
         return booleanList.stream().map(Bridge::of).collect(Collectors.toList());
     }
 
+    /**
+     * true가 한 줄 안에서 연속으로 있다면 예외 발생
+     * */
     private void checkDoubleTrue(boolean b1, boolean b2) {
         if (b1 && b2) {
             throw new IllegalArgumentException("[exception] 다리 생성 오류");
