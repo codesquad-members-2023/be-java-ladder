@@ -51,6 +51,15 @@ public class Ladder {
         }
     }
 
+    // 이름 출력
+    public void namePrint() {
+        for (String temp : names) {
+            System.out.print(temp);
+            print_Space(temp.length());
+        }
+        System.out.println();
+    }
+
     // 사다리 내부 값
     public String lineCheck(int check) {
         if (check % 2 == 0) {
