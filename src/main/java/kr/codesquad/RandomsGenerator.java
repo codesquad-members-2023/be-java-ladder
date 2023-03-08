@@ -1,17 +1,18 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public class RandomsGenerator {
 
-    String[][] ladder;
+    private final List<String> ladderRow;
 
-    public RandomsGenerator(String[][] ladder) {
-        this.ladder = ladder;
+    public RandomsGenerator(List<String> ladderRow) {
+        this.ladderRow = ladderRow;
     }
 
-    public int[] generateRandoms() {
-        int participants = (ladder[0].length + 1) / 2;
-        int height = ladder.length;
-        int max = height * (participants - 1) - 1;
+    public int[] generateRandoms(int numOfParticipants) {
+        int max = numOfParticipants - 1;
+
         int[] randoms = new int[max];
 
         for (int i = 0; i < max; i++) {
