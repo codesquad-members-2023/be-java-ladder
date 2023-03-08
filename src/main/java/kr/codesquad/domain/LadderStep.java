@@ -9,10 +9,6 @@ public class LadderStep {
     // 사다리 한 칸
     private List<Boolean> lungs;
 
-    public List<Boolean> getLung() {
-        return lungs;
-    }
-
     public LadderStep(int userNum) {
         this.lungs = RandomBoolean.generate(userNum-1);
     }
