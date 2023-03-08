@@ -14,10 +14,7 @@ public class ApplicationController {
     }
 
     public void run() {
-        view.printJoinMembers();
         String joinMembers = validateName();
-
-        view.printMaxLadderHeight();
         String maxLadderHeight = validateNumber();
 
         String[][] ladderResult = ladder.make(joinMembers, maxLadderHeight);
@@ -28,6 +25,7 @@ public class ApplicationController {
         boolean flag = false;
         String input = "";
         while (!flag) {
+            view.printJoinMembers();
             input = view.inputUserString();
             flag = checkInputLength(input);
         }
@@ -38,6 +36,7 @@ public class ApplicationController {
         boolean flag = false;
         String input = "";
         while (!flag) {
+            view.printMaxLadderHeight();
             input = view.inputUserString();
             flag = checkInputNumber(input);
         }
@@ -49,11 +48,19 @@ public class ApplicationController {
         int userNumber = (int) Arrays.stream(inputArray)
                 .filter(s -> s.length() <= 5)
                 .count();
-        return inputArray.length == userNumber;
+        if(inputArray.length != userNumber) {
+            view.printJoinMembersError();
+            return false;
+        }
+        return true;
     }
 
     public boolean checkInputNumber(String input) {
         String temp = input.replaceAll("[0-9]", "");
-        return input.length() != temp.length();
+        if(temp.length() != 0) {
+            view.printMaxLadderHeightError();
+            return false;
+        }
+        return true;
     }
 }
