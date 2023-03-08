@@ -54,6 +54,15 @@ class UserTest {
         assertThat(users.getUserName(0)).isEqualTo("pobi");
     }
 
+    @Test @Order(5)
+    @DisplayName("중복된 이름이 있을 때, 전달되는 인덱스에 따른 올바른 유저 이름 반환")
+    public void whenDubplicateNameGetUserNameTest() throws Exception {
+        List<String> givenNames = makeGivenNames("honux,pobi,pobi,crong,pobi");
+        Users users = new Users(givenNames);
+
+        assertThat(users.getUserName(2)).isEqualTo("crong");
+    }
+
     // 테스트를 위한 메서드
     private List<String> makeGivenNames (String name) {
         return List.of(name.split(","));
