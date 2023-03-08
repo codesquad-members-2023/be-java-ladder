@@ -5,7 +5,6 @@ public class InputConverter {
     private int lineHeight;
 
     public Point[][] convertToPointMap(int lineNum, int lineLength) {
-
         Point[][] pointMap = makePointMap(lineNum, lineLength);
         setHeightAndWidthOfLine(pointMap);
         initPointMap(pointMap);
@@ -67,7 +66,7 @@ public class InputConverter {
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
                 initPointMapForPosition(pointMap, i, lineHeight,pointTypeOfOddPosition);
-                return;
+                continue;
             }
             initPointMapForPosition(pointMap, i, lineHeight,pointTypeOfEvenPosition);
         }
