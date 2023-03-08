@@ -14,9 +14,6 @@ public class Point {
         this.status = Status.DISCONNECTED;
     }
 
-
-
-
     public int getX() {
         return x;
     }
