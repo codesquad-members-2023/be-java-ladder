@@ -1,7 +1,8 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LadderMap {
-    private char[][] map;
+    private List<Line> map;
 
     public LadderMap(int playerNum, int mapHeight) {
         int mapLength = (playerNum * 2) - 1;
@@ -9,41 +10,9 @@ public class LadderMap {
     }
 
     private void init(int mapHeight, int mapLength) {
-        map = new char[mapHeight][mapLength];
-        
-        for (char[] line : map) {
-            initLine(line);
+        map = new ArrayList<>();
+        for (int i = 0; i < mapHeight; i++) {
+            map.add(new Line(mapLength));
         }
     }
-
-    private void initLine(char[] line) {
-        for (int i = 0; i < line.length; i++) {
-            line[i] = getState(i);
-        }
-    }
-
-    private char getState(int i) {
-        if (isLadderCome(i)) {
-            return getLadderState();
-        }
-        return '|';
-    }
-
-    private char getLadderState() {
-        Random random = new Random();
-
-        if (random.nextBoolean()) {
-            return '-';
-        }
-        return ' ';
-    }
-
-    private boolean isLadderCome(int i) {
-        return i % 2 != 0;
-    }
-
-    public char[][] getMap() {
-        return map;
-    }
-
 }
