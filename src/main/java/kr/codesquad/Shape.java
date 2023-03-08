@@ -2,22 +2,20 @@ package kr.codesquad;
 
 import java.util.Random;
 
-public class Point {
-    private final String LADDER_COL_PIECE = "|";
-    private final String LADDER_ROW_PIECE = "-";
-    private final String EMPTY_SPACE = " ";
-    private int x;
-    private int y;
-    private boolean isConnected;
-    private String shape;
+public enum Shape {
+    LADDER_COL_PIECE('|'),
+    LADDER_ROW_PIECE('-'),
+    EMPTY_SPACE(' ');
 
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+    private final char shape;
+    private boolean isConnected;
+
+    Shape(char shape) {
+        this.shape = shape;
         decideShape(y);
     }
 
-    private void decideShape(int y) {
+    private static void decideShape(int y) {
         if (y % 2 == 0) {
             shape = LADDER_COL_PIECE;
             return;
@@ -33,8 +31,5 @@ public class Point {
         }
     }
 
-    @Override
-    public String toString() {
-        return shape;
-    }
+    public
 }
