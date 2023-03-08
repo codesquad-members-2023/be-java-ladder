@@ -55,7 +55,7 @@ public class InputConverter {
     }
     
     private void initPointMapForPosition(Point[][] pointMap, int positionOfX, int positionOfY, PointType pointType) {
-        pointMap[positionOfY][positionOfX] = new Point(positionOfX, positionOfY, pointType);
+        pointMap[positionOfY][positionOfX] = new Point(pointType);
     }
 
 }
