@@ -13,6 +13,6 @@ public class Main {
 
         // 사다리 출력
         System.out.println();
-        ladder.setPrint(recursionNum);
+        ladder.setPrint(); // 리스트로 변경하면서 재귀방식X
     }
 }
