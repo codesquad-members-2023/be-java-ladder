@@ -3,7 +3,11 @@ package kr.codesquad;
 import java.io.IOException;
 
 public class Main {
+
+
     public static void main(String[] args) throws IOException {
-        InputView.initLadder();
+        Viewer viewer = new Viewer();
+        viewer.inputFromUser();
+
     }
 }
