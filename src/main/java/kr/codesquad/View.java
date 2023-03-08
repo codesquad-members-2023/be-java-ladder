@@ -19,20 +19,29 @@ public class View {
         System.out.println(READ_NAMES_MESSAGE);
 
         String input = scanner.nextLine();
+
+        handleNameException(input);
+
+        return Arrays.stream(input.split(COMMA_SEPERATOR))
+                .map(name -> name.trim())
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    private static void handleNameException(String input) {
         try {
             hasMoreThanTwoNames(input);
             exceedMaxNameLength(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return readNames();
+            readNames();
         }
-        return Arrays.stream(input.split(COMMA_SEPERATOR)).collect(Collectors.toUnmodifiableList());
     }
 
     private static void exceedMaxNameLength(String input) {
         Arrays.stream(input.split(COMMA_SEPERATOR))
-                .filter(e -> e.length() > MAX_NAME_LENGTH)
-                .forEach(e -> {
+                .map(name -> name.trim())
+                .filter(name -> name.length() > MAX_NAME_LENGTH)
+                .forEach(illegalName -> {
                     throw new IllegalArgumentException(EXCEED_NAME_LENGTH_MESSAGE);
                 });
     }
