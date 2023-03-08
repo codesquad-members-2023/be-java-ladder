@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.utils;
 
 import java.util.Random;
 

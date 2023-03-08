@@ -1,7 +1,9 @@
-package kr.codesquad;
+package kr.codesquad.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kr.codesquad.utils.RandomGenerator;
 
 public class Ladder {
     private List<String> names;
