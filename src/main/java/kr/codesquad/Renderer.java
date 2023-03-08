@@ -5,14 +5,13 @@ import java.util.List;
 
 public class Renderer {
 
-    public static final String LADDER_BAR = "|";
-    public static final String BREAK_LINE = "\n";
-    public static final String LADDER_FULL = "-----";
-    public static final String LADDER_EMPTY = "     ";
+    private static final String LADDER_BAR = "|";
+    private static final String BREAK_LINE = "\n";
+    private static final String LADDER_FULL = "-----";
+    private static final String LADDER_EMPTY = "     ";
 
     public static String renderMap(ArrayList<ArrayList> ladderMap, List<String> names) {
         StringBuilder sb = new StringBuilder();
-
 
         sb.append(names.stream().reduce((str1, str2) -> str1 + "\t" + str2).get()).append(BREAK_LINE);
 
