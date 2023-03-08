@@ -9,7 +9,7 @@ public class Ladder {
         this.random = random;
     }
 
-    public String[][] makeLadder(String joinMember, String maxLadderHeight) {
+    public String[][] make(String joinMember, String maxLadderHeight) {
         String[][] ladder = new String[Integer.parseInt(maxLadderHeight)][
                 Integer.parseInt(joinMember) + Integer.parseInt(joinMember) - 1];
         makeColumn(ladder);
@@ -24,11 +24,11 @@ public class Ladder {
 
     public void makeRow(String[] row) {
         for (int i = 0; i < row.length; i++) {
-            row[i] = isEven(i);
+            row[i] = checkEven(i);
         }
     }
 
-    public String isEven(int idx) {
+    public String checkEven(int idx) {
         if (idx % 2 == 0) {
             return "|";
         }

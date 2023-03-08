@@ -17,7 +17,7 @@ public class ApplicationController {
         String joinMember = view.inputUserString();
         view.printMaxLadderHeight();
         String maxLadderHeight = view.inputUserString();
-        String[][] ladderResult = ladder.makeLadder(joinMember, maxLadderHeight);
+        String[][] ladderResult = ladder.make(joinMember, maxLadderHeight);
         view.printLadderResult(ladderResult);
     }
 }
