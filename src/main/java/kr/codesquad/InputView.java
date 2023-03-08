@@ -44,6 +44,4 @@ public class InputView {
         }
         return height;
     }
-
-
 }
