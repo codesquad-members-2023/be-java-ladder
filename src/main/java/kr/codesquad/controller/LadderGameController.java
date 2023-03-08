@@ -1,11 +1,11 @@
 package kr.codesquad.controller;
 
-import static kr.codesquad.utils.View.readNames;
-import static kr.codesquad.utils.View.readLadderHeight;
-import static kr.codesquad.utils.View.printMap;
-import static kr.codesquad.utils.Renderer.renderMap;
+import static kr.codesquad.view.View.readNames;
+import static kr.codesquad.view.View.readLadderHeight;
+import static kr.codesquad.view.View.printMap;
+import static kr.codesquad.view.Renderer.renderMap;
 
-import kr.codesquad.model.Ladder;
+import kr.codesquad.domain.Ladder;
 
 public class LadderGameController {
     public static void run() {
