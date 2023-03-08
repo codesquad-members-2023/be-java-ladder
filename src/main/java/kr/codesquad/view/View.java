@@ -1,8 +1,15 @@
 package kr.codesquad.view;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class OutputView {
+public class View {
+    Scanner scanner = new Scanner(System.in);
+
+    public String inputUserString() {
+        return scanner.nextLine();
+    }
+
     public void printJoinMembers() {
         String JOIN_MEMBER_MESSAGE = "참여할 사람은 몇 명인가요?";
         System.out.println(JOIN_MEMBER_MESSAGE);
@@ -23,4 +30,5 @@ public class OutputView {
             stringBuilder.setLength(0);
         }
     }
+
 }
