@@ -30,5 +30,4 @@ public class View {
             stringBuilder.setLength(0);
         }
     }
-
 }
