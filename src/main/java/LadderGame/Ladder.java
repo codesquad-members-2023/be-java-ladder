@@ -1,28 +1,37 @@
 package LadderGame;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Ladder {
-    private int num_people;
+    // private int num_people;
     private int ladder_height;
-    private String[][] ladder_set;
+
+    private List<List<String>> ladder_set;
+    private List<String> names;
+    //private String[][] ladder_set;
 
     // 초기값 세팅
     public Ladder() {
         input();
-        ladder_set = new String[ladder_height][num_people * 2 - 1];
+        ladder_set = new ArrayList<>();
     }
 
     // 입력 부분
     public void input(){
         Scanner in = new Scanner(System.in);
 
-        System.out.print("참여할 사람은 몇 명인가요?\n");
-        this.num_people = in.nextInt();
+        System.out.print("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)\n");
+        this.names = parsingName(in.nextLine());
 
         System.out.print("최대 사다리 높이는 몇 개인가요?\n");
         this.ladder_height = in.nextInt();
     }
+
+    
 
     // 사다리 설정
     public void setLadder(int line) {
