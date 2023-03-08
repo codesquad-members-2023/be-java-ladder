@@ -1,4 +1,5 @@
 package kr.codesquad;
+
 import java.util.Scanner;
 
 public class Command {
@@ -8,16 +9,14 @@ public class Command {
         this.scanner = scanner;
     }
 
-    public int commandManCont() {
+    public int countMan() {
         System.out.println(Message.START_MESSAGE1);
-        int manCount = Integer.parseInt(scanner.nextLine());
-        return manCount;
+        return Integer.parseInt(scanner.nextLine());
     }
 
-    public int commandLadderCount() {
+    public int countLadder() {
         System.out.println(Message.START_MESSAGE2);
-        int ladderCount = Integer.parseInt(scanner.nextLine());
         System.out.println();
-        return ladderCount;
+        return Integer.parseInt(scanner.nextLine());
     }
 }
