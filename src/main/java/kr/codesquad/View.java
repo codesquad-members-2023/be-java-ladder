@@ -3,7 +3,6 @@ package kr.codesquad;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class View {
@@ -31,12 +30,11 @@ public class View {
     }
 
     private static void exceedMaxNameLength(String input) {
-        Consumer nameLengthExceptionHandler = o -> {
-            throw new IllegalArgumentException(EXCEED_NAME_LENGTH_MESSAGE);
-        };
         Arrays.stream(input.split(COMMA_SEPERATOR))
                 .filter(e -> e.length() > MAX_NAME_LENGTH)
-                .forEach(nameLengthExceptionHandler);
+                .forEach(e -> {
+                    throw new IllegalArgumentException(EXCEED_NAME_LENGTH_MESSAGE);
+                });
     }
 
     private static void hasMoreThanTwoNames(String input) {
