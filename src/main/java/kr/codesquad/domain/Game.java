@@ -3,6 +3,7 @@ package kr.codesquad.domain;
 import kr.codesquad.view.View;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Game {
 
@@ -15,6 +16,7 @@ public class Game {
     }
 
     public void start(List<String> people, int ladderHeight) {
+        validateNameLength(people);
         List<Line> ladderMap = askLadder(people, ladderHeight);
         print(people, ladderMap);
     }
@@ -25,5 +27,15 @@ public class Game {
 
     private void print(List<String> people, List<Line> ladderMap) {
         view.printResult(people, ladderMap);
+    }
+
+    private void validateNameLength(List<String> people) {
+        Optional<String> longName = people.stream()
+                .filter(peopleName -> peopleName.length() > 5)
+                .findAny();
+
+        if (longName.isPresent()) {
+            throw new IllegalArgumentException("[ERROR] 이름의 길이는 최대 5글자입니다.");
+        }
     }
 }
