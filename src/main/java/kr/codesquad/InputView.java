@@ -25,4 +25,8 @@ public class InputView {
     public int userInputHeightOfLadder() {
         return Integer.parseInt(globalReadLine());
     }
+
+    public String userInputPlayersName() {
+        return globalReadLine();
+    }
 }
