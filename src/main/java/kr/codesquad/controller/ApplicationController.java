@@ -1,21 +1,21 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.model.Generator;
+import kr.codesquad.model.Ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-public class LadderController {
+public class ApplicationController {
     InputView inputView;
     OutputView outputView;
-    Generator ladder;
+    Ladder ladder;
 
-    public LadderController(InputView inputView, OutputView outputView, Generator ladder) {
+    public ApplicationController(InputView inputView, OutputView outputView, Ladder ladder) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.ladder = ladder;
     }
 
-    public void startApplication() {
+    public void run() {
         outputView.printJoinMembers();
         String joinMember = inputView.inputUserString();
         outputView.printMaxLadderHeight();
