@@ -14,15 +14,7 @@ public class View {
 
         for (Line line : ladderMap) {
             System.out.print("  |");
-            drawLine(line);
-            System.out.println();
-        }
-    }
-
-    private void drawLine(Line line) {
-        List<Boolean> points = line.getPoints();
-        for (Boolean point : points) {
-            System.out.print(point ? "-----|" : "     |");
+            System.out.println(line.draw());
         }
     }
 }

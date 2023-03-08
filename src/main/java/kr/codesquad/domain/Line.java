@@ -23,7 +23,11 @@ public class Line {
         return false;
     }
 
-    public List<Boolean> getPoints() {
-        return points;
+    public String draw() {
+        StringBuilder sb = new StringBuilder();
+        for (Boolean point : points) {
+            sb.append(point ? "-----|" : "     |");
+        }
+        return sb.toString();
     }
 }
