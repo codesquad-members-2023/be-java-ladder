@@ -4,14 +4,14 @@ package kr.codesquad;
 public class Point {
     private int x;
     private int y;
-    private Type type;
+    private PointType type;
     private Status status;
 
-    public Point(int x, int y, Type type) {
+    public Point(int x, int y, PointType type) {
         this.x = x;
         this.y = y;
         this.type = type;
-        this.status = Status.Close;
+        this.status = Status.DISCONNECTED;
     }
 
 
@@ -33,11 +33,11 @@ public class Point {
         this.y = y;
     }
 
-    public Type getType() {
+    public PointType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(PointType type) {
         this.type = type;
     }
 
