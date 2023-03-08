@@ -11,21 +11,21 @@ public class Ladder {
         return names;
     }
 
-    public Ladder(List<String> names, int participant, int height) {
+    public Ladder(List<String> names, int height) {
         this.names = names;
         ladderMap = new ArrayList<>();
-        initMap(participant, height);
+        initMap(names.size(), height);
     }
 
-    private void initMap(int participant, int height) {
+    private void initMap(int numberOfParticipants, int height) {
         for (int floor = 0; floor < height; floor++) {
             ladderMap.add(new ArrayList());
-            initFloor(floor, participant);
+            initFloor(floor, numberOfParticipants);
         }
     }
 
-    private void initFloor(int floor, int participant) {
-        for (int section = 0; section < participant - 1; section++) {
+    private void initFloor(int floor, int numberOfParticipants) {
+        for (int section = 0; section < numberOfParticipants - 1; section++) {
             ladderMap.get(floor).add(RandomGenerator.generate());
         }
     }

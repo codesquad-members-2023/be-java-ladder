@@ -19,10 +19,6 @@ public class View {
         String input = scanner.nextLine();
         return Arrays.stream(input.split(COMMA_SEPERATOR)).collect(Collectors.toUnmodifiableList());
     }
-    public static int readParticipantsNumber() {
-        System.out.println(READ_PARTICIPANTS_MESSAGE);
-        return readNumber(scanner);
-    }
 
     public static int readLadderHeight() {
         System.out.println(READ_LADDER_HEIGHT_MESSAGE);
