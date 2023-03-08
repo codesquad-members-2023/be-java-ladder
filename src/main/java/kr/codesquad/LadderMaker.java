@@ -1,7 +1,6 @@
 package kr.codesquad;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LadderMaker {
@@ -17,36 +16,31 @@ public class LadderMaker {
     public void makeLadder(int numOfParticipants, int height) {
 
         for (int i = 0; i < height; i++) {
-            List<String> ladderRow = new ArrayList<>();
+            List<String> ladderRow;
 
-            RandomsGenerator randomsGenerator = new RandomsGenerator(ladderRow);
+            RandomsGenerator randomsGenerator = new RandomsGenerator();
             ladderRow = insertBridges(randomsGenerator.generateRandoms(numOfParticipants));
             ladder.add(ladderRow);
         }
-
-
     }
 
 
     public List<String> insertBridges(int[] randoms) {
 
         List<String> ladderRow = new ArrayList<>();
-        for (int i = 0; i < randoms.length; i++) {
 
+        ladderRow.add("  |");
+        for (int random : randoms) {
+            ladderRow.add(validationBridge(random));
+            ladderRow.add("|");
         }
-//        for (int random : randoms) {
-//            int r = random % ladder.length;
-//            int c = random / ladder.length * 2 + 1;
-//
-//            ladder[r][c] = validationBridge(ladder[r][c]);
-//        }
         return ladderRow;
     }
 
-    private String validationBridge(String now) {
-        if (now.equals("-----")) {
-            return now;
+    private String validationBridge(int random) {
+        if (random % 2 == 0) {
+            return "-----";
         }
-        return "-----";
+        return "     ";
     }
 }

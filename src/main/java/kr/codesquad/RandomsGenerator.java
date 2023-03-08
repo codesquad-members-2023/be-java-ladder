@@ -4,12 +4,6 @@ import java.util.List;
 
 public class RandomsGenerator {
 
-    private final List<String> ladderRow;
-
-    public RandomsGenerator(List<String> ladderRow) {
-        this.ladderRow = ladderRow;
-    }
-
     public int[] generateRandoms(int numOfParticipants) {
         int max = numOfParticipants - 1;
 
