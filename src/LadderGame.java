@@ -7,12 +7,11 @@ public class LadderGame {
 
     public void init() {
         initPlayers();
-        mapOutLadderMap(InputView.getPlayerNum(), InputView.getLadderHeight());
+        mapOutLadderMap(playerList.size(), InputView.getLadderHeight());
     }
 
     private void mapOutLadderMap(int getPlayerNum, int getLadderHeight) {
         ladderMap = new LadderMap(getPlayerNum, getLadderHeight);
-
     }
 
     private void initPlayers() {
@@ -33,6 +32,7 @@ public class LadderGame {
     }
 
     public void start() {
-        OutputView.printMap(ladderMap.getMap());
+        OutputView.printPlayersName(playerList.toString());
+        OutputView.printMap(ladderMap.getMapString());
     }
 }
