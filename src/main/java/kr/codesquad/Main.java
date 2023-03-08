@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        InputAdaptor inputAdaptor = new InputAdaptor();
-        MakeLadder makeLadder = new MakeLadder();
+        InputConverter inputConverter = new InputConverter();
+        LadderMaker ladderMaker = new LadderMaker();
         View view = new View();
 
         Scanner sc = new Scanner(System.in);
@@ -13,11 +13,8 @@ public class Main {
         int lineLength = Integer.parseInt(sc.next());
         int userNum = Integer.parseInt(sc.next());
 
-        Point[][] pointMap = inputAdaptor.handle(userNum, lineLength);
-
-        int[][] intMap = makeLadder.process(pointMap);
-
+        Point[][] pointMap = inputConverter.convertToPointMap(userNum, lineLength);
+        int[][] intMap = ladderMaker.makeLadderFromPointMap(pointMap);
         view.render(intMap);
-
     }
 }
