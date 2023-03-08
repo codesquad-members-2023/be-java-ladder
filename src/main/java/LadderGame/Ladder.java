@@ -3,38 +3,40 @@ package LadderGame;
 import java.util.Scanner;
 
 public class Ladder {
-    private int numPeople;
-    private int height;
-    private String[][] ladder;
+    private int num_people;
+    private int ladder_height;
+    private String[][] ladder_set;
 
     // 초기값 세팅
     public Ladder() {
         input();
-        ladder = new String[height][numPeople * 2 - 1];
+        ladder_set = new String[ladder_height][num_people * 2 - 1];
     }
 
     // 입력 부분
     public void input(){
         Scanner in = new Scanner(System.in);
+
         System.out.print("참여할 사람은 몇 명인가요?\n");
-        this.numPeople = in.nextInt();
+        this.num_people = in.nextInt();
+
         System.out.print("최대 사다리 높이는 몇 개인가요?\n");
-        this.height = in.nextInt();
+        this.ladder_height = in.nextInt();
     }
 
     // 사다리 설정
-    public void set(int line) {
-        for (int j = 0; j < numPeople * 2 - 1; j++) {
-            ladder[line][j] = LineCheck(j);
+    public void setLadder(int line) {
+        for (int j = 0; j < num_people * 2 - 1; j++) {
+            ladder_set[line][j] = lineCheck(j);
         }
 
-        if (line + 1 < height) {
-            set(line + 1);
+        if (line + 1 < ladder_height) {
+            setLadder(line + 1);
         }
     }
 
     // 사다리 내부 값
-    public String LineCheck(int check) {
+    public String lineCheck(int check) {
         if (check % 2 == 0) {
             return "|";
         }
@@ -45,14 +47,14 @@ public class Ladder {
     }
 
     // 사다리 출력
-    public void print(int line) {
-        for (int j = 0; j < numPeople * 2 - 1; j++) {
-            System.out.print(ladder[line][j]);
+    public void setPrint(int line) {
+        for (int j = 0; j < num_people * 2 - 1; j++) {
+            System.out.print(ladder_set[line][j]);
         }
         System.out.println();
 
-        if (line + 1 < height) {
-            print(line + 1);
+        if (line + 1 < ladder_height) {
+            setPrint(line + 1);
         }
     }
 }

@@ -9,10 +9,10 @@ public class Main {
         Ladder ladder = new Ladder();
 
         // 사다리 설정
-        ladder.set(recursionNum);
+        ladder.setLadder(recursionNum);
 
         // 사다리 출력
         System.out.println();
-        ladder.print(recursionNum);
+        ladder.setPrint(recursionNum);
     }
 }
