@@ -19,7 +19,7 @@ public class Ladder {
     }
 
     // 입력 부분
-    public void input(){
+    public void input() {
         Scanner in = new Scanner(System.in);
 
         System.out.print("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)\n");
@@ -32,7 +32,7 @@ public class Ladder {
     // 이름 분리
     public List<String> parsingName(String str) {
         return Arrays.stream(str.split(","))
-                .map(s -> s.length() > 5 ? s.substring(0,5) : s)
+                .map(s -> s.length() > 5 ? s.substring(0, 5) : s)
                 .collect(Collectors.toList());
     }
 
@@ -43,6 +43,7 @@ public class Ladder {
         for (int j = 0; j < names.size() * 2 - 1; j++) {
             temp_List.add(lineCheck(j));
         }
+        ladder_set.add(temp_List);
 
         if (line + 1 < ladder_height) {
             setLadder(line + 1);
@@ -71,20 +72,18 @@ public class Ladder {
             return "|";
         }
         if ((int) (Math.random() * 2) == 0) {
-            return " ";
+            return "     ";
         }
-        return "-";
+        return "-----";
     }
 
     // 사다리 출력
-    public void setPrint(int line) {
-        for (int j = 0; j < names.size() * 2 - 1; j++) {
-            System.out.print(ladder_set[line][j]);
-        }
-        System.out.println();
+    public void setPrint() {
+        namePrint();
 
-        if (line + 1 < ladder_height) {
-            setPrint(line + 1);
+        for (List<String> temp_List : ladder_set) {
+            temp_List.forEach(System.out::print);
+            System.out.println();
         }
     }
 }
