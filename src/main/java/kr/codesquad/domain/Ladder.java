@@ -22,13 +22,4 @@ public class Ladder {
 
         return ladder;
     }
-
-    public List<Line> getLadder() {
-        return ladder;
-    }
-
-    public List<String> getPeople() {
-        return people;
-    }
-
 }

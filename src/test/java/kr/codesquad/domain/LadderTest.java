@@ -13,8 +13,7 @@ class LadderTest {
     @DisplayName("불리언 리스트를 이용해 사다리 맵이 정상적으로 생성되어야 한다.")
     void makeBridge() {
         Ladder ladder = new Ladder();
-        ladder.make(List.of("pobi", "honux", "crong", "jk", "hyun"), 5);
-        List<Line> ladderMap = ladder.getLadder();
+        List<Line> ladderMap = ladder.make(List.of("pobi", "honux", "crong", "jk", "hyun"), 5);
 
         ladderMap.stream()
                 .map(line -> line.getPoints())

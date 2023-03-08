@@ -13,6 +13,10 @@ class GameTest {
     @Test
     void askLadder() {
         Game game = new Game(new Ladder());
-        List<Line> ladder = game.askLadder(List.of("pobi", "honux", "crong"), 5);
+        List<Line> ladder = game.askLadder(List.of("pobi", "honux", "crong", "jk", "hyun"), 5);
+
+        ladder.stream()
+                .map(line -> line.getPoints())
+                .forEach(System.out::println);
     }
 }
