@@ -10,7 +10,7 @@ public class Renderer {
     public static final String LADDER_FULL = "-----";
     public static final String LADDER_EMPTY = "     ";
 
-    public String renderMap(ArrayList<ArrayList> ladderMap, List<String> names) {
+    public static String renderMap(ArrayList<ArrayList> ladderMap, List<String> names) {
         StringBuilder sb = new StringBuilder();
 
 
@@ -23,7 +23,7 @@ public class Renderer {
         return sb.toString();
     }
 
-    private void renderFloor(ArrayList<Boolean> floorMap, StringBuilder sb) {
+    private static void renderFloor(ArrayList<Boolean> floorMap, StringBuilder sb) {
         for (int section = 0; section < floorMap.size(); section++) {
             sb.append(LADDER_BAR);
             insertFullSection(floorMap, sb, section);
@@ -31,13 +31,13 @@ public class Renderer {
         }
     }
 
-    private void insertFullSection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
+    private static void insertFullSection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
         if (floorMap.get(section)) {
             sb.append(LADDER_FULL);
         }
     }
 
-    private void insertEmptySection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
+    private static void insertEmptySection(ArrayList<Boolean> floorMap, StringBuilder sb, int section) {
         if (!floorMap.get(section)) {
             sb.append(LADDER_EMPTY);
         }
