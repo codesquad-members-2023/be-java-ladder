@@ -15,9 +15,9 @@ public class LadderGame {
         int participantsNum = inputView.getParticipantsNumber();
 
         printHowMuchHigh();
-        int ladderheight = inputView.getLadderHeight();
+        int ladderHeight = inputView.getLadderHeight();
 
-        ladder = new Ladder(participantsNum, ladderheight);
+        ladder = new Ladder(participantsNum, ladderHeight);
         ladder.makeLadder();
         printLadder(ladder.getLadder());
         System.out.println();

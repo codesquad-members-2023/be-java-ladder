@@ -5,7 +5,7 @@ import java.util.Random;
 public class Ladder {
     private Shape[][] ladder;
 
-    public Ladder(int ladderHeight, int participants) {
+    public Ladder(int participants, int ladderHeight) {
         ladder = new Shape[ladderHeight][participants + participants - 1];
     }
 

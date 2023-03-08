@@ -24,7 +24,7 @@ public class OutputView {
 
     private static StringBuilder printLadderRow(Shape[] row, StringBuilder sb) {
         for (Shape point : row) {
-            sb.append(point);
+            sb.append(point.getShape());
         }
         return sb;
     }
