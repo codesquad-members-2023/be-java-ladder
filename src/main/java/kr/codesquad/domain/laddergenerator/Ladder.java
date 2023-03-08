@@ -18,11 +18,7 @@ public class Ladder {
     public String[][] makeRandomLadder(int people, int height) {
         String[][] ladder = new String[height][people * 2 - 1];
 
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                ladder[i][j] = makeBridgeElement(j);
-            }
-        }
+        moveNextRow(ladder);
 
         return ladder;
     }
@@ -37,4 +33,15 @@ public class Ladder {
         return SPACE;
     }
 
+    private void moveNextRow(String[][] ladder) {
+        for (int i = 0; i < ladder.length; i++) {
+            moveNextElement(i, ladder);
+        }
+    }
+
+    private void moveNextElement(int index, String[][] ladder) {
+        for (int i = 0; i < ladder[index].length; i++) {
+            ladder[index][i] = makeBridgeElement(i);
+        }
+    }
 }
