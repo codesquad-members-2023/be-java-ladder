@@ -1,17 +1,19 @@
 package kr.codesquad.ladder.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Users {
     private List<User> userList;
 
     public Users(List<String> nameList) {
-        this.userList = new ArrayList<>();
+        this.userList = generateUserList(nameList);
+    }
 
-        for (String name : nameList) {
-            this.userList.add(new User(name));
-        }
+    // 중복 이름 제거
+    private List<User> generateUserList(List<String> nameList) {
+        Set<String> removeDublicateNameSet = new HashSet<>(nameList);
+        return removeDublicateNameSet.stream().map(User::new).collect(Collectors.toList());
     }
 
     public int size () {
