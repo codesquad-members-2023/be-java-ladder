@@ -14,20 +14,20 @@ public class Viewer {
     }
 
     public void startGame() throws IOException {
-        int numOfParticipants = howManyParticipants();
-        int height = howHigh();
+        String[] participantsList = participantsList().split(",");
+        int height = Integer.parseInt(howHigh());
 
-        ladderMaker = new LadderMaker(numOfParticipants, height);
+        ladderMaker = new LadderMaker(participantsList, height);
     }
 
-    private int howManyParticipants() throws IOException {
-        System.out.println("참여할 사람은 몇 명인가요?");
-        return Integer.parseInt(inputFromUser());
+    private String participantsList() throws IOException {
+        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요");
+        return inputFromUser();
     }
 
-    private int howHigh() throws IOException {
+    private String howHigh() throws IOException {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
-        return Integer.parseInt(inputFromUser());
+        return inputFromUser();
     }
 
 //    public void printLadder() {

@@ -10,8 +10,9 @@ public class LadderMaker {
         return ladder;
     }
 
-    public LadderMaker(int participants, int height) {
-        this.ladder = new String[height][participants * 2 - 1];
+    public LadderMaker(String[] participants, int height) {
+        int numOfParticipants = participants.length;
+        this.ladder = new String[height][numOfParticipants * 2 - 1];
         makeLadder();
     }
 
