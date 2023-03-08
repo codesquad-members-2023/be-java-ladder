@@ -17,7 +17,7 @@ public class OutputView {
 
     public String getStringLadder(Ladder ladder) {
         stringBuilder.append(ladder.getAUser(0));
-        for (int i=1; i<ladder.getUserSize(); i++) {
+        for (int i=1; i<ladder.getNumUser(); i++) {
             stringBuilder.append(String.format("%6s", ladder.getAUser(i)));
         }
         stringBuilder.append(NEW_LINE);

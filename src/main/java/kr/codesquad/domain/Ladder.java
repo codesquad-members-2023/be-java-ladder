@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Ladder {
     private int stepSize;
-    private int userSize;
+    private int userNum;
     private Users users;
     private List<LadderStep> steps;
 
@@ -12,19 +12,19 @@ public class Ladder {
         return stepSize;
     }
 
-    public int getUserSize() {
-        return userSize;
-    }
-
-    public List<LadderStep> getSteps() {
-        return steps;
+    public int getNumUser() {
+        return userNum;
     }
 
     public Ladder(int floorNum, List<String> userList) {
         this.stepSize = floorNum;
-        this.userSize = userList.size();
+        this.userNum = userList.size();
         this.users = new Users(userList);
-        this.steps = LadderMaker.generate(userSize, floorNum);
+        this.steps = generateStep();
+    }
+
+    private List<LadderStep> generateStep() {
+        return LadderMaker.generate(userNum, stepSize);
     }
 
     public LadderStep getAStep(int i) {
