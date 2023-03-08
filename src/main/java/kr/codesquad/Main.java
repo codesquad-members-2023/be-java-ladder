@@ -9,5 +9,6 @@ public class Main {
 
         viewer.startGame();
         viewer.printHeader();
+        viewer.printLadder();
     }
 }

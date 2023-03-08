@@ -43,4 +43,21 @@ public class LadderMaker {
         }
         return "     ";
     }
+
+    public String stringLadder() {
+        StringBuilder sb = new StringBuilder();
+        for (List<String> ladderRow : ladder) {
+            sb.append(stringLadderRow(ladderRow));
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    private String stringLadderRow(List<String> ladderRow) {
+        StringBuilder sb = new StringBuilder();
+        for (String el : ladderRow) {
+            sb.append(el);
+        }
+        return sb.toString();
+    }
 }

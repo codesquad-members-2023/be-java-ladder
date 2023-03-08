@@ -10,7 +10,6 @@ public class Viewer {
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private Header header;
     private LadderMaker ladderMaker;
-    private List<String> headerList;
 
     public String inputFromUser() throws IOException {
         return br.readLine();
@@ -20,7 +19,7 @@ public class Viewer {
         String[] participantsList = participantsList().split(",");
         int height = Integer.parseInt(howHigh());
         header = new Header();
-        headerList = header.makeHeader(participantsList);
+        header.makeHeader(participantsList);
         ladderMaker = new LadderMaker(participantsList, height);
     }
 
@@ -35,14 +34,13 @@ public class Viewer {
     }
 
     public void printHeader() {
-        for (String name : headerList) {
-            System.out.print(name);
-        }
-        System.out.println();
+        String stringHeader = header.stringHeader();
+        System.out.println(stringHeader);
     }
 
-//    public void printLadder() {
-//
-//    }
+    public void printLadder() {
+        String stringLadder = ladderMaker.stringLadder();
+        System.out.println(stringLadder);
+    }
 
 }

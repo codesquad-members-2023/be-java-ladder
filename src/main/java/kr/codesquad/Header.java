@@ -7,7 +7,7 @@ public class Header {
 
     private List<String> ladderHeader;
 
-    public List<String> makeHeader(String[] participantsList) {
+    public void makeHeader(String[] participantsList) {
 
         ladderHeader = new ArrayList<>();
 
@@ -15,17 +15,24 @@ public class Header {
             ladderHeader.add(name);
             ladderHeader.add(fitBlanks(name));
         }
-
-        return ladderHeader;
     }
 
-    public String fitBlanks(String name) {
+    private String fitBlanks(String name) {
         StringBuilder sb = new StringBuilder();
         int whiteSpace = 6 - name.length();
 
         while (whiteSpace-- > 0) {
             sb.append(" ");
         }
+        return sb.toString();
+    }
+
+    public String stringHeader() {
+        StringBuilder sb = new StringBuilder();
+        for (String el : ladderHeader) {
+            sb.append(el);
+        }
+
         return sb.toString();
     }
 
