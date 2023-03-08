@@ -7,7 +7,7 @@ public class OutputView {
 
     private static void printLine(char[] line) {
         for (char c : line) {
-            System.out.println(c);
+            System.out.print(c);
         }
         System.out.println();
     }
