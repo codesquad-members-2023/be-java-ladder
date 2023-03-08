@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
-    InputView() {
-    }
-
     public static int getPlayerNum() {
         System.out.println("참여할 사람은 몇 명인가요?");
         return scanner.nextInt();

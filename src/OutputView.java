@@ -1,14 +1,14 @@
 public class OutputView {
-    public OutputView() {
-    }
-
-    public void printMap(char[][] map) {
+    public static void printMap(char[][] map) {
         for (char[] line : map) {
-            for (char c : line) {
-                System.out.print(c == 44 ? " " : c);
-            }
-            System.out.println();
+            printLine(line);
         }
     }
 
+    private static void printLine(char[] line) {
+        for (char c : line) {
+            System.out.println(c);
+        }
+        System.out.println();
+    }
 }
