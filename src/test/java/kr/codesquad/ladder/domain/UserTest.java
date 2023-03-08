@@ -6,20 +6,17 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("User 생성, 예외 테스트")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class UserTest {
     // pobi,honux,crong,jk
     Users users;
-    String given;
 
     @Test @Order(1)
     @DisplayName("이름을 삽입했을 때, user가 해당 숫자만큼 생성")
     void init() {
-        given = "pobi,honux,crong,jk";
-        List<String> givenNames = List.of(given.split(","));
+        List<String> givenNames = makeGivenNames("pobi,honux,crong,jk");
         users = new Users(givenNames);
 
         assertThat(users.size()).isEqualTo(4);
@@ -29,8 +26,7 @@ class UserTest {
     @DisplayName("이름이 5글자를 넘어갈 때 IllegalArgumentException 발생")
     public void whenOverLength() throws Exception{
         //given
-        given = "pobi,honux,crong,jjjkkkkkk";
-        List<String> givenNames = List.of(given.split(","));
+        List<String> givenNames = makeGivenNames("pobi,honux,crong,jjjkkkkkk");
 
         assertThatThrownBy(() -> new Users(givenNames))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -40,8 +36,7 @@ class UserTest {
     @DisplayName("중복 이름 발생한 경우, 해당 이름은 제외")
     public void whenBlank() throws Exception{
         //given
-        given = "pobi,honux,crong,jk,crong";
-        List<String> givenNames = List.of(given.split(","));
+        List<String> givenNames = makeGivenNames("pobi,honux,crong,jk,crong");
 
         //when
         Users users = new Users(givenNames);
@@ -50,8 +45,8 @@ class UserTest {
         assertThat(users.size()).isEqualTo(4);
     }
 
-    // 테스트를 위한 간이 Input
+    // 테스트를 위한 메서드
     private List<String> makeGivenNames (String name) {
-
+        return List.of(name.split(","));
     }
 }
