@@ -27,4 +27,8 @@ public class Viewer {
         return Integer.parseInt(inputFromUser());
     }
 
+    public void printLadder(LadderMaker ladderMaker) {
+
+    }
+
 }
