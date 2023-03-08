@@ -3,28 +3,24 @@ package kr.codesquad.ladder.domain;
 import java.util.List;
 
 public class Ladder {
-    private int stepSize;
-    private int userNum;
     private Users users;
     private List<Line> steps;
 
-    public int getStepSize() {
-        return stepSize;
+    public int getNumStep() {
+        return steps.size();
     }
 
     public int getNumUser() {
-        return userNum;
+        return users.size();
     }
 
-    public Ladder(int floorNum, List<String> userList) {
-        this.stepSize = floorNum;
-        this.userNum = userList.size();
+    public Ladder(int stepNum, List<String> userList) {
         this.users = new Users(userList);
-        this.steps = generateStep();
+        this.steps = generateStep(userList.size(), stepNum);
     }
 
-    private List<Line> generateStep() {
-        return LadderMaker.generate(userNum, stepSize);
+    private List<Line> generateStep(int userNum, int stepNum) {
+        return LadderMaker.generate(userNum, stepNum);
     }
 
     public Line getAStep(int i) {
