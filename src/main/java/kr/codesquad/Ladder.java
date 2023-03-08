@@ -1,16 +1,10 @@
 package kr.codesquad;
 
-import java.util.Random;
-
 public class Ladder {
-    private Point[][] ladder;
-    private int participants;
-    private int ladderHeight;
+    private Shape[][] ladder;
 
     public Ladder(int ladderHeight, int participants) {
-        this.ladderHeight = ladderHeight;
-        this.participants = participants;
-        ladder = new Point[ladderHeight][participants + participants - 1];
+        ladder = new Shape[ladderHeight][participants + participants - 1];
     }
 
     public void makeLadder() {
@@ -21,11 +15,11 @@ public class Ladder {
 
     private void drawLadderRow(int x) {
         for (int y = 0; y < ladder[x].length; y++) {
-            ladder[x][y] = new Point(x, y);
+            ladder[x][y] = new Shape(x, y);
         }
     }
 
-    public Point[][] getLadder() {
+    public Shape[][] getLadder() {
         return ladder;
     }
 }
