@@ -31,38 +31,20 @@ public class InputConverter {
     }
 
     private void initPointMapFirstLine(Point[][] pointMap) {
-        for (int i = 0; i < lineWidth; i++) {
-            if (i % 2 == 0) {
-                initPointMapForPosition(pointMap, i, 0, PointType.USER);
-                continue;
-            }
-            initPointMapForPosition(pointMap, i, 0, PointType.BLOCK);
-        }
+        initPointMapForRowLine(pointMap, 0, PointType.USER, PointType.BLOCK);
     }
 
     private void initPointMapMediumLine(Point[][] pointMap) {
         for (int i = 1; i < lineHeight - 1; i++) {
-            for (int j = 0; j < lineWidth; j++) {
-                if (j % 2 == 0) {
-                    initPointMapForPosition(pointMap, j, i, PointType.LADDER);
-                    continue;
-                }
-                initPointMapForPosition(pointMap, j, i, PointType.LINE);
-            }
+            initPointMapForRowLine(pointMap, i, PointType.LADDER, PointType.LINE);
         }
     }
 
     private void initPointMapLastLine(Point[][] pointMap) {
-        for (int i = 0; i < lineWidth; i++) {
-            if (i % 2 == 0) {
-                initPointMapForPosition(pointMap, i, lineHeight -1, PointType.DESTINATION);
-                continue;
-            }
-            initPointMapForPosition(pointMap, i, lineHeight -1, PointType.BLOCK);
-        }
+        initPointMapForRowLine(pointMap, lineHeight -1, PointType.DESTINATION, PointType.BLOCK);
     }
 
-    private void iniPointMapForRowLine(Point[][] pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
+    private void initPointMapForRowLine(Point[][] pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
                 initPointMapForPosition(pointMap, i, lineHeight,pointTypeOfOddPosition);
