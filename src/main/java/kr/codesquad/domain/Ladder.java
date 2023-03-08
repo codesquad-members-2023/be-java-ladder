@@ -5,21 +5,22 @@ import java.util.List;
 
 public class Ladder {
 
-    private final List<String> people;
-    private final int ladderHeight;
-    private final List<Boolean> randomBooleans;
-    private final List<List<Boolean>> ladder = new ArrayList<>();
+    private int ladderHeight;
+    private List<String> people;
 
-    public Ladder(List<String> people, int ladderHeight, List<Boolean> randomBooleans) {
-        this.people = people;
+    private List<List<Boolean>> ladder;
+
+    public List<List<Boolean>> make(List<String> people, int ladderHeight, List<Boolean> randomBooleans) {
         this.ladderHeight = ladderHeight;
-        this.randomBooleans = randomBooleans;       // 외부에서 주입해주는 랜덤 부울 리스트, 2차원 배열인 ladder의 값들이 된다.
-    }
+        this.people = people;
 
-    public void makeBridge() {
+        ladder = new ArrayList<>();
+
         for (int y = 0; y < ladderHeight; y++) {
-             ladder.add(makeLine(y));
+            ladder.add(makeLine(y, randomBooleans));
         }
+
+        return ladder;
     }
 
     public List<List<Boolean>> getLadder() {
@@ -31,13 +32,17 @@ public class Ladder {
     }
 
     public boolean isPossible() {
+        if (people == null) {
+            throw new RuntimeException("[ERROR] 사다리를 먼저 만들어주세요.");
+        }
+
         for (int y = 0; y < ladderHeight; y++) {
             if (overlappedLine(y)) return false;
         }
         return true;
     }
 
-    private List<Boolean> makeLine(int y) {
+    private List<Boolean> makeLine(int y, List<Boolean> randomBooleans) {
         ArrayList<Boolean> line = new ArrayList<>();
 
         int width = people.size() - 1;

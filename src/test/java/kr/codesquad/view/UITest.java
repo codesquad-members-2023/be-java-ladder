@@ -1,7 +1,6 @@
 package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.UI;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +16,8 @@ class UITest {
     @Test
     @DisplayName("사용자 이름과 불리언 리스트를 이용해 사다리를 만들고, UI가 사다리를 제대로 출력해야 한다.")
     void printNameAndBridge() {
-        Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
-        ladder.makeBridge();
+        Ladder ladder = new Ladder();
+        ladder.make(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, true, false, true));
         UI ui = new UI(ladder);
 
         ui.printName();

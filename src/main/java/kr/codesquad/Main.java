@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Ladder ladder = new Ladder(List.of("pobi", "honux", "crong"), 5, List.of(true, false, false, true, false, false, true, false, false, true));
+        Ladder ladder = new Ladder();
         Client client = new Client(new Game(ladder));
 
         client.startGame();
