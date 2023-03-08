@@ -23,4 +23,15 @@ class UserTest {
 
         assertThat(users.size()).isEqualTo(4);
     }
+
+    @Test @Order(2)
+    @DisplayName("이름이 5글자를 넘어갈 때 IllegalArgumentException 발생")
+    public void whenOverLength() throws Exception{
+        //given
+        String given = "pobi,honux,crong,jjjkkkkkk";
+        List<String> givenNames = List.of(given.split(","));
+
+        assertThatThrownBy(() -> new Users(givenNames))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
