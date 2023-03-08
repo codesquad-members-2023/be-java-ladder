@@ -1,12 +1,24 @@
 package kr.codesquad;
 
 public class InputConverter {
+    private int lineWidth;
+    private int lineHeight;
+    private Point[][] pointMap;
 
     public Point[][] convertToPointMap(int lineNum, int lineLength) {
-
-        Point[][] pointMap = makePointMap(lineNum, lineLength);
+        setMemberVariable(lineNum, lineLength);
         initPointMap(pointMap);
         return pointMap;
+    }
+
+    private void setMemberVariable(int lineNum, int lineLength) {
+        this.pointMap = makePointMap(lineNum, lineLength);
+        setHeightAndWidthOfLine();
+    }
+
+    private void setHeightAndWidthOfLine() {
+        lineWidth = pointMap[0].length;
+        lineHeight = pointMap.length;
     }
 
     private static Point[][] makePointMap(int lineNum, int lineLength) {
@@ -24,7 +36,6 @@ public class InputConverter {
     }
 
     private void initPointMapFirstLine(Point[][] pointMap) {
-        int lineWidth = pointMap[0].length;
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
                 initPointMapForPosition(pointMap, i, 0, PointType.USER);
@@ -35,8 +46,6 @@ public class InputConverter {
     }
 
     private void initPointMapMediumLine(Point[][] pointMap) {
-        int lineWidth = pointMap[0].length;
-        int lineHeight = pointMap.length;
         for (int i = 1; i < lineHeight - 1; i++) {
             for (int j = 0; j < lineWidth; j++) {
                 if (j % 2 == 0) {
@@ -49,8 +58,6 @@ public class InputConverter {
     }
 
     private void initPointMapLastLine(Point[][] pointMap) {
-        int lineWidth = pointMap[0].length;
-        int lineHeight = pointMap.length;
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
                 initPointMapForPosition(pointMap, i, lineHeight -1, PointType.DESTINATION);
