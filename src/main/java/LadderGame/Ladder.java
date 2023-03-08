@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 public class Ladder {
     private int ladder_height;
-
     private List<List<String>> ladder_set;
     private List<String> names;
 
@@ -42,7 +41,8 @@ public class Ladder {
         List<String> temp_List = new ArrayList<>();
 
         for (int j = 0; j < names.size() * 2 - 1; j++) {
-            temp_List.add(lineCheck(j));
+            String before_line = j < 2 ? "     " : temp_List.get(j - 2);
+            temp_List.add(lineCheck(j, before_line));
         }
         ladder_set.add(temp_List);
 
@@ -68,14 +68,14 @@ public class Ladder {
     }
 
     // 사다리 내부 값
-    public String lineCheck(int check) {
+    public String lineCheck(int check, String before_line) {
         if (check % 2 == 0) {
             return "|";
         }
-        if ((int) (Math.random() * 2) == 0) {
-            return "     ";
+        if ((int) (Math.random() * 2) == 1 && before_line.equals("     ")) {
+            return "-----";
         }
-        return "-----";
+        return "     ";
     }
 
     // 사다리 출력
