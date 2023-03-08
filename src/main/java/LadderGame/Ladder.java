@@ -31,7 +31,12 @@ public class Ladder {
         this.ladder_height = in.nextInt();
     }
 
-    
+    // 이름 분리
+    public List<String> parsingName(String str) {
+        return Arrays.stream(str.split(","))
+                .map(s -> s.length() > 5 ? s.substring(0,5) : s)
+                .collect(Collectors.toList());
+    }
 
     // 사다리 설정
     public void setLadder(int line) {
