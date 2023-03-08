@@ -15,7 +15,7 @@ public class Game {
         System.out.println("사다리 높이 " + ladderHeight);
     }
 
-    public List<List<Boolean>> askLadder(List<String> people, int ladderHeight, List<Boolean> randomBooleans) {
-        return ladder.make(people, ladderHeight, randomBooleans);
+    public List<Line> askLadder(List<String> people, int ladderHeight) {
+        return ladder.make(people, ladderHeight);
     }
 }
