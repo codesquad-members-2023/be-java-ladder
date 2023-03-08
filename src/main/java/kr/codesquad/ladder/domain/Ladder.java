@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.ladder.domain;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class Ladder {
     private int stepSize;
     private int userNum;
     private Users users;
-    private List<LadderStep> steps;
+    private List<Line> steps;
 
     public int getStepSize() {
         return stepSize;
@@ -23,11 +23,11 @@ public class Ladder {
         this.steps = generateStep();
     }
 
-    private List<LadderStep> generateStep() {
+    private List<Line> generateStep() {
         return LadderMaker.generate(userNum, stepSize);
     }
 
-    public LadderStep getAStep(int i) {
+    public Line getAStep(int i) {
         return steps.get(i);
     }
 

@@ -1,7 +1,7 @@
-package kr.codesquad.view;
+package kr.codesquad.ladder.view;
 
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderStep;
+import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.Line;
 
 public class OutputView {
 
@@ -30,7 +30,7 @@ public class OutputView {
         return stringBuilder.toString();
     }
 
-    private void getStringLadderALine(LadderStep step) {
+    private void getStringLadderALine(Line step) {
         for (int j = 0; j< step.size(); j++) {
             stringBuilder.append(getPath(step.getValidLung(j))).append(LADDER_BAR);
         }

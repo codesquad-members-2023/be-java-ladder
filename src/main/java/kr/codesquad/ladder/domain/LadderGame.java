@@ -1,7 +1,7 @@
-package kr.codesquad.domain;
+package kr.codesquad.ladder.domain;
 
-import kr.codesquad.view.InputView;
-import kr.codesquad.view.OutputView;
+import kr.codesquad.ladder.view.InputView;
+import kr.codesquad.ladder.view.OutputView;
 
 import java.io.IOException;
 import java.util.List;
