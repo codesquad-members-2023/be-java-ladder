@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 // 사다리의 한 층
 public class Line {
     // 사다리 한 칸
-    private List<Bridge> lungs;
+    private List<Bridge> bridges;
 
     public Line(int userNum) {
-        this.lungs = generateBlocks(userNum);
+        this.bridges = generateBlocks(userNum);
     }
 
     private List<Bridge> generateBlocks (int userNum) {
@@ -20,14 +20,13 @@ public class Line {
     }
 
     public int size() {
-        return lungs.size();
+        return bridges.size();
     }
 
     /**
-     * 사다리 한 층에서 해당 index에 다리가 있는지 반환
-     * 건널 수 있는 다리가 있다면 ture, 다리가 없다면 false를 반환
-     * */
-    public boolean getValidLung (int index) {
-        return lungs.get(index) == Bridge.BRIDGE;
+     * 좌표에 다리 유무 반환
+     */
+    public boolean getValidBridge (int index) {
+        return bridges.get(index)==Bridge.BRIDGE;
     }
 }

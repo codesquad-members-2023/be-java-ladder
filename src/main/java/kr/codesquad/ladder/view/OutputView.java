@@ -32,7 +32,7 @@ public class OutputView {
 
     private void getStringLadderALine(Line step) {
         for (int j = 0; j< step.size(); j++) {
-            stringBuilder.append(getPath(step.getValidLung(j))).append(LADDER_BAR);
+            stringBuilder.append(getPath(step.getValidBridge(j))).append(LADDER_BAR);
         }
     }
 
