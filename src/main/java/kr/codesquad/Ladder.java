@@ -18,16 +18,24 @@ public class Ladder {
     }
 
     private void initMap(int numberOfParticipants, int height) {
-        for (int floor = 0; floor < height; floor++) {
+        for (int floorIndex = 0; floorIndex < height; floorIndex++) {
             ladderMap.add(new ArrayList());
-            initFloor(floor, numberOfParticipants);
+            initFloor(ladderMap.get(floorIndex), numberOfParticipants);
         }
     }
 
-    private void initFloor(int floor, int numberOfParticipants) {
+    private void initFloor(List<Boolean> floor, int numberOfParticipants) {
         for (int section = 0; section < numberOfParticipants - 1; section++) {
-            ladderMap.get(floor).add(RandomGenerator.generate());
+            initSection(floor, section);
         }
+    }
+
+    private void initSection(List<Boolean> floor, int section) {
+        if (section > 0 && floor.get(section - 1).equals(Boolean.TRUE)) {
+            floor.add(Boolean.FALSE);
+            return ;
+        }
+        floor.add(RandomGenerator.generate());
     }
 
     public ArrayList<ArrayList> getLadderMap() {
