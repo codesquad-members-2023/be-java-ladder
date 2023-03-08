@@ -1,22 +1,27 @@
 package kr.codesquad;
 
 public class MakeLadder {
-    Point[][] pointMap = null;
+    private int xLength;
+    private int yLength;
+
 
     public int[][] process(Point[][] pointMap) {
-        this.pointMap = pointMap;
+        setHeigtAndWidthOfLadder(pointMap);
 
         randConnectLine(pointMap);
 
         return pointTOIntMap(pointMap);
     }
 
+    private void setHeigtAndWidthOfLadder(Point[][] pointMap) {
+        xLength = pointMap[0].length;
+        yLength = pointMap.length;
+    }
+
 
     private boolean isValidPosition(Point point) {
         int x = point.getX();
         int y = point.getY();
-        int xLength = pointMap[0].length;
-        int yLength = pointMap.length;
         if (!(1 <= y && y < yLength - 1)) return false; // y축 체크
         if (!(0 <= x && x < xLength)) return false; // x 축 체크
         return true;
@@ -32,18 +37,24 @@ public class MakeLadder {
         int xLength = pointMap[0].length;
         int yLength = pointMap.length;
 
+        for (int j = 0; j < yLength; j++) {
+            randOpenByROwPosition(pointMap, xLength, j);
+        }
+    }
+
+    private void randOpenByROwPosition(Point[][] pointMap, int xLength, int j) {
         for (int i = 0; i < xLength; i++) {
-            for (int j = 0; j < yLength; j++) {
-                if (isValidPosition(pointMap[j][i])) {
-                    randOpen(pointMap[j][i]);
-                }
-            }
+            randOpenByPosition(pointMap, j, i);
+        }
+    }
+
+    private void randOpenByPosition(Point[][] pointMap, int j, int i) {
+        if (isValidPosition(pointMap[j][i])) {
+            randOpen(pointMap[j][i]);
         }
     }
 
     private int[][] pointTOIntMap(Point[][] pointMap) {
-        int xLength = pointMap[0].length;
-        int yLength = pointMap.length;
         int[][] intMap = new int[yLength][];
         for (int i = 0; i < yLength; i++) {
             intMap[i] = new int[xLength];
@@ -52,6 +63,8 @@ public class MakeLadder {
         for (int j = 0; j < yLength; j++) {
             pointToIntByRowPosition(pointMap, intMap, xLength, j);
         }
+
+
         return intMap;
     }
 
@@ -70,6 +83,4 @@ public class MakeLadder {
             case Line -> intMap[j][i] = pointMap[j][i].getStatus() == Status.Open ? 4 : 5;
         }
     }
-
-
 }
