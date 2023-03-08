@@ -45,6 +45,15 @@ class UserTest {
         assertThat(users.size()).isEqualTo(4);
     }
 
+    @Test @Order(4)
+    @DisplayName("전달되는 인덱스에 따른 올바른 유저 이름 반환")
+    public void getUserNameTest() throws Exception {
+        List<String> givenNames = makeGivenNames("pobi,honux,crong");
+        Users users = new Users(givenNames);
+
+        assertThat(users.getUserName(0)).isEqualTo("pobi");
+    }
+
     // 테스트를 위한 메서드
     private List<String> makeGivenNames (String name) {
         return List.of(name.split(","));
