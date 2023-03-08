@@ -27,10 +27,10 @@ public class InputConverter {
         int lineWidth = pointMap[0].length;
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
-                pointMap[0][i] = new Point(i, 0, PointType.USER);
+                initPointMapForPosition(pointMap, i, 0, PointType.USER);
                 continue;
             }
-            pointMap[0][i] = new Point(i, 0, PointType.BLOCK);
+            initPointMapForPosition(pointMap, i, 0, PointType.BLOCK);
         }
     }
 
@@ -40,11 +40,10 @@ public class InputConverter {
         for (int i = 1; i < lineHeight - 1; i++) {
             for (int j = 0; j < lineWidth; j++) {
                 if (j % 2 == 0) {
-                    pointMap[i][j] = new Point(j, i, PointType.LADDER);
+                    initPointMapForPosition(pointMap, j, i, PointType.LADDER);
                     continue;
                 }
-                pointMap[i][j] = new Point(j, i, PointType.LINE);
-
+                initPointMapForPosition(pointMap, j, i, PointType.LINE);
             }
         }
     }
@@ -54,11 +53,15 @@ public class InputConverter {
         int lineHeight = pointMap.length;
         for (int i = 0; i < lineWidth; i++) {
             if (i % 2 == 0) {
-                pointMap[lineHeight - 1][i] = new Point(i, lineHeight, PointType.DESTINATION);
+                initPointMapForPosition(pointMap, i, lineHeight -1, PointType.DESTINATION);
                 continue;
             }
-            pointMap[lineHeight - 1][i] = new Point(i, lineHeight, PointType.BLOCK);
-
+            initPointMapForPosition(pointMap, i, lineHeight -1, PointType.BLOCK);
         }
     }
+
+    private void initPointMapForPosition(Point[][] pointMap, int positionOfX, int positionOfY, PointType pointType) {
+        pointMap[positionOfY][positionOfX] = new Point(positionOfX, positionOfY, pointType);
+    }
+
 }
