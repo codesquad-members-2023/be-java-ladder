@@ -2,15 +2,15 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ArrayListTest {
 
-    @BeforeClass
+    @BeforeEach
 
     @Test
     public void arrayList() throws Exception {
