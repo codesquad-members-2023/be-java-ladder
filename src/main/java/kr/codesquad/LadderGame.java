@@ -14,46 +14,15 @@ public class LadderGame {
     }
 
     public void start() {
-        while (true) {
-            OutView.printHowManyParticipates();
-            try {
-                participants = inputView.getIntegerInput();
-                if (participants <= 1) {
-                    throw new IllegalArgumentException("인원 수는 2명 이상입니다.");
-                }
-            } catch (IOException | IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                System.out.println();
-                continue;
-            }
+        OutView.printHowManyParticipates();
+        participants = inputView.getParticipantsNumber();
 
-            OutView.printHowMuchHigh();
-            try {
-                ladderHeight = inputView.getIntegerInput();
-                if (ladderHeight <= 1) {
-                    throw new IllegalArgumentException("사다리 높이는 2 이상입니다.");
-                }
-            } catch (IOException | IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                System.out.println();
-                continue;
-            }
-            System.out.println();
+        OutView.printHowMuchHigh();
+        ladderHeight = inputView.getLadderHeight();
 
-            makeLadder();
-            printLadder();
-            System.out.println();
-        }
-    }
-
-    // 플레이 인원수 받기
-    private int getParticipantsNumber() throws IOException {
-        return inputView.getIntegerInput();
-    }
-
-    // 사다리 높이 값 받기
-    private int getLadderHeight() throws IOException {
-        return inputView.getIntegerInput();
+        makeLadder();
+        printLadder();
+        System.out.println();
     }
 
     // 전달 받은 인원수와 사다리 높이를 기준으로 2차원 배열 만들기
