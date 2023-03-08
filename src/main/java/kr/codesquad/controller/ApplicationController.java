@@ -16,7 +16,6 @@ public class ApplicationController {
     public void run() {
         String joinMembers = validateName();
         String maxLadderHeight = validateNumber();
-
         String[][] ladderResult = ladder.make(joinMembers, maxLadderHeight);
         view.printLadderResult(ladderResult);
     }
