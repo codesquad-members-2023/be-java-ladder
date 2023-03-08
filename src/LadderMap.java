@@ -1,30 +1,41 @@
+import java.util.Random;
+
 public class LadderMap {
     private char[][] map;
 
-    public LadderMap(int[] ladderInfo) {
-        map = new char[ladderInfo[1]][(ladderInfo[0] * 2) - 1];
-        init();
+    public LadderMap(int playerNum, int mapHeight) {
+        int mapLength = (playerNum * 2) - 1;
+        init(mapHeight, mapLength);
     }
-    private void init() {
+
+    private void init(int mapHeight, int mapLength) {
+        map = new char[mapHeight][mapLength];
+        
         for (char[] line : map) {
-            System.arraycopy(line, 0, initLine(line), 0, line.length);
+            initLine(line);
         }
     }
 
-    private char[] initLine(char[] line) {
+    private void initLine(char[] line) {
         for (int i = 0; i < line.length; i++) {
-            if (isLadderCome(i)) {
-                line[i] = (char) getRandomASCIICode();
-            } else {
-                line[i] = '|';
-            }
+            line[i] = getState(i);
         }
-
-        return line;
     }
 
-    private int getRandomASCIICode() {
-        return (int)(Math.random() * 2) + 44;
+    private char getState(int i) {
+        if (isLadderCome(i)) {
+            return getLadderState();
+        }
+        return '|';
+    }
+
+    private char getLadderState() {
+        Random random = new Random();
+
+        if (random.nextBoolean()) {
+            return '-';
+        }
+        return ' ';
     }
 
     private boolean isLadderCome(int i) {
