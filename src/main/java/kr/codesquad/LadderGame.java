@@ -1,6 +1,6 @@
 package kr.codesquad;
 
-import static kr.codesquad.OutView.*;
+import static kr.codesquad.OutputView.*;
 
 public class LadderGame {
     private InputView inputView;
@@ -19,7 +19,7 @@ public class LadderGame {
 
         ladder = new Ladder(participantsNum, ladderheight);
         ladder.makeLadder();
-        printWholeLadder(ladder.getLadder());
+        printLadder(ladder.getLadder());
         System.out.println();
     }
 }
