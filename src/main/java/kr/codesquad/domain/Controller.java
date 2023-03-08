@@ -16,7 +16,7 @@ public class Controller {
         outputView.askLadderHeight();
         int height = inputView.inputInt();
 
-        String[][] ladder = ladderGenerator.ladder(people, height);
+        String[][] ladder = ladderGenerator.makeRandomLadder(people, height);
         outputView.printLadder(ladder);
     }
 
