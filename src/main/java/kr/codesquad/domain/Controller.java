@@ -1,20 +1,17 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.domain.laddergenerator.Ladder;
-import kr.codesquad.view.InputView;
-import kr.codesquad.view.OutputView;
+import kr.codesquad.view.LadderView;
 
 public class Controller {
-
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
+    LadderView outputView = new LadderView();
     Ladder ladderGenerator = new Ladder();
 
     public void startGame(){
         outputView.askPeopleNumber();
-        int people = inputView.inputInt();
+        int people = outputView.inputInt();
         outputView.askLadderHeight();
-        int height = inputView.inputInt();
+        int height = outputView.inputInt();
 
         String[][] ladder = ladderGenerator.makeRandomLadder(people, height);
         outputView.printLadder(ladder);
