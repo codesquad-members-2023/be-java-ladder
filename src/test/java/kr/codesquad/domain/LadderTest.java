@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LadderTest {
 
     @Test
-    @DisplayName("불리언 리스트를 이용해 사다리 맵이 정상적으로 생성되어야 한다.")
+    @DisplayName("사다리 맵의 가로 세로 크기가 정상적으로 만들어졌는지 테스트")
     void makeBridge() {
         Ladder ladder = new Ladder();
-        List<Line> ladderMap = ladder.make(List.of("pobi", "honux", "crong", "jk", "hyun"), 5);
+        List<Line> ladderMap = ladder.make(List.of("pobi", "honux", "crong", "jk"), 5);
 
-        ladderMap.stream()
-                .map(line -> line.getPoints())
-                .forEach(System.out::println);
+        assertThat(ladderMap.size()).isEqualTo(5);
+        assertThat(ladderMap.get(0).getPoints().size()).isEqualTo(3);
     }
-
 }
