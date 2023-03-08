@@ -4,8 +4,11 @@ import java.util.Arrays;
 
 public class LadderMaker {
 
-    String[][] ladder;
-    RandomsGenerator randomsGenerator;
+    private final String[][] ladder;
+
+    public String[][] getLadder() {
+        return ladder;
+    }
 
     public LadderMaker(int participants, int height) {
         this.ladder = new String[height][participants * 2 - 1];
@@ -17,7 +20,7 @@ public class LadderMaker {
             Arrays.fill(strings, " ");
         }
 
-        randomsGenerator = new RandomsGenerator(ladder);
+        RandomsGenerator randomsGenerator = new RandomsGenerator(ladder);
 
         insertLines();
         insertBridges(randomsGenerator.generateRandoms());

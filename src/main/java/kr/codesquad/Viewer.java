@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class Viewer {
 
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private LadderMaker ladderMaker;
 
     public String inputFromUser() throws IOException {
         return br.readLine();
@@ -15,6 +16,8 @@ public class Viewer {
     public void startGame() throws IOException {
         int numOfParticipants = howManyParticipants();
         int height = howHigh();
+
+        ladderMaker = new LadderMaker(numOfParticipants, height);
     }
 
     private int howManyParticipants() throws IOException {
@@ -27,8 +30,8 @@ public class Viewer {
         return Integer.parseInt(inputFromUser());
     }
 
-    public void printLadder(LadderMaker ladderMaker) {
-
-    }
+//    public void printLadder() {
+//
+//    }
 
 }
