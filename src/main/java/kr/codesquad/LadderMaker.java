@@ -4,25 +4,20 @@ import java.util.Arrays;
 
 public class LadderMaker {
 
-    private int participants;
-    private int height;
     String[][] ladder;
     RandomsGenerator randomsGenerator;
 
     public LadderMaker(int participants, int height) {
-        this.participants = participants;
-        this.height = height;
-
         this.ladder = new String[height][participants * 2 - 1];
         makeLadder();
     }
 
     public void makeLadder() {
-        randomsGenerator = new RandomsGenerator(participants, height);
-
-        for (int i = 0; i < ladder.length; i++) {
-            Arrays.fill(ladder[i], " ");
+        for (String[] strings : ladder) {
+            Arrays.fill(strings, " ");
         }
+
+        randomsGenerator = new RandomsGenerator(ladder);
 
         insertLines();
         insertBridges(randomsGenerator.generateRandoms());
@@ -47,9 +42,10 @@ public class LadderMaker {
     }
 
     public void insertBridges(int[] randoms) {
-        for (int i = 0; i < randoms.length; i++) {
-            int r = randoms[i] % height;
-            int c = randoms[i] / height * 2 + 1;
+
+        for (int random : randoms) {
+            int r = random % ladder.length;
+            int c = random / ladder.length * 2 + 1;
 
             ladder[r][c] = validationBridge(ladder[r][c]);
         }

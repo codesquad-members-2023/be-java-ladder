@@ -2,15 +2,15 @@ package kr.codesquad;
 
 public class RandomsGenerator {
 
-    private int participants;
-    private int height;
+    String[][] ladder;
 
-    public RandomsGenerator(int participants, int height) {
-        this.participants = participants;
-        this.height = height;
+    public RandomsGenerator(String[][] ladder) {
+        this.ladder = ladder;
     }
 
     public int[] generateRandoms() {
+        int participants = (ladder[0].length + 1) / 2;
+        int height = ladder.length;
         int max = height * (participants - 1) - 1;
         int[] randoms = new int[max];
 
