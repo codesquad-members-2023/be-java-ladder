@@ -10,7 +10,7 @@ public class LadderMaker {
 
         ConnectLineAtRandom(pointMap);
 
-        return pointTOIntMap(pointMap);
+        return pointToIntMap(pointMap);
     }
 
     private void setHeightAndWidthOfLadder(Point[][] pointMap) {
@@ -35,23 +35,23 @@ public class LadderMaker {
         int yLength = pointMap.length;
 
         for (int j = 0; j < yLength; j++) {
-            randOpenByROwPosition(pointMap, xLength, j);
+            connectLineByROwPositionAtRandom(pointMap, xLength, j);
         }
     }
 
-    private void randOpenByROwPosition(Point[][] pointMap, int xLength, int j) {
+    private void connectLineByROwPositionAtRandom(Point[][] pointMap, int xLength, int j) {
         for (int i = 0; i < xLength; i++) {
-            randOpenByPosition(pointMap, j, i);
+            connectLineByPositionAtRandom(pointMap, j, i);
         }
     }
 
-    private void randOpenByPosition(Point[][] pointMap, int j, int i) {
+    private void connectLineByPositionAtRandom(Point[][] pointMap, int j, int i) {
         if (isValidPosition(i, j)) {
             OpenAtRandom(pointMap[j][i]);
         }
     }
 
-    private int[][] pointTOIntMap(Point[][] pointMap) {
+    private int[][] pointToIntMap(Point[][] pointMap) {
         int[][] intMap = new int[ladderHeight][];
         for (int i = 0; i < ladderHeight; i++) {
             intMap[i] = new int[ladderWidth];
