@@ -41,5 +41,9 @@ public class InputView {
         }
     }
 
+    public List<User> getUserInfo(){
+        return userList;
+    }
+
 
 }
