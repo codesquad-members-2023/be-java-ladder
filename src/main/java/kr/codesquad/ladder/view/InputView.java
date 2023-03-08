@@ -20,9 +20,18 @@ public class InputView {
 
     public List<String> getUserNames() throws IOException {
         System.out.println(GET_PERSON_NAME_MESSAGE);
-        String[] names = bufferedReader.readLine().split(REG);
+        String[] names = getValidInput().split(REG);
 
         return Arrays.stream(names).map(String::trim).collect(Collectors.toList());
+    }
+
+    private String getValidInput() throws IOException {
+        String result = bufferedReader.readLine();
+        if (result.length() > 0) {
+            return result;
+        }
+        System.out.println("다시 입력하세요.");
+        return getValidInput();
     }
 
     public int getPersonNum() throws IOException {
@@ -32,6 +41,26 @@ public class InputView {
 
     public int getStepNum() throws IOException {
         System.out.println(GET_STEP_MESSAGE);
-        return Integer.parseInt(bufferedReader.readLine());
+        int stepNum = getValidInt();
+
+        if (stepNum > 0) {
+            return stepNum;
+        }
+
+        System.out.println("더 큰 숫자를 입력하세요.");
+        return getStepNum();
+    }
+
+    private int getValidInt() throws IOException {
+        int result;
+
+        try {
+            result = Integer.parseInt(bufferedReader.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println("잘못된 숫자 형식입니다.");
+            return getValidInt();
+        }
+
+        return result;
     }
 }
