@@ -37,7 +37,7 @@ public class Line {
     /**
      * 좌표에 다리 유무 반환
      */
-    public boolean getValidBridge (int index) {
-        return bridges.get(index)==Bridge.BRIDGE;
+    public Bridge getValidBridge (int index) {
+        return bridges.get(index);
     }
 }
