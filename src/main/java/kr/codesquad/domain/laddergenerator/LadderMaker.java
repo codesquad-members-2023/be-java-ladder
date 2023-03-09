@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class LadderMaker {
 
-    public List<List<Boolean>> moveNextRow(int peopleNumber, int height) {
+    public List<List<Boolean>> makeBooleanLadder(int peopleNumber, int height) {
         List<List<Boolean>> ladder = new ArrayList<>();
         for (int i = 0; i < height; i++) {
             ladder.add(moveNextElement(peopleNumber));
