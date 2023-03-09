@@ -1,12 +1,16 @@
 public class LadderGame {
-    public static void main(String[] args) {
-        InputView inputView = new InputView();
-        OutputView outputView = new OutputView();
+    private LadderMap ladderMap;
 
-        int[] LadderInfo = inputView.inputVer1();
+    public void init() {
+        mapOutLadderMap(InputView.getPlayerNum(), InputView.getLadderHeight());
+    }
 
-        LadderMap ladderMapVer1 = new LadderMap(LadderInfo);
-        outputView.printMap(ladderMapVer1.getMap());
+    private void mapOutLadderMap(int getPlayerNum, int getLadderHeight) {
+        ladderMap = new LadderMap(getPlayerNum, getLadderHeight);
 
+    }
+
+    public void start() {
+        OutputView.printMap(ladderMap.getMap());
     }
 }
