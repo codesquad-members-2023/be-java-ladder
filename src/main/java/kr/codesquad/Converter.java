@@ -16,9 +16,16 @@ public class Converter {
 
     private void convertPlayersNameToString(List<String> playersName) {
         for (int i = 0; i < playersName.size(); i++) {
-            stringBuilder.append(playersName.get(i) + " ");
+            stringBuilder.append(playersName.get(i));
+            addSpaceBetweenPlayersName(playersName.get(i));
         }
         stringBuilder.append("\n");
+    }
+
+    private void addSpaceBetweenPlayersName(String playerName) {
+        for (int i = 0; i < 6 - playerName.length(); i++) {
+            stringBuilder.append(" ");
+        }
     }
 
     private void convertLadderRowToString(List<String> ladderRow) {
