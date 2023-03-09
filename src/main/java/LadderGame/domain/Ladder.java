@@ -12,7 +12,7 @@ public class Ladder {
     private final ArrayList<String> names;
 
     // 초기값 세팅
-    public Ladder(int ladderHeight, String names) {
+    public Ladder(String names, int ladderHeight) {
         this.ladderHeight = ladderHeight;
         this.names = parsingName(names);
         ladderSet = new ArrayList<>();

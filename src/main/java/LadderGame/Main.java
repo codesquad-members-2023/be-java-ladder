@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         // 사다리 값 입력
         Input input = new Input();
-        Ladder ladder = new Ladder(input.inputHeight(), input.inputNames());
+        Ladder ladder = new Ladder(input.inputNames(), input.inputHeight());
 
         // 사다리 설정
         ladder.makeLadder();
