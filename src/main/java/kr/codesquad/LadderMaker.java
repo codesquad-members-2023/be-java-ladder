@@ -1,35 +1,52 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class LadderMaker {
 
-    private String[][] ladder;
+    private List<List<String>> ladder = new ArrayList<>();
     private boolean checkConnected;
     private int connectedIndex = -1;
 
-    public String[][] createLadder(int people, int height) {
-        ladder = new String[height][people + (people - 1)];
-        for (int i = 0; i < ladder.length; i++) {
-            fillLadderRow(i);
+    public List<List<String>> createLadder(String playersName, int height) {
+        initializeLadder(height);
+        int width = (fillPlayersNameRow(playersName) * 2) - 1;
+        for (int i = 1; i < ladder.size(); i++) {
+            fillLadderRow(i, width);
         }
         return ladder;
     }
 
-    public void fillLadderRow(int row) {
+    private void initializeLadder(int height) {
+        for (int i = 0; i < height + 1; i++) {
+            ladder.add(new ArrayList<>());
+        }
+    }
+
+    private int fillPlayersNameRow(String playersName) {
+        String[] splittedPlayersName = playersName.split("[%-@#\\s]");
+        for (String name : splittedPlayersName) {
+            ladder.get(0).add(name);
+        }
+        return ladder.get(0).size();
+    }
+
+    public void fillLadderRow(int row, int width) {
         checkConnected = false;
-        for (int i = 0; i < ladder[row].length; i++) {
+        for (int i = 0; i < width; i++) {
             initializeCheckConnected(i, connectedIndex);
             if (createStick(row, i)) {
                 continue;
             }
-            ladder[row][i] = decideWhetherConnected(i);
+            ladder.get(row).add(decideWhetherConnected(i));
         }
     }
 
     private boolean createStick(int row, int i) {
         if (i % 2 == 0) {
-            ladder[row][i] = "|";
+            ladder.get(row).add("|");
             return true;
         }
         return false;
