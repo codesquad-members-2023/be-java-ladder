@@ -3,17 +3,17 @@ package kr.codesquad;
 import java.util.Random;
 
 public enum Shape {
-    LADDER_COL_PIECE('|'),
-    LADDER_ROW_PIECE('-'),
-    EMPTY_SPACE(' ');
+    LADDER_COL_PIECE("|"),
+    LADDER_ROW_PIECE("---"),
+    EMPTY_SPACE("   ");
 
-    private char shape;
+    private String shape;
 
-    Shape(char shape) {
+    Shape(String shape) {
         this.shape = shape;
     }
 
-    public char getShape() {
+    public String getShape() {
         return shape;
     }
 }
