@@ -26,10 +26,6 @@ public class Point {
         return type;
     }
 
-    public void setType(PointType type) {
-        this.type = type;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -40,5 +36,38 @@ public class Point {
 
     public boolean isSamePosition(int positionOfX, int positionOfY) {
         return (positionOfX == this.positionOfX && positionOfY == this.positionOfY);
+    }
+
+    @Override
+    public String toString() {
+        if (type == PointType.LINE) {
+            return lineToString();
+        }
+        return notLineToString();
+    }
+
+    private String notLineToString() {
+        switch (type) {
+            case USER -> {
+                return "o";
+            }
+            case DESTINATION -> {
+                return "x";
+            }
+            case LADDER ->  {
+                return "|";
+            }
+            case BLOCK ->  {
+                return " ";
+            }
+        }
+        return null;
+    }
+
+    private String lineToString() {
+        if (status == Status.CONNECTED) {
+            return "-";
+        }
+        return " ";
     }
 }
