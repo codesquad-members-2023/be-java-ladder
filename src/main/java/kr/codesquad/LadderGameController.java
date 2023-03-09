@@ -1,14 +1,16 @@
 package kr.codesquad;
 
+import static kr.codesquad.View.readNames;
+import static kr.codesquad.View.readLadderHeight;
+import static kr.codesquad.View.printMap;
+import static kr.codesquad.Renderer.renderMap;
+
 public class LadderGameController {
     public static void run() {
-        final int participants = View.readParticipants();
-        final int ladderHeight = View.readLadderHeight();
+        Ladder ladder = new Ladder(readNames(), readLadderHeight());
 
-        Ladder ladder = new Ladder(participants, ladderHeight);
-        Renderer renderer = new Renderer();
-        String map = renderer.renderMap(ladder.getLadderMap());
+        String map = renderMap(ladder.getLadderMap(), ladder.getNameList());
 
-        View.printMap(map);
+        printMap(map);
     }
 }

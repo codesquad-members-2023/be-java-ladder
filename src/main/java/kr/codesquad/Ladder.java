@@ -1,30 +1,44 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ladder {
-    private final int participant;
-    private final int height;
-    private boolean[][] ladderMap;
+    private List<String> names;
+    private ArrayList<ArrayList> ladderMap;
 
-    public Ladder(int participant, int height) {
-        this.participant = participant;
-        this.height = height;
-        ladderMap = new boolean[height][participant - 1];
-        initLadderMap();
+    public List<String> getNameList() {
+        return names;
     }
 
-    private void initLadderMap() {
-        for (int floor = 0; floor < height; floor++) {
-            initFloor(floor);
+    public Ladder(List<String> names, int height) {
+        this.names = names;
+        ladderMap = new ArrayList<>();
+        initMap(names.size(), height);
+    }
+
+    private void initMap(int numberOfParticipants, int height) {
+        for (int floorIndex = 0; floorIndex < height; floorIndex++) {
+            ladderMap.add(new ArrayList());
+            initFloor(ladderMap.get(floorIndex), numberOfParticipants);
         }
     }
 
-    private void initFloor(int floor) {
-        for (int section = 0; section < participant - 1; section++) {
-            ladderMap[floor][section] = RandomGenerator.generate();
+    private void initFloor(List<Boolean> floor, int numberOfParticipants) {
+        for (int section = 0; section < numberOfParticipants - 1; section++) {
+            initSection(floor, section);
         }
     }
 
-    public boolean[][] getLadderMap() {
+    private void initSection(List<Boolean> floor, int section) {
+        if (section > 0 && floor.get(section - 1).equals(Boolean.TRUE)) {
+            floor.add(Boolean.FALSE);
+            return ;
+        }
+        floor.add(RandomGenerator.generate());
+    }
+
+    public ArrayList<ArrayList> getLadderMap() {
         return ladderMap;
     }
 }
