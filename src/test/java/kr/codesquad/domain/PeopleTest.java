@@ -26,6 +26,8 @@ class PeopleTest {
     @DisplayName("이름으로 사람을 검색하여 해당 사람의 사다리타기 결과값을 제대로 받는 지 확인한다.")
     void findDestinationOf() {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
+        List<String> results = List.of("꽝", "5000", "꽝", "10000", "꽝");
+
         Ladder ladder = new Ladder();
 
         People people = new People(peopleNames, ladder);
@@ -33,7 +35,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult);
+        view.printResult(peopleNames, ladderResult, results);
 
         int destination = people.findDestinationOf("jk");
 
@@ -45,6 +47,8 @@ class PeopleTest {
     @DisplayName("검색한 사람이름이 존재하지 않는 경우, 예외를 제대로 던지는 지 확인한다.")
     void noNameValidation() {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
+        List<String> results = List.of("꽝", "5000", "꽝", "10000", "꽝");
+
         Ladder ladder = new Ladder();
 
         People people = new People(peopleNames, ladder);
@@ -52,7 +56,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult);
+        view.printResult(peopleNames, ladderResult, results);
 
         assertThatThrownBy(() -> {
             int destination = people.findDestinationOf("hk");
@@ -65,6 +69,8 @@ class PeopleTest {
     @DisplayName("모든 사람들의 사다리타기 결과값을 반환하는지 확인한다.")
     void findAllDestinations() {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
+        List<String> results = List.of("꽝", "5000", "꽝", "10000");
+
         Ladder ladder = new Ladder();
 
         People people = new People(peopleNames, ladder);
@@ -72,7 +78,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult);
+        view.printResult(peopleNames, ladderResult, results);
 
         List<Integer> destinations = people.findAllDestinations();
 

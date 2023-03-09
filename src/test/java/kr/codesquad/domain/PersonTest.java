@@ -24,10 +24,12 @@ class PersonTest {
     void goDownLadder() {
         Ladder ladder = new Ladder();
         List<String> people = List.of("honux", "jk", "pobi", "crong", "hyun");
+        List<String> results = List.of("꽝", "5000", "꽝", "10000", "꽝");
+
         String ladderResult = ladder.make(people, 5);
 
         View view = new View();
-        view.printResult(people, ladderResult);
+        view.printResult(people, ladderResult, results);
 
         Person person = new Person("hyun", ladder);
         int destination = person.goDownLadder(4);
