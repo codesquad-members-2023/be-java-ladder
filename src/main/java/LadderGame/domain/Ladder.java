@@ -1,4 +1,4 @@
-package LadderGame;
+package LadderGame.domain;
 
 import LadderGame.view.Output;
 
