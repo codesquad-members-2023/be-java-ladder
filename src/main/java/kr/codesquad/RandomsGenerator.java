@@ -16,7 +16,7 @@ public class RandomsGenerator {
         Random random = new Random();
 
         boolean prev = random.nextBoolean();
-        for (int i = 0; i < numOfParticipants; i++) {
+        for (int i = 0; i < numOfParticipants - 1; i++) {
             boolean now = random.nextBoolean();
             ladderRow.add(selectBridge(prev, now));
             ladderRow.add("|");

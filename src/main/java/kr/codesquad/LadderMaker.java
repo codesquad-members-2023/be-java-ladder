@@ -19,29 +19,9 @@ public class LadderMaker {
             List<String> ladderRow;
 
             RandomsGenerator randomsGenerator = new RandomsGenerator();
-            ladderRow = insertBridges(randomsGenerator.generateRandoms(numOfParticipants));
+            ladderRow = randomsGenerator.generateRandoms(numOfParticipants);
             ladder.add(ladderRow);
         }
-    }
-
-
-    public List<String> insertBridges(boolean[] randoms) {
-
-        List<String> ladderRow = new ArrayList<>();
-
-        ladderRow.add("  |");
-        for (boolean random : randoms) {
-            ladderRow.add(validationBridge(random));
-            ladderRow.add("|");
-        }
-        return ladderRow;
-    }
-
-    private String validationBridge(boolean random) {
-        if (random) {
-            return "-----";
-        }
-        return "     ";
     }
 
     public String stringLadder() {
