@@ -14,5 +14,19 @@ public class Main {
         Client client = new Client(new Game(ladder, new View()));
 
         client.startGame();
+
+        while (findLadderResult(client)) {
+
+        }
+    }
+
+    private static boolean findLadderResult(Client client) {
+        try {
+            client.askResult();
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n게임을 종료합니다.");
+            return false;
+        }
     }
 }
