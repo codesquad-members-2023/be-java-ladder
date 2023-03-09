@@ -13,10 +13,10 @@ public class LadderGameController {
     }
 
     public void LadderGameStart() {
-        outputView.printAskHowManyPeople();
-        int numberOfPeople = inputView.userInputNumberOfPeople();
+        outputView.printAskNameOfPlayers();
+        String playersName = inputView.userInputPlayersName();
         outputView.printAskHeightOfLadder();
         int heightOfLadder = inputView.userInputHeightOfLadder();
-        outputView.printLadder(ladderMaker.createLadder(numberOfPeople, heightOfLadder));
+        outputView.printLadder(ladderMaker.createLadder(playersName, heightOfLadder));
     }
 }
