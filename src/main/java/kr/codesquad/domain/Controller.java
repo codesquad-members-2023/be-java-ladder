@@ -15,12 +15,17 @@ public class Controller {
     public void startGame() {
         ladderView.askPeopleNumber();
         int people = ladderView.inputInt();
+        String[] names = peopleName();
 
         ladderView.askLadderHeight();
         int height = ladderView.inputInt();
 
         String[][] ladder = ladderGenerator.makeRandomLadder(people, height);
         ladderView.printLadder(ladder);
+    }
+
+    private String[] peopleName(){
+        return ladderView.inputName().split(",");
     }
 
 }

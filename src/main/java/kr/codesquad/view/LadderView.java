@@ -3,11 +3,11 @@ package kr.codesquad.view;
 import java.util.Scanner;
 
 public class LadderView {
-    private final String ASK_PEOPLE_NUMBER = "참여할 사람은 몇 명인가요?";
+    private final String ASK_PEOPLE = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
     private final String ASK_LADDER = "사다리 높이는 몇 개인가요?";
 
     public void askPeopleNumber(){
-        System.out.println(ASK_PEOPLE_NUMBER);
+        System.out.println(ASK_PEOPLE);
     }
 
     public void askLadderHeight() {
@@ -29,5 +29,9 @@ public class LadderView {
 
     public int inputInt() {
         return sc.nextInt();
+    }
+
+    public String inputName() {
+        return sc.nextLine();
     }
 }
