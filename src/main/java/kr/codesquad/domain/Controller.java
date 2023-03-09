@@ -29,6 +29,7 @@ public class Controller {
 
         List<List<String>> lists = ladder.makeLadder(ladderMaker.makeBooleanLadder(peopleNumber, height));
 
+        ladderView.printNames(names);
         ladderView.printLadder(lists);
     }
 
