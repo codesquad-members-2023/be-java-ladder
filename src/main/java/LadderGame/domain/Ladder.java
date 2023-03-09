@@ -7,15 +7,15 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class Ladder {
-    private final int ladder_height;
-    private final ArrayList<Line> ladder_set;
+    private final int ladderHeight;
+    private final ArrayList<Line> ladderSet;
     private final ArrayList<String> names;
 
     // 초기값 세팅
-    public Ladder(int ladder_height, String names) {
-        this.ladder_height = ladder_height;
+    public Ladder(int ladderHeight, String names) {
+        this.ladderHeight = ladderHeight;
         this.names = parsingName(names);
-        ladder_set = new ArrayList<>();
+        ladderSet = new ArrayList<>();
     }
 
     // 이름 분리(5글자 초과는 5자로 컷)
@@ -28,8 +28,8 @@ public class Ladder {
 
     // 사다리 설정
     public void makeLadder() {
-        for (int i = 0; i < ladder_height; i++) {
-            ladder_set.add(new Line(names.size()));
+        for (int i = 0; i < ladderHeight; i++) {
+            ladderSet.add(new Line(names.size()));
         }
     }
 
@@ -38,6 +38,6 @@ public class Ladder {
         Output output = new Output();
 
         output.printName(names);
-        output.printLadder(ladder_set);
+        output.printLadder(ladderSet);
     }
 }
