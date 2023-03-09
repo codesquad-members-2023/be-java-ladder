@@ -25,23 +25,12 @@ public class LadderMaker {
         return ladder.getPlayersNameRow().size();
     }
 
-    public void fillLadderRow(int row, int width) {
+    private void fillLadderRow(int row, int width) {
         checkConnected = false;
         for (int i = 0; i < width; i++) {
             initializeCheckConnected(i, connectedIndex);
-            if (createStick(row, i)) {
-                continue;
-            }
             ladder.getLadderRow(row).add(decideWhetherConnected(i));
         }
-    }
-
-    private boolean createStick(int row, int index) {
-        if (index % 2 == 0) {
-            ladder.getLadderRow(row).add("|");
-            return true;
-        }
-        return false;
     }
 
     private void initializeCheckConnected(int index, int connectedIndex) {
@@ -51,12 +40,19 @@ public class LadderMaker {
     }
 
     private String decideWhetherConnected(int index) {
+        if (index % 2 == 0) {
+            return "|";
+        }
         if (randomBooleanGenerator() && !checkConnected) {
-            checkConnected = true;
-            connectedIndex = index;
+            whenConnected(index);
             return "-----";
         }
         return "     ";
+    }
+
+    private void whenConnected(int index) {
+        checkConnected = true;
+        connectedIndex = index;
     }
 
     private boolean randomBooleanGenerator() {
