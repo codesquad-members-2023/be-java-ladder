@@ -10,7 +10,7 @@ public class LadderTest {
     void test00() {
         Ladder ladder = new Ladder("pobi,honux,crong,jk", 5);
         ladder.makeLadder();
-        ladder.callOutput();
+        ladder.callOfOutput();
     }
 
     @Test
@@ -18,14 +18,14 @@ public class LadderTest {
     void test01() {
         String str = "";
 
-        for(int i=1; i<100; i++){
+        for (int i = 1; i < 100; i++) {
             str += Integer.toString(i) + ",";
         }
         str += "100";
 
         Ladder ladder = new Ladder(str, 5);
         ladder.makeLadder();
-        ladder.callOutput();
+        ladder.callOfOutput();
     }
 
     @Test
@@ -33,6 +33,6 @@ public class LadderTest {
     void test02() {
         Ladder ladder = new Ladder("pobi,honux,crong,jk", 100);
         ladder.makeLadder();
-        ladder.callOutput();
+        ladder.callOfOutput();
     }
 }
