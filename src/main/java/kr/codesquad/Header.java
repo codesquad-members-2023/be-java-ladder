@@ -7,6 +7,10 @@ public class Header {
 
     private List<String> ladderHeader;
 
+    public Header(String[] participantsList) {
+        makeHeader(participantsList);
+    }
+
     public void makeHeader(String[] participantsList) {
 
         ladderHeader = new ArrayList<>();

@@ -13,8 +13,8 @@ public class Viewer {
     public void startGame() throws IOException {
         String[] participantsList = participantsList();
         int height = Integer.parseInt(howHigh());
-        header = new Header();
-        header.makeHeader(participantsList);
+
+        header = new Header(participantsList);
         ladderMaker = new LadderMaker(participantsList, height);
     }
 
