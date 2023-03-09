@@ -50,4 +50,17 @@ class GameTest {
 
         game.findDestinationOf("pobi");
     }
+
+    @Test
+    void findAllDestinations() {
+        Ladder ladder = new Ladder();
+        View view = new View();
+        Game game = new Game(ladder, view);
+
+        List<String> peopleNames = List.of("pobi", "honux", "crong", "jk");
+        List<String> results = List.of("꽝", "5000", "꽝", "3000");
+        game.start(peopleNames, results, 5);
+
+        game.findDestinationOf("all");
+    }
 }

@@ -3,6 +3,7 @@ package kr.codesquad.domain;
 import kr.codesquad.dto.PersonResultPair;
 import kr.codesquad.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -10,6 +11,7 @@ public class Game {
     private final Ladder ladder;
     private final View view;
     private People people;
+    private List<String> peopleNames;
     private List<String> results;
 
     public Game(Ladder ladder, View view) {
@@ -21,6 +23,7 @@ public class Game {
         validateResultsCount(peopleNames, results);
 
         this.people = new People(peopleNames, ladder);
+        this.peopleNames = peopleNames;
         this.results = results;
 
         String ladderResult = ladder.make(peopleNames, ladderHeight);
@@ -28,18 +31,27 @@ public class Game {
     }
 
     public void findDestinationOf(String name) {
-//        if (name.equals("all")) {
-//            List<Integer> destinations = people.findAllDestinations();
-//            return;
-//        }
+        if (name.equals("all")) {
+            printAllResult();
+            return;
+        }
 
         int destination = people.findDestinationOf(name);
         view.printResult(new PersonResultPair(name, results.get(destination)));
     }
 
-    private void validateResultsCount(List<String> peopleNames, List<String> results) {
-        if (peopleNames.size() != results.size()) {
+    private void validateResultsCount(List<String> userInputPeopleNames, List<String> userInputResults) {
+        if (userInputPeopleNames.size() != userInputResults.size()) {
             throw new IllegalArgumentException("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
         }
+    }
+
+    private void printAllResult() {
+        List<Integer> destinations = people.findAllDestinations();
+        List<PersonResultPair> pairs = new ArrayList<>();
+        for (int i = 0; i < peopleNames.size(); i++) {
+            pairs.add(new PersonResultPair(peopleNames.get(i), results.get(destinations.get(i))));
+        }
+        view.printResultAll(pairs);
     }
 }

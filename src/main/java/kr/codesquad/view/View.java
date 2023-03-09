@@ -18,6 +18,13 @@ public class View {
         System.out.println();
     }
 
+    public void printResultAll(List<PersonResultPair> pairs) {
+        System.out.println("\n실행 결과");
+        pairs.forEach(pair -> {
+            System.out.println(pair.getName() + " : " + pair.getResult());
+        });
+    }
+
     public void printResult(PersonResultPair pair) {
         System.out.println("\n실행 결과");
         System.out.println(pair.getName() + " : " + pair.getResult());
