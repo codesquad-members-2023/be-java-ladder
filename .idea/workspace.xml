@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="37600dd4-43dd-4b2d-a62d-19fc13fe37ec" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LadderGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LadderGame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LadderGame/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LadderGame/domain/Ladder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LadderGame/domain/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LadderGame/domain/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LadderGame/view/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LadderGame/view/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LadderGameTest/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderGameTest/LadderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LadderGameTest/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,21 +86,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.LadderTest.test00">
-    <configuration name="LadderGame.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LadderGame.Main" />
-      <module name="java-lotto.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LadderGame.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LadderTest.test00" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.LineTest.lineTest01">
+    <configuration name="LadderTest.ladderTest00 (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -116,7 +100,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;LadderTest.test00&quot;" />
+            <option value="&quot;LadderTest.ladderTest00&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -126,7 +110,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LadderTest.test01" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LadderTest.ladderTest00" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -139,7 +123,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;LadderTest.test01&quot;" />
+            <option value="&quot;LadderGameTest.LadderTest.ladderTest00&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -149,7 +133,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LadderTest.test02" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LineTest.lineTest00 (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -162,7 +146,53 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;LadderTest.test02&quot;" />
+            <option value="&quot;LadderGameTest.LineTest.lineTest00&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LineTest.lineTest00" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;LineTest.lineTest00&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LineTest.lineTest01" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;LineTest.lineTest01&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -174,10 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.LadderTest.test02" />
-        <item itemvalue="Gradle.LadderTest.test00" />
-        <item itemvalue="Gradle.LadderTest.test01" />
-        <item itemvalue="애플리케이션.LadderGame.Main" />
+        <item itemvalue="Gradle.LineTest.lineTest01" />
+        <item itemvalue="Gradle.LadderTest.ladderTest00 (1)" />
+        <item itemvalue="Gradle.LadderTest.ladderTest00" />
+        <item itemvalue="Gradle.LineTest.lineTest00" />
+        <item itemvalue="Gradle.LineTest.lineTest00 (1)" />
       </list>
     </recent_temporary>
   </component>
