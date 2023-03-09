@@ -14,6 +14,14 @@ public class Point {
         this.status = Status.DISCONNECTED;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public PointType getType() {
         return type;
     }
