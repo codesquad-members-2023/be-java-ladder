@@ -1,36 +1,28 @@
 package kr.codesquad;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class LadderMaker {
 
-    private List<List<String>> ladder = new ArrayList<>();
+    private Ladder ladder;
     private boolean checkConnected;
     private int connectedIndex = -1;
 
-    public List<List<String>> createLadder(String playersName, int height) {
-        initializeLadder(height);
+    public Ladder createLadder(String playersName, int height) {
+        ladder = new Ladder(height);
         int width = (fillPlayersNameRow(playersName) * 2) - 1;
-        for (int i = 1; i < ladder.size(); i++) {
+        for (int i = 1; i < ladder.showSizeOfLadder(); i++) {
             fillLadderRow(i, width);
         }
         return ladder;
     }
 
-    private void initializeLadder(int height) {
-        for (int i = 0; i < height + 1; i++) {
-            ladder.add(new ArrayList<>());
-        }
-    }
-
     private int fillPlayersNameRow(String playersName) {
-        String[] splittedPlayersName = playersName.split("[%-@#\\s]");
+        String[] splittedPlayersName = playersName.split("[%-@#]");
         for (String name : splittedPlayersName) {
-            ladder.get(0).add(name);
+            ladder.getPlayersNameRow().add(name);
         }
-        return ladder.get(0).size();
+        return ladder.getPlayersNameRow().size();
     }
 
     public void fillLadderRow(int row, int width) {
@@ -40,13 +32,13 @@ public class LadderMaker {
             if (createStick(row, i)) {
                 continue;
             }
-            ladder.get(row).add(decideWhetherConnected(i));
+            ladder.getLadderRow(row).add(decideWhetherConnected(i));
         }
     }
 
-    private boolean createStick(int row, int i) {
-        if (i % 2 == 0) {
-            ladder.get(row).add("|");
+    private boolean createStick(int row, int index) {
+        if (index % 2 == 0) {
+            ladder.getLadderRow(row).add("|");
             return true;
         }
         return false;
