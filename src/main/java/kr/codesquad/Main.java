@@ -12,7 +12,7 @@ public class Main {
         int userNum = inputTerminal.getLineNum();
         int lineLength = inputTerminal.getLineLength();
 
-        Point[][] pointMap = inputConverter.convertToPointMap(userNum, lineLength);
+        Ladder pointMap = inputConverter.convertToPointMap(userNum, lineLength);
         pointMap = ladderMaker.makeLadderFromPointMap(pointMap);
         view.render(pointMap);
     }

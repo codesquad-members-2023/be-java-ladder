@@ -15,6 +15,7 @@ public class Ladder {
         return lineHeight;
     }
 
+
     public Ladder(int lineWidth, int lineHeight) {
         this.lineWidth = lineWidth;
         this.lineHeight = lineHeight;
@@ -35,6 +36,7 @@ public class Ladder {
     }
 
     public void connectLineByPositionAtRandom(int positionOfX, int positionOfY) {
+        if (!(isValidPosition(positionOfX, positionOfY))) return;
         Point point = findPointByPosition(positionOfX, positionOfY);
         if (Math.random() < 0.2) {
             point.setStatus(Status.CONNECTED);

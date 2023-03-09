@@ -1,56 +1,49 @@
 package kr.codesquad;
 
-public class InputConverter {
-    private int lineWidth;
-    private int lineHeight;
+import java.util.ArrayList;
 
-    public Point[][] convertToPointMap(int lineNum, int lineLength) {
-        Point[][] pointMap = makePointMap(lineNum, lineLength);
-        setHeightAndWidthOfLine(pointMap);
+public class InputConverter {
+
+    public Ladder convertToPointMap(int lineNum, int lineLength) {
+        Ladder pointMap = makePointMap(lineNum, lineLength);
         initPointMap(pointMap);
         return pointMap;
     }
 
-    private void setHeightAndWidthOfLine(Point[][] pointMap) {
-        lineWidth = pointMap[0].length;
-        lineHeight = pointMap.length;
+
+
+    private static Ladder makePointMap(int lineNum, int lineLength) {
+        Ladder ladder = new Ladder(2 * lineNum - 1, lineLength);
+        return ladder;
     }
 
-    private static Point[][] makePointMap(int lineNum, int lineLength) {
-        Point[][] pointMap = new Point[lineLength][];
-        for (int i = 0; i < lineLength; i++) {
-            pointMap[i] = new Point[2 * lineNum - 1];
-        }
-        return pointMap;
-    }
-
-    private void initPointMap(Point[][] pointMap) {
+    private void initPointMap(Ladder pointMap) {
         initPointMapFirstLine(pointMap);
         initPointMapMediumLine(pointMap);
         initPointMapLastLine(pointMap);
     }
 
-    private void initPointMapFirstLine(Point[][] pointMap) {
+    private void initPointMapFirstLine(Ladder pointMap) {
         initPointMapForRowLine(pointMap, 0, PointType.USER, PointType.BLOCK);
     }
 
-    private void initPointMapMediumLine(Point[][] pointMap) {
-        for (int i = 1; i < lineHeight - 1; i++) {
+    private void initPointMapMediumLine(Ladder pointMap) {
+        for (int i = 1; i < pointMap.getLineHeight() - 1; i++) {
             initPointMapForRowLine(pointMap, i, PointType.LADDER, PointType.LINE);
         }
     }
 
-    private void initPointMapLastLine(Point[][] pointMap) {
-        initPointMapForRowLine(pointMap, lineHeight -1, PointType.DESTINATION, PointType.BLOCK);
+    private void initPointMapLastLine(Ladder pointMap) {
+        initPointMapForRowLine(pointMap, pointMap.getLineHeight() - 1, PointType.DESTINATION, PointType.BLOCK);
     }
 
-    private void initPointMapForRowLine(Point[][] pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
-        for (int i = 0; i < lineWidth; i++) {
+    private void initPointMapForRowLine(Ladder pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
+        for (int i = 0; i < pointMap.getLineWidth(); i++) {
             makePointForPosition(pointMap, lineHeight, pointTypeOfOddPosition, pointTypeOfEvenPosition, i);
         }
     }
 
-    private void makePointForPosition(Point[][] pointMap, int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition, int i) {
+    private void makePointForPosition(Ladder pointMap, int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition, int i) {
         if (i % 2 == 0) {
             makePointForPosition(pointMap, i, lineHeight, pointTypeOfOddPosition);
             return;
@@ -58,8 +51,10 @@ public class InputConverter {
         makePointForPosition(pointMap, i, lineHeight, pointTypeOfEvenPosition);
     }
 
-    private void makePointForPosition(Point[][] pointMap, int positionOfX, int positionOfY, PointType pointType) {
-        pointMap[positionOfY][positionOfX] = new Point(positionOfX, positionOfY, pointType);
+    private void makePointForPosition(Ladder pointMap, int positionOfX, int positionOfY, PointType pointType) {
+        pointMap.addPoint(new Point(positionOfX, positionOfY, pointType));
     }
+
+
 
 }
