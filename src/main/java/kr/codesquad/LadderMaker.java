@@ -1,39 +1,21 @@
 package kr.codesquad;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
+import static kr.codesquad.Line.*;
 
 public class LadderMaker {
-    private Shape[][] ladder;
+    private List<List<Shape>> ladder;
 
-    public LadderMaker(int participants, int ladderHeight) {
-        ladder = new Shape[ladderHeight][participants + participants - 1];
+    public LadderMaker() {
+        ladder = new ArrayList<>();
     }
 
-    public void makesLadder() {
-        for (int x = 0; x < ladder.length; x++) {
-            drawLadderRow(x);
-        }
-    }
-
-    private void drawLadderRow(int x) {
-        for (int y = 0; y < ladder[x].length; y++) {
-            decidesShape(x, y);
-        }
-    }
-
-    private void decidesShape(int x, int y) {
-        if (y % 2 == 0) {
-            ladder[x][y] = Shape.LADDER_COL_PIECE;
-            return;
-        }
-        ladder[x][y] = Shape.EMPTY_SPACE;
-        isConnected(x, y);
-    }
-
-    private void isConnected(int x, int y) {
-        Random random = new Random();
-        if (random.nextBoolean()) {
-            ladder[x][y] = Shape.LADDER_ROW_PIECE;
+    public void makesLadder(int participantsCount, int ladderHeight) {
+        for (int x = 0; x < ladderHeight; x++) {
+            Line line = new Line();
+            ladder.add(line.drawsLine(participantsCount));
         }
     }
 
@@ -43,15 +25,15 @@ public class LadderMaker {
 
     private StringBuilder convertArrayToStringBuilder() {
         StringBuilder sb = new StringBuilder();
-        for (Shape[] row : ladder) {
-            printLadderRow(row, sb);
+        for (List<Shape> line : ladder) {
+            printLadderLine(line, sb);
             sb.append("\n");
         }
         return sb;
     }
 
-    private static StringBuilder printLadderRow(Shape[] row, StringBuilder sb) {
-        for (Shape point : row) {
+    private static StringBuilder printLadderLine(List<Shape> line, StringBuilder sb) {
+        for (Shape point : line) {
             sb.append(point.getShape());
         }
         return sb;

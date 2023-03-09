@@ -11,10 +11,8 @@ public class LadderGame {
     }
 
     public void start() {
-        String[] participants = asksParticipate();
-        int ladderHeight = asksHeight();
-        laddermaker = new LadderMaker(participants.length, ladderHeight);
-        laddermaker.makesLadder();
+        laddermaker = new LadderMaker();
+        laddermaker.makesLadder(askParticipates().length, asksHeight());
         printLadder(laddermaker.getLadder());
     }
 }
