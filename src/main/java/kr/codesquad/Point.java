@@ -4,6 +4,7 @@ package kr.codesquad;
 public class Point {
     private int positionOfX;
     private int positionOfY;
+    private String userName;
     private PointType type;
     private Status status;
 
@@ -57,8 +58,11 @@ public class Point {
             case LADDER ->  {
                 return "|";
             }
-            case BLOCK ->  {
+            case TOP_BLOCK ->  {
                 return " ";
+            }
+            case BOTTOM_BLOCK -> {
+                return "    ";
             }
         }
         return null;
@@ -66,8 +70,8 @@ public class Point {
 
     private String lineToString() {
         if (status == Status.CONNECTED) {
-            return "-";
+            return "----";
         }
-        return " ";
+        return "    ";
     }
 }

@@ -10,8 +10,6 @@ public class InputConverter {
         return pointMap;
     }
 
-
-
     private static Ladder makePointMap(int lineNum, int lineLength) {
         Ladder ladder = new Ladder(2 * lineNum - 1, lineLength);
         return ladder;
@@ -24,7 +22,7 @@ public class InputConverter {
     }
 
     private void initPointMapFirstLine(Ladder pointMap) {
-        initPointMapForRowLine(pointMap, 0, PointType.USER, PointType.BLOCK);
+        initPointMapForRowLine(pointMap, 0, PointType.USER, PointType.TOP_BLOCK);
     }
 
     private void initPointMapMediumLine(Ladder pointMap) {
@@ -34,7 +32,7 @@ public class InputConverter {
     }
 
     private void initPointMapLastLine(Ladder pointMap) {
-        initPointMapForRowLine(pointMap, pointMap.getLineHeight() - 1, PointType.DESTINATION, PointType.BLOCK);
+        initPointMapForRowLine(pointMap, pointMap.getLineHeight() - 1, PointType.DESTINATION, PointType.BOTTOM_BLOCK);
     }
 
     private void initPointMapForRowLine(Ladder pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
