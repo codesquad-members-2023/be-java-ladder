@@ -6,27 +6,29 @@ import java.io.InputStreamReader;
 
 public class InputView {
     private BufferedReader br;
+    private final String PATTERN = "^[a-zA-Z]{1,5}(,[a-zA-Z]{1,5})+$";
 
     public InputView() {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public int getParticipantsNumber() {
+    public int getParticipants() {
         try {
-            return isRightParticipantsNumber(br.readLine());
+            String input = isRightFormat(br.readLine());
         } catch (IllegalArgumentException | IOException e) {
             System.out.println(e.getMessage());
             return getParticipantsNumber();
         }
     }
 
-    private int isRightParticipantsNumber(String input) {
-        int count = Integer.parseInt(input);
-        if (count <= 1) {
-            throw new IllegalArgumentException("인원 수는 2명 이상입니다.\n");
+    private String isRightFormat(String input) {
+        if (!input.matches(PATTERN)) {
+            throw new IllegalArgumentException("인원수는 최소 2명이며, ','로 구분해주세요.");
         }
-        return count;
+        return input;
     }
+
+    private 
 
     public int getLadderHeight() {
         try {
