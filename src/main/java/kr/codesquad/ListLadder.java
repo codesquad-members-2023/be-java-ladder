@@ -29,11 +29,7 @@ public class ListLadder {
         final int CHARACTER_MULTIPLIER = 5;
 
         for (char ch : row) {
-            if (ch == VERTICAL_BAR) {
-                list.add(ch);
-            } else {
-                list.addAll(Collections.nCopies(CHARACTER_MULTIPLIER, ch));
-            }
+            list.addAll(ch == VERTICAL_BAR ? List.of(ch) : Collections.nCopies(CHARACTER_MULTIPLIER, ch));
         }
     }
 
