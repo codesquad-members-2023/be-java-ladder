@@ -1,8 +1,6 @@
 package kr.codesquad;
 
 import java.util.Scanner;
-
-import static kr.codesquad.OutputView.*;
 import static kr.codesquad.OutputView.printLadder;
 
 public class Application {
