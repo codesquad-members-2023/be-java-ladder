@@ -10,10 +10,10 @@ public class Main {
         Ladder ladder = new Ladder(input.inputHeight(), input.inputNames());
 
         // 사다리 설정
-        ladder.setLadder();
+        ladder.makeLadder();
 
         // 사다리 출력
         System.out.println();
-        ladder.callPrint();
+        ladder.callOutput();
     }
 }

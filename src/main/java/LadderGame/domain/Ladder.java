@@ -27,17 +27,17 @@ public class Ladder {
     }
 
     // 사다리 설정
-    public void setLadder() {
+    public void makeLadder() {
         for (int i = 0; i < ladder_height; i++) {
             ladder_set.add(new Line(names.size()));
         }
     }
 
     // 출력 호출
-    public void callPrint() {
+    public void callOutput() {
         Output output = new Output();
 
-        output.namePrint(names);
-        output.setPrint(ladder_set);
+        output.printName(names);
+        output.printLadder(ladder_set);
     }
 }
