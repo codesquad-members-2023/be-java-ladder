@@ -3,8 +3,6 @@ package kr.codesquad;
 import java.util.ArrayList;
 import java.util.List;
 
-import static kr.codesquad.Line.*;
-
 public class LadderMaker {
     private List<List<Shape>> ladder;
 
