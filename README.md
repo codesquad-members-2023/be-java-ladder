@@ -52,6 +52,15 @@
 파일 마지막에 개행이 없다면 파일간 구분이 힘들다.
 > 참고자료 : https://blog.coderifleman.com/2015/04/04/text-files-end-with-a-newline/
 
+## 사다리를, header 머리부분과 몸통 부분으로 구분하자. -> 맨위만 입력한 사람들이 들어온다.
+- 어떻게 해야 최대한 기존코드에 변경없이 추가된 요구사항을 추가 할 수 있을까??
+
+## Arrays.asList vs List.of 차이
+- 기존의 둘이 차이점을 정확히 모르고 사용했다. 간단히 말해 (Mutable / Immutable)의차이이다.
+즉 변경 가능 여부이다. Arrays.asList()로 반환된 list는 변경이 가능하다. 하지만 of는 수정 할 수 없다.
+- 그 밖에도 Null 허용 여부 등이 있다.
+
+> 참고자료 https://jaehoney.tistory.com/144
 # 미션 4 단계
 
 ## 단위 테스트
