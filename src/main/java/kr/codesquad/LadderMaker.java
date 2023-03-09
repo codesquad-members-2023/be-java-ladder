@@ -2,14 +2,14 @@ package kr.codesquad;
 
 import java.util.Random;
 
-public class Ladder {
+public class LadderMaker {
     private Shape[][] ladder;
 
-    public Ladder(int participants, int ladderHeight) {
+    public LadderMaker(int participants, int ladderHeight) {
         ladder = new Shape[ladderHeight][participants + participants - 1];
     }
 
-    public void makeLadder() {
+    public void makesLadder() {
         for (int x = 0; x < ladder.length; x++) {
             drawLadderRow(x);
         }

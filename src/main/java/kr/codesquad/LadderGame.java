@@ -4,7 +4,7 @@ import static kr.codesquad.OutputView.*;
 
 public class LadderGame {
     private InputView inputView;
-    private Ladder ladder;
+    private LadderMaker ladder;
 
     public LadderGame() {
         inputView = new InputView();
@@ -13,12 +13,10 @@ public class LadderGame {
     public void start() {
         printHowManyParticipates();
         int participantsNum = inputView.getParticipantsNumber();
-
         printHowMuchHigh();
         int ladderHeight = inputView.getLadderHeight();
-
-        ladder = new Ladder(participantsNum, ladderHeight);
-        ladder.makeLadder();
+        ladder = new LadderMaker(participantsNum, ladderHeight);
+        ladder.makesLadder();
         printLadder(ladder.getLadder());
     }
 }
