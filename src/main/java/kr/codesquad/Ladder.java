@@ -7,6 +7,14 @@ public class Ladder {
     private int lineWidth;
     private int lineHeight;
 
+    public int getLineWidth() {
+        return lineWidth;
+    }
+
+    public int getLineHeight() {
+        return lineHeight;
+    }
+
     public Ladder(int lineWidth, int lineHeight) {
         this.lineWidth = lineWidth;
         this.lineHeight = lineHeight;
@@ -19,5 +27,10 @@ public class Ladder {
 
     public ArrayList<Point> getPointMap() {
         return pointMap;
+    }
+    
+    public boolean isValidPosition(int positionOfX, int positionOfY) {
+        if (!(1 <= positionOfY && positionOfY < lineHeight - 1)) return false; // y축 체크
+        return 0 <= positionOfX && positionOfX < lineWidth; // x 축 체크
     }
 }
