@@ -12,19 +12,19 @@ public class Line {
         initLine(numberOfParticipants);
     }
 
-    public void initLine(int numberOfParticipants) {
+    private void initLine(int numberOfParticipants) {
         for (int section = 0; section < numberOfParticipants - 1; section++) {
-            initSection(section);
+            initSection(section, RandomGenerator.generate());
         }
     }
 
-    private void initSection(int section) {
+    private void initSection(int section, boolean random) {
         //앞 칸에 사다리가 있는 경우 연속으로 사다리를 생성하지 않는다.
         if (section > 0 && hasConnection(section - 1)) {
             sections.add(Boolean.FALSE);
             return ;
         }
-        sections.add(RandomGenerator.generate());
+        sections.add(random);
     }
 
     public boolean hasConnection(int section) {

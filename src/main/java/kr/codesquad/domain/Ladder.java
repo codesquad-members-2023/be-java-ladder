@@ -9,9 +9,18 @@ public class Ladder {
     private List<String> names;
     private ArrayList<Line> ladderMap;
 
-    public Ladder(List<String> names, ArrayList<Line> ladderMap) {
+    public Ladder(List<String> names, int height) {
         this.names = names;
-        this.ladderMap = ladderMap;
+        ladderMap = initMap(names.size(), height);
+    }
+
+    private ArrayList<Line> initMap(int numberOfParticipants, int height) {
+        ArrayList<Line> ladderMap = new ArrayList<>();
+        for (int floorIndex = 0; floorIndex < height; floorIndex++) {
+            ladderMap.add(new Line(numberOfParticipants));
+
+        }
+        return ladderMap;
     }
 
     public String getRenderedString() {
