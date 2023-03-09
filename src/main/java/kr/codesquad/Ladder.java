@@ -2,50 +2,54 @@ package kr.codesquad;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class Ladder {
     private char[][] ladder;
-    private int ladderCount;
-    private int manCount;
 
     public Ladder(int manCount, int ladderCount) {
-        this.ladder = new char[ladderCount][ladderCount];
-        for (int i = 0; i < ladder.length; i++) {
-            Arrays.fill(ladder[i], '|');
-        }
-        emptyPlace();
-        randomDisposeLadder();
-        this.ladderCount = ladderCount;
-        this.manCount = manCount;
+        this.ladder = new char[ladderCount][manCount + (manCount - 1)];
+        ladderInit();
+        insertEmptySpaceToLadder();
+        insertRandomDisposeToLadder();
     }
 
-    private void randomDisposeLadder() {
+    private void ladderInit() {
+        Arrays.stream(ladder)
+                .forEach(row -> Arrays.fill(row, '|'));
+    }
+
+    private void insertRandomDisposeToLadder() {
+        for (char[] col : ladder) {
+            insertRowStick(col);
+        }
+    }
+
+    private void insertRowStick(char[] col) {
+        for (int row = 1; row < col.length; row += 2) {
+            insertRandomStick(col, row);
+        }
+    }
+
+    private void insertRandomStick(char[] col, int row) {
         Random random = new Random();
-
-        for (int i = 0; i < this.ladder.length; i++) {
-            for (int j = 0; j < this.ladder[i].length; j++) {
-                if (j % 2 != 0) {
-                    int flag = random.nextInt(2);
-                    if (flag == 0) {
-                        ladder[i][j] = '-';
-                        break;
-                    }
-                }
-            }
+        if (random.nextBoolean()) {
+            col[row] = '-';
         }
     }
 
-    private void emptyPlace() {
-        for (int i = 0; i < this.ladder.length; i++) {
-            for (int j = 0; j < this.ladder[i].length; j++) {
-                if (j % 2 != 0) {
-                    ladder[i][j] = ' ';
-                }
-            }
+    private void insertEmptySpaceToLadder() {
+        IntStream.range(0,ladder.length)
+                .forEach(this::insertEmptySpaceLadderRow);
+    }
+
+    private void insertEmptySpaceLadderRow(int col) {
+        for (int row = 1; row < this.ladder[col].length; row += 2) {
+            ladder[col][row] = ' ';
         }
     }
 
-    public char[][] getLadder() {
-        return ladder;
+    public char[][] ladderClone() {
+        return ladder.clone();
     }
 }

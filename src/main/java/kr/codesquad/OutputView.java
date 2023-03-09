@@ -1,18 +1,12 @@
 package kr.codesquad;
 
+import java.util.Arrays;
+
 public class OutputView {
-    private char[][] ladder;
 
-    public OutputView(char[][] ladder) {
-        this.ladder = ladder.clone();
-    }
-
-    public void printLadder() {
-        for (char[] chars : ladder) {
-            for (char aChar : chars) {
-                System.out.print(aChar);
-            }
-            System.out.println();
-        }
+    public static void printLadder(char[][] ladder) {
+        Arrays.stream(ladder)
+                .map(String::new)
+                .forEach(System.out::println);
     }
 }
