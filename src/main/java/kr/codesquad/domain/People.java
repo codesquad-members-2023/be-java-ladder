@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,4 +23,13 @@ public class People {
         return target.goDownLadder(people.indexOf(target));
     }
 
+    public List<Integer> findAllDestinations() {
+        ArrayList<Integer> destinations = new ArrayList<>();
+
+        int idx = 0;
+        for (Person person : people) {
+            destinations.add(person.goDownLadder(idx++));
+        }
+        return destinations;
+    }
 }

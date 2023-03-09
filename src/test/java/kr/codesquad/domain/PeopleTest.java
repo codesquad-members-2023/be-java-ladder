@@ -60,4 +60,22 @@ class PeopleTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 해당하는 이름은 없습니다. 입력한 이름 : hk");
     }
+
+    @Test
+    @DisplayName("모든 사람들의 사다리타기 결과값을 반환하는지 확인한다.")
+    void findAllDestinations() {
+        List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
+        Ladder ladder = new Ladder();
+
+        People people = new People(peopleNames, ladder);
+
+        String ladderResult = ladder.make(peopleNames, 5);
+
+        View view = new View();
+        view.printResult(peopleNames, ladderResult);
+
+        List<Integer> destinations = people.findAllDestinations();
+
+        System.out.println(destinations);
+    }
 }
