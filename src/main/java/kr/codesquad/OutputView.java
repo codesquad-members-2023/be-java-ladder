@@ -3,7 +3,6 @@ package kr.codesquad;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.List;
 
 public class OutputView {
@@ -50,8 +49,8 @@ public class OutputView {
         globalPrintln("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
     }
 
-    public void printLadder(List<List<String>> ladder) {
-        printPlayersName(ladder.get(0));
+    public void printLadder(Ladder ladder) {
+        printPlayersName(ladder.getPlayersNameRow());
         printBelowPlayersName(ladder);
     }
 
@@ -62,9 +61,9 @@ public class OutputView {
         globalNewLine();
     }
 
-    private void printBelowPlayersName(List<List<String>> ladder) {
-        for (int i = 1; i < ladder.size(); i++) {
-            printRows(ladder.get(i));
+    private void printBelowPlayersName(Ladder ladder) {
+        for (int i = 1; i < ladder.showSizeOfLadder(); i++) {
+            printRows(ladder.getLadderRow(i));
             globalNewLine();
         }
     }
