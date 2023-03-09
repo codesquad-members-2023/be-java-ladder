@@ -1,17 +1,12 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public class RandomsGenerator {
 
-    private int participants;
-    private int height;
+    public int[] generateRandoms(int numOfParticipants) {
+        int max = numOfParticipants - 1;
 
-    public RandomsGenerator(int participants, int height) {
-        this.participants = participants;
-        this.height = height;
-    }
-
-    public int[] generateRandoms() {
-        int max = height * (participants - 1) - 1;
         int[] randoms = new int[max];
 
         for (int i = 0; i < max; i++) {
@@ -19,6 +14,23 @@ public class RandomsGenerator {
             randoms[i] = random;
         }
 
+        return validationContinuous(randoms);
+    }
+
+    private int[] validationContinuous(int[] randoms) {
+        int prev = randoms[0];
+
+        for (int i = 1; i < randoms.length; i++) {
+            continuesBridge(randoms, prev, i);
+            prev = randoms[i];
+        }
+
         return randoms;
+    }
+
+    private void continuesBridge(int[] randoms, int prev, int i) {
+        if (prev % 2 == 0 && randoms[i] % 2 == 0) {
+            randoms[i] = 1;
+        }
     }
 }

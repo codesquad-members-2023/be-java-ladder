@@ -1,64 +1,63 @@
 package kr.codesquad;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LadderMaker {
 
-    private int participants;
-    private int height;
-    String[][] ladder;
-    RandomsGenerator randomsGenerator;
+    private final List<List<String>> ladder;
 
-    public LadderMaker(int participants, int height) {
-        this.participants = participants;
-        this.height = height;
-
-        this.ladder = new String[height][participants * 2 - 1];
-        makeLadder();
+    public LadderMaker(String[] participants, int height) {
+        int numOfParticipants = participants.length;
+        this.ladder = new ArrayList<>();
+        makeLadder(numOfParticipants, height);
     }
 
-    public void makeLadder() {
-        randomsGenerator = new RandomsGenerator(participants, height);
+    public void makeLadder(int numOfParticipants, int height) {
 
-        for (int i = 0; i < ladder.length; i++) {
-            Arrays.fill(ladder[i], " ");
-        }
+        for (int i = 0; i < height; i++) {
+            List<String> ladderRow;
 
-        insertLines();
-        insertBridges(randomsGenerator.generateRandoms());
-    }
-
-    private void insertLines() {
-        for (int row = 0; row < ladder.length; row++) {
-            validationEachRow(row);
+            RandomsGenerator randomsGenerator = new RandomsGenerator();
+            ladderRow = insertBridges(randomsGenerator.generateRandoms(numOfParticipants));
+            ladder.add(ladderRow);
         }
     }
 
-    private void validationEachRow(int row) {
-        for (int col = 0; col < ladder[0].length; col++) {
-            validationEachCol(row, col);
+
+    public List<String> insertBridges(int[] randoms) {
+
+        List<String> ladderRow = new ArrayList<>();
+
+        ladderRow.add("  |");
+        for (int random : randoms) {
+            ladderRow.add(validationBridge(random));
+            ladderRow.add("|");
         }
+        return ladderRow;
     }
 
-    private void validationEachCol(int row, int col) {
-        if (col % 2== 0) {
-            ladder[row][col] = "|";
+    private String validationBridge(int random) {
+        if (random % 2 == 0) {
+            return "-----";
         }
+        return "     ";
     }
 
-    public void insertBridges(int[] randoms) {
-        for (int i = 0; i < randoms.length; i++) {
-            int r = randoms[i] % height;
-            int c = randoms[i] / height * 2 + 1;
-
-            ladder[r][c] = validationBridge(ladder[r][c]);
+    public String stringLadder() {
+        StringBuilder sb = new StringBuilder();
+        for (List<String> ladderRow : ladder) {
+            sb.append(stringLadderRow(ladderRow));
+            sb.append("\n");
         }
+        return sb.toString();
     }
 
-    private String validationBridge(String now) {
-        if (now.equals("-")) {
-            return now;
+    private String stringLadderRow(List<String> ladderRow) {
+        StringBuilder sb = new StringBuilder();
+        for (String el : ladderRow) {
+            sb.append(el);
         }
-        return "-";
+        return sb.toString();
     }
 }
