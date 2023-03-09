@@ -16,16 +16,16 @@ public class Viewer {
     }
 
     public void startGame() throws IOException {
-        String[] participantsList = participantsList().split(",");
+        String[] participantsList = participantsList();
         int height = Integer.parseInt(howHigh());
         header = new Header();
         header.makeHeader(participantsList);
         ladderMaker = new LadderMaker(participantsList, height);
     }
 
-    private String participantsList() throws IOException {
+    private String[] participantsList() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요");
-        return inputFromUser();
+        return inputFromUser().split(",");
     }
 
     private String howHigh() throws IOException {
