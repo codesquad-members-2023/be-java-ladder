@@ -12,18 +12,21 @@ public class Header {
         ladderHeader = new ArrayList<>();
 
         for (String name : participantsList) {
-            ladderHeader.add(name);
             ladderHeader.add(fitBlanks(name));
         }
     }
 
     private String fitBlanks(String name) {
         StringBuilder sb = new StringBuilder();
-        int whiteSpace = 6 - name.length();
+        int nameSize = 5;
 
-        while (whiteSpace-- > 0) {
+        sb.append(name);
+        sb.insert(0, " ");
+
+        while (sb.length() <= nameSize) {
             sb.append(" ");
         }
+
         return sb.toString();
     }
 
