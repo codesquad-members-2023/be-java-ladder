@@ -1,4 +1,4 @@
-package kr.codesquad.util;
+package kr.codesquad.ladder.util;
 
 import java.util.List;
 

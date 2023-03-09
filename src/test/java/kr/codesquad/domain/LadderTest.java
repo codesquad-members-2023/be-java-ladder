@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.util.RandomBoolean;
+import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.util.RandomBoolean;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

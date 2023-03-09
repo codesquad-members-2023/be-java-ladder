@@ -1,6 +1,6 @@
 package kr.codesquad;
 
-import kr.codesquad.domain.LadderGame;
+import kr.codesquad.ladder.domain.LadderGame;
 
 public class Main {
 
