@@ -17,8 +17,8 @@ public class Game {
 
     public void start(List<String> people, int ladderHeight) {
         validateNameLength(people);
-        List<Line> ladderMap = ladder.make(people, ladderHeight);
-        view.printResult(people, ladderMap);
+        String ladderResult = ladder.make(people, ladderHeight);
+        view.printResult(people, ladderResult);
     }
 
     private void validateNameLength(List<String> people) {

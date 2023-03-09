@@ -19,4 +19,17 @@ class LineTest {
         assertThat(line.isOverlapping(List.of(true, false, false))).isEqualTo(false);
         assertThat(line.isOverlapping(List.of(false, true, true))).isEqualTo(true);
     }
+
+    @Test
+    @DisplayName("사다리 한 줄의 가로 길이가 정상적으로 만들어졌는지 테스트한다.")
+    void checkLineWidth() {
+        List<String> people = List.of("pobi", "honux", "crong", "jk", "hyun");
+        Line line = new Line(people);
+
+        String lineResult = line.draw();
+
+        int width = lineResult.length() - lineResult.replace("|", "").length();
+
+        assertThat(width).isEqualTo(people.size());
+    }
 }

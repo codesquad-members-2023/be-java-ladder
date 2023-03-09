@@ -11,11 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LadderTest {
 
     @Test
-    @DisplayName("사다리 맵의 높이가 정상적으로 만들어졌는지 테스트")
+    @DisplayName("사다리 맵의 높이가 정상적으로 만들어졌는지 테스트한다.")
     void makeBridge() {
         Ladder ladder = new Ladder();
-        List<Line> ladderMap = ladder.make(List.of("pobi", "honux", "crong", "jk"), 5);
+        List<String> people = List.of("pobi", "honux", "crong", "jk");
+        String ladderResult = ladder.make(people, 5);
+        int height = (ladderResult.length() - ladderResult.replace("|", "").length()) / people.size();
 
-        assertThat(ladderMap.size()).isEqualTo(5);
+        assertThat(height).isEqualTo(5);
     }
 }

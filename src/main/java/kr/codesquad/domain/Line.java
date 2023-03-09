@@ -25,6 +25,8 @@ public class Line {
 
     public String draw() {
         StringBuilder sb = new StringBuilder();
+
+        sb.append("  |");
         for (Boolean point : points) {
             sb.append(point ? "-----|" : "     |");
         }
