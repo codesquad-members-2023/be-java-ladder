@@ -24,8 +24,9 @@ public class View {
         return getLadderHeight();
     }
 
-    public static void printExecutionResult(StringBuilder ladder) {
+    public static void printExecutionResult(StringBuilder participants, StringBuilder ladder) {
         System.out.println(GAME_RESULT);
+        System.out.println(participants);
         System.out.println(ladder);
     }
 

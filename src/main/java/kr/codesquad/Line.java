@@ -13,7 +13,7 @@ public class Line {
     }
 
     public static List<Shape> drawsLine(int participantsCount) {
-        int lineWidth = participantsCount * 2 + 1;
+        int lineWidth = participantsCount * 2 - 1;
         for (int i = 0; i < lineWidth; i++) {
             decidesShape(i);
         }

@@ -31,6 +31,7 @@ public class LadderMaker {
     }
 
     private static StringBuilder printLadderLine(List<Shape> line, StringBuilder sb) {
+        sb.append("  ");
         for (Shape point : line) {
             sb.append(point.getShape());
         }
