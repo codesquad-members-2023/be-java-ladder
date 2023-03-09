@@ -46,18 +46,18 @@ public class Ladder {
         }
     }
 
-    public void makeColumn(List<String> row) {
-        List<Boolean> visited = new ArrayList<>(Collections.nCopies(row.size(), false));
-        for (int i = 2; i < row.size(); i++) {
-            row.set(i, checkEvenColumn(i, visited));
-        }
-    }
-
     public String checkEvenFirstRowColumn(int idx, Queue<String> queue) {
         if (idx % 2 == 0 && !queue.isEmpty()) {
             return queue.poll();
         }
         return "  ";
+    }
+
+    public void makeColumn(List<String> row) {
+        List<Boolean> visited = new ArrayList<>(Collections.nCopies(row.size(), false));
+        for (int i = 2; i < row.size(); i++) {
+            row.set(i, checkEvenColumn(i, visited));
+        }
     }
 
     public String checkEvenColumn(int idx, List<Boolean> visited) {
