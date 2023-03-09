@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomGenerator {
-    public static List<Boolean> generate(int size) {
+public class RandomGenerator implements RandomUtils {
+    @Override
+    public List<Boolean> generate(int size) {
         Random random = new Random();
         List<Boolean> randoms = new ArrayList<>();
         for (int index = 0; index < size; index++) {
