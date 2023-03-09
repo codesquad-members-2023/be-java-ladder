@@ -37,4 +37,17 @@ class GameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
     }
+
+    @Test
+    void findDestinationOf() {
+        Ladder ladder = new Ladder();
+        View view = new View();
+        Game game = new Game(ladder, view);
+
+        List<String> peopleNames = List.of("pobi", "honux", "crong", "jk");
+        List<String> results = List.of("꽝", "5000", "꽝", "3000");
+        game.start(peopleNames, results, 5);
+
+        game.findDestinationOf("pobi");
+    }
 }

@@ -23,7 +23,17 @@ public class Game {
         this.results = results;
 
         String ladderResult = ladder.make(peopleNames, ladderHeight);
-        view.printResult(peopleNames, ladderResult, results);
+        view.printLadder(peopleNames, ladderResult, results);
+    }
+
+    public void findDestinationOf(String name) {
+//        if (name.equals("all")) {
+//            List<Integer> destinations = people.findAllDestinations();
+//            return;
+//        }
+
+        int destination = people.findDestinationOf(name);
+        view.printResult(name, results.get(destination));
     }
 
     private void validateResultsCount(List<String> peopleNames, List<String> results) {

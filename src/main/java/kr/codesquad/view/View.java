@@ -15,4 +15,9 @@ public class View {
         results.forEach(result -> System.out.printf("%-6s", result));
         System.out.println();
     }
+
+    public void printResult(String name, String result) {
+        System.out.println("\n실행 결과");
+        System.out.println(name + " : " + result);
+    }
 }
