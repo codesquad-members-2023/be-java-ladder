@@ -38,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ManJu" />
+        <entry key="$PROJECT_DIR$" value="step01" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +49,6 @@
   }
 }</component>
   <component name="GitToolBoxStore">
-    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -57,18 +56,6 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
-                  <RecentBranch>
-                    <option name="branchName" value="step04.4" />
-                    <option name="lastUsedInstant" value="1678344366" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="ManJu" />
-                    <option name="lastUsedInstant" value="1678344331" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="step04.3" />
-                    <option name="lastUsedInstant" value="1678344177" />
-                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="step04" />
                     <option name="lastUsedInstant" value="1678322832" />
@@ -127,8 +114,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.Main" />
-        <item itemvalue="애플리케이션.LadderGame.Main" />
         <item itemvalue="애플리케이션.LadderGame.Main" />
       </list>
     </recent_temporary>
@@ -148,7 +133,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="step04" />
+                        <option value="test01" />
                       </list>
                     </value>
                   </entry>
