@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LadderGame {
     private LadderMap ladderMap;
@@ -7,10 +8,10 @@ public class LadderGame {
 
     public void init() {
         initPlayers();
-        mapOutLadderMap(playerList.size(), InputView.getLadderHeight());
+        initLadderMap(playerList.size(), InputView.getLadderHeight());
     }
 
-    private void mapOutLadderMap(int getPlayerNum, int getLadderHeight) {
+    private void initLadderMap(int getPlayerNum, int getLadderHeight) {
         ladderMap = new LadderMap(getPlayerNum, getLadderHeight);
     }
 
@@ -32,7 +33,11 @@ public class LadderGame {
     }
 
     public void start() {
-        OutputView.printPlayersName(playerList.toString());
-        OutputView.printMap(ladderMap.getMapString());
+        OutputView.printPlayersName(playersNameToString());
+        OutputView.printMap(ladderMap.toString());
+    }
+
+    private String playersNameToString() {
+        return playerList.stream().map(Player::toString).collect(Collectors.joining());
     }
 }

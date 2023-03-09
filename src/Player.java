@@ -4,10 +4,15 @@ public class Player {
 
     private String name;
 
-    public Player(String name) throws IllegalArgumentException {
+    public Player(String name) {
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("ERROR :: 플레이어 이름이 잘못되었습니다.");
         }
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-6s", name);
     }
 }

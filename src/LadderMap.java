@@ -15,4 +15,13 @@ public class LadderMap {
             map.add(new Line(mapLength));
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Line line : map) {
+            sb.append(line.toString());
+        }
+        return sb.toString();
+    }
 }

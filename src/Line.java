@@ -47,4 +47,21 @@ public class Line {
     private boolean isBorderCome(int i) {
         return i % 2 == 0;
     }
+
+    private String convertToString(char point) {
+        if (point == BORDER_LINE) {
+            return String.valueOf(point);
+        }
+        return String.valueOf(point).repeat(5);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (char point : points) {
+            sb.append(convertToString(point));
+        }
+        sb.append("\n");
+        return sb.toString();
+    }
 }
