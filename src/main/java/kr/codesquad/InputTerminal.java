@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputTerminal {
@@ -8,9 +10,10 @@ public class InputTerminal {
     public InputTerminal() {
         scanner = new Scanner(System.in);
     }
-    public int getLineNum() {
-        System.out.println("참여할 사람은 몇 명인가요?");
-        return Integer.parseInt(scanner.next());
+    public ArrayList<String> getUserNames() {
+        System.out.println("참여할 사람의 이름을 입력하세요 (이름은 쉼(,)로 구분하세요");
+        String names = scanner.next();
+        return new ArrayList<>(List.of(names.split(",")));
     }
 
     public int getLineLength() {
