@@ -1,6 +1,7 @@
 package LadderGame.view;
 
 import LadderGame.domain.Line;
+
 import java.util.ArrayList;
 
 public class Output {
