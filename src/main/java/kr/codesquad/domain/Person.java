@@ -6,10 +6,16 @@ import java.util.Optional;
 public class Person {
 
     private final String name;
+    private final Ladder ladder;
 
-    public Person(String name) {
+    public Person(String name, Ladder ladder) {
         validateNameLength(name);
         this.name = name;
+        this.ladder = ladder;
+    }
+
+    public int goDownLadder(int startLocation) {
+        return ladder.calculateWhereToDown(startLocation);
     }
 
     private void validateNameLength(String name) {
