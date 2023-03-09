@@ -2,24 +2,24 @@ package kr.codesquad;
 
 
 public class Point {
-    private int x;
-    private int y;
+    private int positionOfX;
+    private int positionOfY;
     private PointType type;
     private Status status;
 
     public Point(int x, int y, PointType type) {
-        this.x = x;
-        this.y = y;
+        this.positionOfX = x;
+        this.positionOfY = y;
         this.type = type;
         this.status = Status.DISCONNECTED;
     }
 
-    public int getX() {
-        return x;
+    public int getPositionOfX() {
+        return positionOfX;
     }
 
-    public int getY() {
-        return y;
+    public int getPositionOfY() {
+        return positionOfY;
     }
 
     public PointType getType() {
@@ -39,6 +39,6 @@ public class Point {
     }
 
     public boolean isSamePosition(int positionOfX, int positionOfY) {
-        return (positionOfX == x && positionOfY == y);
+        return (positionOfX == this.positionOfX && positionOfY == this.positionOfY);
     }
 }
