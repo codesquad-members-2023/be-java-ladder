@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.dto.PersonResultPair;
 import kr.codesquad.view.View;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class Game {
 //        }
 
         int destination = people.findDestinationOf(name);
-        view.printResult(name, results.get(destination));
+        view.printResult(new PersonResultPair(name, results.get(destination)));
     }
 
     private void validateResultsCount(List<String> peopleNames, List<String> results) {

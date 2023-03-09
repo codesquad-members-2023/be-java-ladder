@@ -1,5 +1,7 @@
 package kr.codesquad.view;
 
+import kr.codesquad.dto.PersonResultPair;
+
 import java.util.List;
 
 public class View {
@@ -16,8 +18,8 @@ public class View {
         System.out.println();
     }
 
-    public void printResult(String name, String result) {
+    public void printResult(PersonResultPair pair) {
         System.out.println("\n실행 결과");
-        System.out.println(name + " : " + result);
+        System.out.println(pair.getName() + " : " + pair.getResult());
     }
 }
