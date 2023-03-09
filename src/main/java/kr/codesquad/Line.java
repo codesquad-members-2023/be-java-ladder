@@ -27,19 +27,19 @@ public class Line {
             return;
         }
         // 짝수 자리인 경우
-        decidesRow(rowIndex);
+        decidesRow();
     }
 
-    private static void decidesRow(int rowIndex) {
+    private static void decidesRow() {
         if (isPreviousConnected) {
             line.add(Shape.EMPTY_SPACE);
             isPreviousConnected = false;
             return;
         }
-        isConnected(rowIndex);
+        isConnected();
     }
 
-    private static void isConnected(int rowIndex) {
+    private static void isConnected() {
         if (new Random().nextBoolean()) {
             line.add(Shape.LADDER_ROW_PIECE);
             isPreviousConnected = true;
