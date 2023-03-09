@@ -49,28 +49,7 @@ public class OutputView {
         globalPrintln("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
     }
 
-    public void printLadder(Ladder ladder) {
-        printPlayersName(ladder.getPlayersNameRow());
-        printBelowPlayersName(ladder);
-    }
-
-    private void printPlayersName(List<String> playersName) {
-        for (String name : playersName) {
-            globalPrint(String.format("%7s", name));
-        }
-        globalNewLine();
-    }
-
-    private void printBelowPlayersName(Ladder ladder) {
-        for (int i = 1; i < ladder.getSizeOfLadder(); i++) {
-            printRows(ladder.getLadderRow(i));
-            globalNewLine();
-        }
-    }
-
-    private void printRows(List<String> ladderRow) {
-        for (int i = 0; i < ladderRow.size(); i++) {
-            globalPrint(ladderRow.get(i));
-        }
+    public void printLadder(String ladder) {
+        globalPrintln(ladder);
     }
 }
