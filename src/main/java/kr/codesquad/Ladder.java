@@ -6,7 +6,7 @@ public class Ladder {
     private Shape[][] ladder;
 
     public Ladder(int participants, int ladderHeight) {
-        ladder = new Shape[ladderHeight][participants + participants - 1];
+        ladder = new Shape[ladderHeight][participants * 2 - 1];
     }
 
     public void makeLadder() {
@@ -38,7 +38,19 @@ public class Ladder {
     }
 
     // TODO: 단순히 ladder를 내보내는 것이 아니라, 가공해서 보내야한다.
-    public Shape[][] getLadder() {
-        return ladder;
+    public StringBuilder getLadder() {
+        StringBuilder sb = new StringBuilder();
+        for (Shape[] row : ladder) {
+            printLadderRow(row, sb);
+            sb.append("\n");
+        }
+        return sb;
+    }
+
+    private static StringBuilder printLadderRow(Shape[] row, StringBuilder sb) {
+        for (Shape point : row) {
+            sb.append(point.getShape());
+        }
+        return sb;
     }
 }

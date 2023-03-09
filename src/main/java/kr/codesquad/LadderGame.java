@@ -20,6 +20,5 @@ public class LadderGame {
         ladder = new Ladder(participantsNum, ladderHeight);
         ladder.makeLadder();
         printLadder(ladder.getLadder());
-        System.out.println();
     }
 }

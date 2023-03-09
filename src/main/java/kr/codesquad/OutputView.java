@@ -13,19 +13,7 @@ public class OutputView {
         System.out.println(HOW_MUCH_HIGH);
     }
 
-    public static void printLadder(Shape[][] ladder) {
-        StringBuilder sb = new StringBuilder();
-        for (Shape[] row : ladder) {
-            printLadderRow(row, sb);
-            sb.append("\n");
-        }
-        System.out.println(new String(sb));
-    }
-
-    private static StringBuilder printLadderRow(Shape[] row, StringBuilder sb) {
-        for (Shape point : row) {
-            sb.append(point.getShape());
-        }
-        return sb;
+    public static void printLadder(StringBuilder ladder) {
+        System.out.println(ladder);
     }
 }
