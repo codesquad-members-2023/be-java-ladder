@@ -22,7 +22,7 @@ public class LadderMaker {
     private List<Boolean> moveNextElement(int peopleNumber) {
         List<Boolean> oneRow = new ArrayList<>();
         oneRow.add(randomGenerateLadder());
-        for (int i = 0; i < peopleNumber - 1; i++) {
+        for (int i = 0; i < peopleNumber - 2; i++) {
             oneRow.add(addNextElement(oneRow));
         }
         return oneRow;
