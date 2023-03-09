@@ -16,7 +16,7 @@ public class LadderMaker {
 
     private void connectLineByRowPositionAtRandom(Ladder pointMap, int xLength, int positionOfY) {
         for (int positionOfX = 0; positionOfX < xLength; positionOfX++) {
-            pointMap.connectLineByPositionAtRandom(positionOfY, positionOfX);
+            pointMap.connectLineByPositionAtRandom(positionOfX, positionOfY);
         }
     }
 }
