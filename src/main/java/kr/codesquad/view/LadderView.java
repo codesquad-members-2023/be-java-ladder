@@ -1,5 +1,6 @@
 package kr.codesquad.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LadderView {
@@ -14,11 +15,11 @@ public class LadderView {
         System.out.println(ASK_LADDER);
     }
 
-    public void printLadder(String[][] ladder) {
+    public void printLadder(List<List<String>> ladder) {
         StringBuilder ladderPrinter = new StringBuilder();
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                ladderPrinter.append(ladder[i][j]);
+        for (int i = 0; i < ladder.size(); i++) {
+            for (int j = 0; j < ladder.get(i).size(); j++) {
+                ladderPrinter.append(ladder.get(i).get(j));
             }
             ladderPrinter.append("\n");
         }
