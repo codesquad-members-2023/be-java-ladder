@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.ladder.domain.Bridge;
 import kr.codesquad.ladder.domain.Ladder;
 import kr.codesquad.ladder.util.RandomBoolean;
 import org.junit.jupiter.api.AfterEach;
@@ -10,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 class LadderTest {
-    private Ladder ladder;
     private RandomBoolean rb;
 
     @BeforeEach
