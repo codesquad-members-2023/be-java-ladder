@@ -2,6 +2,8 @@ package kr.codesquad;
 
 import java.util.Scanner;
 
+import static kr.codesquad.Message.*;
+
 public class Command {
     private Scanner scanner;
 
@@ -9,13 +11,13 @@ public class Command {
         this.scanner = scanner;
     }
 
-    public int countMan() {
-        System.out.println(Message.START_MESSAGE1);
-        return Integer.parseInt(scanner.nextLine());
+    public String countMembers() {
+        System.out.println(START_MESSAGE1);
+        return scanner.nextLine();
     }
 
     public int countLadder() {
-        System.out.println(Message.START_MESSAGE2);
+        System.out.println(START_MESSAGE2);
         System.out.println();
         return Integer.parseInt(scanner.nextLine());
     }
