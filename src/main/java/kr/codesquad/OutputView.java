@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.List;
 
 public class OutputView {
 
@@ -49,12 +50,28 @@ public class OutputView {
         globalPrintln("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
     }
 
-    public void printLadder(String[][] ladder) {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                globalPrint(ladder[i][j]);
-            }
+    public void printLadder(List<List<String>> ladder) {
+        printPlayersName(ladder.get(0));
+        printBelowPlayersName(ladder);
+    }
+
+    private void printPlayersName(List<String> playersName) {
+        for (String name : playersName) {
+            globalPrint(String.format("%7s", name));
+        }
+        globalNewLine();
+    }
+
+    private void printBelowPlayersName(List<List<String>> ladder) {
+        for (int i = 1; i < ladder.size(); i++) {
+            printRows(ladder.get(i));
             globalNewLine();
+        }
+    }
+
+    private void printRows(List<String> ladderRow) {
+        for (int i = 0; i < ladderRow.size(); i++) {
+            globalPrint(ladderRow.get(i));
         }
     }
 }
