@@ -9,10 +9,14 @@ public class OutputView {
         System.out.println(members);
     }
 
-    public static void printLadder(List<ArrayList<String>> ladder) {
+    public static void printLadder(List<ArrayList<Character>> ladder) {
         ladder.stream()
-                .flatMap(List::stream)
-                .forEach(System.out::println);
+                .forEach(colList -> colListPrint(colList));
     }
 
+    private static void colListPrint(ArrayList<Character> colList) {
+        colList.stream()
+                .forEach(System.out::print);
+        System.out.println();
+    }
 }
