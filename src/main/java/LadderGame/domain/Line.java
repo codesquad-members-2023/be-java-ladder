@@ -18,7 +18,7 @@ public class Line {
     }
 
     // 사다리 내부 값
-    public boolean checkLine(boolean before_line) {
+    public boolean makeLine(boolean before_line) {
         if ((int) (Math.random() * 2) == 1 && !before_line) {
             return true;
         }
