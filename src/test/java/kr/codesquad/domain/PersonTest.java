@@ -29,7 +29,7 @@ class PersonTest {
         String ladderResult = ladder.make(people, 5);
 
         View view = new View();
-        view.printResult(people, ladderResult, results);
+        view.printLadder(people, ladderResult, results);
 
         Person person = new Person("hyun", ladder);
         int destination = person.goDownLadder(4);

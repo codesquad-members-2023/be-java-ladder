@@ -1,14 +1,12 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.view.View;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PeopleTest {
 
@@ -35,7 +33,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult, results);
+        view.printLadder(peopleNames, ladderResult, results);
 
         int destination = people.findDestinationOf("jk");
 
@@ -56,7 +54,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult, results);
+        view.printLadder(peopleNames, ladderResult, results);
 
         assertThatThrownBy(() -> {
             int destination = people.findDestinationOf("hk");
@@ -78,7 +76,7 @@ class PeopleTest {
         String ladderResult = ladder.make(peopleNames, 5);
 
         View view = new View();
-        view.printResult(peopleNames, ladderResult, results);
+        view.printLadder(peopleNames, ladderResult, results);
 
         List<Integer> destinations = people.findAllDestinations();
 
