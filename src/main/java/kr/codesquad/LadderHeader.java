@@ -1,19 +1,21 @@
 package kr.codesquad;
 
 public class LadderHeader {
-    private int memberNumber;
+    private String[] members;
 
-    public String insertMembersToLadderHeader(String members) {
+    public LadderHeader(String members) {
+        this.members = members.split(",");
+    }
+
+    public String getMembersOfLadderHeader() {
         StringBuilder sb = new StringBuilder();
-        String[] split = members.split(",");
-        this.memberNumber = split.length;
-        for (String member : split) {
+        for (String member : members) {
             sb.append(member).append("     ");
         }
         return sb.toString();
     }
 
-    public int countMembers() {
-        return memberNumber;
+    public String[] getMembers() {
+        return members.clone();
     }
 }
