@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import kr.codesquad.utils.RandomGenerator;
-
 public class Line {
     private ArrayList<Boolean> sections;
 
