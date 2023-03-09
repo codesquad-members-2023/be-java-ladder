@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +13,8 @@ public class RandomsGenerator {
 
         List<String> ladderRow = new ArrayList<>();
         ladderRow.add("  |");
-        Random random = new Random();
 
+        Random random = new Random();
         boolean prev = random.nextBoolean();
         for (int i = 0; i < numOfParticipants - 1; i++) {
             boolean now = random.nextBoolean();

@@ -1,9 +1,11 @@
-package kr.codesquad;
+package kr.codesquad.view;
+
+import kr.codesquad.domain.Header;
+import kr.codesquad.domain.LadderMaker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 public class Viewer {
 
