@@ -1,26 +1,26 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.AppConfig;
-import kr.codesquad.domain.laddergenerator.LadderGenerator;
-import kr.codesquad.domain.laddergenerator.StepOneLadder;
-import kr.codesquad.view.InputView;
-import kr.codesquad.view.OutputView;
+import kr.codesquad.domain.laddergenerator.Ladder;
+import kr.codesquad.view.LadderView;
 
 public class Controller {
+    private final Ladder ladderGenerator;
+    private final LadderView ladderView;
 
-    AppConfig appConfig = new AppConfig();
-    InputView inputView = appConfig.inputView();
-    OutputView outputView = appConfig.outputView();
-    LadderGenerator ladderGenerator = appConfig.ladderGenerator();
+    public Controller(Ladder ladder, LadderView ladderView) {
+        this.ladderGenerator = ladder;
+        this.ladderView = ladderView;
+    }
 
-    public void startGame(){
-        outputView.askPeopleNumber();
-        int people = inputView.inputInt();
-        outputView.askLadderHeight();
-        int height = inputView.inputInt();
+    public void startGame() {
+        ladderView.askPeopleNumber();
+        int people = ladderView.inputInt();
 
-        String[][] ladder = ladderGenerator.ladder(people, height);
-        outputView.printLadder(ladder);
+        ladderView.askLadderHeight();
+        int height = ladderView.inputInt();
+
+        String[][] ladder = ladderGenerator.makeRandomLadder(people, height);
+        ladderView.printLadder(ladder);
     }
 
 }
