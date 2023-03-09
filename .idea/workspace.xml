@@ -54,8 +54,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="step03" />
-                    <option name="lastUsedInstant" value="1678239427" />
+                    <option name="branchName" value="step04" />
+                    <option name="lastUsedInstant" value="1678322832" />
                   </RecentBranch>
                 </list>
               </option>
@@ -88,7 +88,7 @@
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="LadderGame.*" />
+          <option name="PATTERN" value="LadderGame.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,7 +124,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test01" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
