@@ -1,6 +1,7 @@
 package kr.codesquad.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import kr.codesquad.model.Ladder;
 import kr.codesquad.view.View;
 
@@ -15,8 +16,8 @@ public class ApplicationController {
 
     public void run() {
         String joinMembers = validateName();
-        String maxLadderHeight = validateNumber();
-        String[][] ladderResult = ladder.make(joinMembers, maxLadderHeight);
+        int maxLadderHeight = Integer.parseInt(validateNumber());
+        List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight);
         view.printLadderResult(ladderResult);
     }
 
@@ -47,7 +48,7 @@ public class ApplicationController {
         int userNumber = (int) Arrays.stream(inputArray)
                 .filter(s -> s.length() <= 5)
                 .count();
-        if(inputArray.length != userNumber) {
+        if (inputArray.length != userNumber) {
             view.printJoinMembersError();
             return false;
         }
@@ -56,7 +57,7 @@ public class ApplicationController {
 
     public boolean checkInputNumber(String input) {
         String temp = input.replaceAll("[0-9]", "");
-        if(temp.length() != 0) {
+        if (temp.length() != 0) {
             view.printMaxLadderHeightError();
             return false;
         }

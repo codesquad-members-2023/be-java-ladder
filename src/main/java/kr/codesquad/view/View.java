@@ -1,6 +1,6 @@
 package kr.codesquad.view;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class View {
@@ -32,12 +32,11 @@ public class View {
         System.out.println();
     }
 
-    public void printLadderResult(String[][] ladderResult) {
+    public void printLadderResult(List<List<String>> ladderResult) {
         System.out.println();
         StringBuilder stringBuilder = new StringBuilder();
-        for (String[] strings : ladderResult) {
-            Arrays.stream(strings)
-                    .forEach(stringBuilder::append);
+        for (List<String> strings : ladderResult) {
+            strings.forEach(stringBuilder::append);
             System.out.println(stringBuilder);
             stringBuilder.setLength(0);
         }
