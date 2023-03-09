@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class View {
-    private static final String HOW_MUCH_HIGH = "최대 사다리 높이는 몇 개인가요?";
+    private static final String HOW_MUCH_HIGH = "\n최대 사다리 높이는 몇 개인가요?";
     private static final String WHO_DOES_PARTICIPATE = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
+    private static final String GAME_RESULT = "\n사다리 결과\n";
     private static BufferedReader br;
 
     public View() {
@@ -23,7 +24,8 @@ public class View {
         return getLadderHeight();
     }
 
-    public static void printLadder(StringBuilder ladder) {
+    public static void printExecutionResult(StringBuilder ladder) {
+        System.out.println(GAME_RESULT);
         System.out.println(ladder);
     }
 

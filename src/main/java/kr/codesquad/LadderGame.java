@@ -13,6 +13,6 @@ public class LadderGame {
     public void start() {
         laddermaker = new LadderMaker();
         laddermaker.makesLadder(askParticipates().length, asksHeight());
-        printLadder(laddermaker.getLadder());
+        printExecutionResult(laddermaker.getLadder());
     }
 }
