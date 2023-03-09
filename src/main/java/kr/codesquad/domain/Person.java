@@ -1,8 +1,5 @@
 package kr.codesquad.domain;
 
-import java.util.List;
-import java.util.Optional;
-
 public class Person {
 
     private final String name;
@@ -16,6 +13,10 @@ public class Person {
 
     public int goDownLadder(int startLocation) {
         return ladder.calculateWhereToDown(startLocation);
+    }
+
+    public boolean matchBy(String name) {
+        return this.name.equals(name);
     }
 
     private void validateNameLength(String name) {
