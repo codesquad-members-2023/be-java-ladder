@@ -21,4 +21,15 @@ class LineTest {
         line = new Line(booleanList);
         assertThat(line.size()).isEqualTo(3);
     }
+
+    @Test @Order(2)
+    @DisplayName("Line 예외 테스트")
+    public void lineExceptionTest() {
+        randomBoolean = new RandomBoolean(() -> List.of(true, true, false));
+        List<Boolean> booleanList = randomBoolean.generate();
+        assertThatThrownBy(() -> new Line(booleanList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[exception] 다리 생성 오류");
+    }
+
 }
