@@ -3,7 +3,6 @@ package kr.codesquad.domain;
 import kr.codesquad.view.View;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Game {
 
@@ -16,6 +15,7 @@ public class Game {
     }
 
     public void start(List<String> people, int ladderHeight) {
+
         String ladderResult = ladder.make(people, ladderHeight);
         view.printResult(people, ladderResult);
     }

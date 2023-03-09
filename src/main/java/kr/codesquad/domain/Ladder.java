@@ -6,17 +6,17 @@ import java.util.List;
 public class Ladder {
 
     private int ladderHeight;
-    private List<String> people;
+    private int ladderWidth;
 
     private List<Line> ladder;
 
     public String make(List<String> people, int ladderHeight) {
         this.ladderHeight = ladderHeight;
-        this.people = people;
+        this.ladderWidth = people.size() - 1;
 
         ladder = new ArrayList<>();
         for (int y = 0; y < ladderHeight; y++) {
-            ladder.add(new Line(people));
+            ladder.add(new Line(ladderWidth));
         }
 
         return drawResult();

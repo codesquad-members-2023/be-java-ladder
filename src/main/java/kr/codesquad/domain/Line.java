@@ -11,10 +11,10 @@ public class Line {
     private final RandomGenerator randomGenerator = new RandomGenerator();
     private final List<Boolean> points;
 
-    public Line(List<String> people) {
-        List<Boolean> randomBooleans = randomGenerator.generateRandomBooleans(people.size() - 1);
+    public Line(int width) {
+        List<Boolean> randomBooleans = randomGenerator.generateRandomBooleans(width);
         while (isOverlapping(randomBooleans)) {
-            randomBooleans = randomGenerator.generateRandomBooleans(people.size() - 1);
+            randomBooleans = randomGenerator.generateRandomBooleans(width);
         }
 
         points = randomBooleans;

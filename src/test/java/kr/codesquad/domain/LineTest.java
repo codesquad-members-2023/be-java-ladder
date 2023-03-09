@@ -18,7 +18,7 @@ class LineTest {
     @Test
     @DisplayName("isOverlapping 메서드의 인자로 들어온 List<Boolean>이 가능한 사다리 한 줄인지 검증한다.")
     void isOverlapping() {
-        Line line = new Line(List.of("pobi", "honux", "crong", "jk", "hyun"));
+        Line line = new Line(4);
 
         assertThat(line.isOverlapping(List.of(true, false, false))).isEqualTo(false);
         assertThat(line.isOverlapping(List.of(false, true, true))).isEqualTo(true);
@@ -28,7 +28,7 @@ class LineTest {
     @DisplayName("사다리 한 줄의 가로 길이가 정상적으로 만들어졌는지 테스트한다.")
     void checkLineWidth() {
         List<String> people = List.of("pobi", "honux", "crong", "jk", "hyun");
-        Line line = new Line(people);
+        Line line = new Line(people.size() - 1);
 
         String lineResult = line.draw();
 
@@ -41,7 +41,7 @@ class LineTest {
     @DisplayName("현재 위치에서 왼쪽으로 내려가야하는지, 오른쪽으로 내려가야하는지, 그대로 내려가야하는지를 제대로 계산하는지 테스트한다.")
     void calculateNextLocation() {
         List<String> people = List.of("pobi", "honux", "crong", "jk", "hyun");
-        Line line = new Line(people);
+        Line line = new Line(people.size() - 1);
 
         String lineResult = line.draw();
         List<String> lineResultSplit = new ArrayList<>(Arrays.asList(lineResult.split("\\|")));             // 랜덤값을 테스트하기 위해, 출력값을 분석
