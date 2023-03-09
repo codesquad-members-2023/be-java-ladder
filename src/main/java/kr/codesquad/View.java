@@ -13,7 +13,7 @@ public class View {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public static String[] asksParticipate() {
+    public static String[] askParticipates() {
         System.out.println(WHO_DOES_PARTICIPATE);
         return getParticipants();
     }
