@@ -11,10 +11,6 @@ public class Viewer {
     private Header header;
     private LadderMaker ladderMaker;
 
-    public String inputFromUser() throws IOException {
-        return br.readLine();
-    }
-
     public void startGame() throws IOException {
         String[] participantsList = participantsList();
         int height = Integer.parseInt(howHigh());
@@ -25,12 +21,12 @@ public class Viewer {
 
     private String[] participantsList() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요");
-        return inputFromUser().split(",");
+        return br.readLine().split(",");
     }
 
     private String howHigh() throws IOException {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
-        return inputFromUser();
+        return br.readLine();
     }
 
     public void printHeader() {
@@ -42,5 +38,4 @@ public class Viewer {
         String stringLadder = ladderMaker.stringLadder();
         System.out.println(stringLadder);
     }
-
 }
