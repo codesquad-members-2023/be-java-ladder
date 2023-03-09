@@ -34,13 +34,13 @@ public class Renderer {
     }
 
     private static void insertFullSection(Line floorMap, StringBuilder sb, int section) {
-        if (floorMap.getSection(section)) {
+        if (floorMap.getSections().get(section)) {
             sb.append(LADDER_FULL);
         }
     }
 
     private static void insertEmptySection(Line floorMap, StringBuilder sb, int section) {
-        if (!floorMap.getSection(section)) {
+        if (!floorMap.getSections().get(section)) {
             sb.append(LADDER_EMPTY);
         }
     }

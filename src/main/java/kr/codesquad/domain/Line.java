@@ -1,20 +1,21 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import kr.codesquad.utils.RandomGenerator;
 
 public class Line {
     private ArrayList<Boolean> sections;
 
-    public Line(int numberOfParticipants) {
+    public Line() {
         this.sections = new ArrayList<>();
-        initLine(numberOfParticipants);
     }
 
-    private void initLine(int numberOfParticipants) {
+    public void initLine(int numberOfParticipants, List<Boolean> randoms) {
         for (int section = 0; section < numberOfParticipants - 1; section++) {
-            initSection(section, RandomGenerator.generate());
+            initSection(section, randoms.get(section));
         }
     }
 
@@ -31,8 +32,8 @@ public class Line {
         return sections.get(section).equals(Boolean.TRUE);
     }
 
-    public boolean getSection(int section) {
-        return sections.get(section);
+    public List<Boolean> getSections() {
+        return Collections.unmodifiableList(sections);
     }
     public int getSize() {
         return sections.size();

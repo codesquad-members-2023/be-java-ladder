@@ -1,13 +1,16 @@
 package kr.codesquad.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RandomGenerator {
-    public static boolean generate() {
+    public static List<Boolean> generate(int size) {
         Random random = new Random();
-        if (random.nextBoolean()) {
-            return true;
+        List<Boolean> randoms = new ArrayList<>();
+        for (int index = 0; index < size; index++) {
+            randoms.add(random.nextBoolean());
         }
-        return false;
+        return randoms;
     }
 }

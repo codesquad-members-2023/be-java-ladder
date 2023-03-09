@@ -3,6 +3,7 @@ package kr.codesquad.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.codesquad.utils.RandomGenerator;
 import kr.codesquad.view.Renderer;
 
 public class Ladder {
@@ -17,8 +18,9 @@ public class Ladder {
     private ArrayList<Line> initMap(int numberOfParticipants, int height) {
         ArrayList<Line> ladderMap = new ArrayList<>();
         for (int floorIndex = 0; floorIndex < height; floorIndex++) {
-            ladderMap.add(new Line(numberOfParticipants));
-
+            Line line = new Line();
+            line.initLine(numberOfParticipants, RandomGenerator.generate(numberOfParticipants));
+            ladderMap.add(line);
         }
         return ladderMap;
     }
