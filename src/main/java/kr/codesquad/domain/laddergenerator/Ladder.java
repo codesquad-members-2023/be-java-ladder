@@ -4,10 +4,6 @@ import java.util.Random;
 
 public class Ladder {
 
-    private final String STICK = "|";
-    private final String SPACE = " ";
-    private final String DASH = "-";
-
     public boolean randomGenerateLadder() {
         Random random = new Random();
 
@@ -23,6 +19,9 @@ public class Ladder {
     }
 
     private String makeBridgeElement(int index) {
+        String STICK = "|";
+        String SPACE = " ";
+        String DASH = "-";
         if (index % 2 == 0) {
             return STICK;
         }
