@@ -16,18 +16,7 @@ public class Game {
     }
 
     public void start(List<String> people, int ladderHeight) {
-        validateNameLength(people);
         String ladderResult = ladder.make(people, ladderHeight);
         view.printResult(people, ladderResult);
-    }
-
-    private void validateNameLength(List<String> people) {
-        Optional<String> longName = people.stream()
-                .filter(peopleName -> peopleName.length() > 5)
-                .findAny();
-
-        if (longName.isPresent()) {
-            throw new IllegalArgumentException("[ERROR] 이름의 길이는 최대 5글자입니다.");
-        }
     }
 }
