@@ -1,7 +1,5 @@
 package LadderGame;
 
-import LadderGame.domain.Ladder;
-
 public class Main {
     public static void main(String[] args) {
         // 재귀 함수 시작 변수
