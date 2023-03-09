@@ -20,4 +20,18 @@ class LadderTest {
 
         assertThat(height).isEqualTo(5);
     }
+
+    @Test
+    @DisplayName("사다리를 타고 내려가면 도착하는 위치를 제대로 계산하는지 눈으로 확인한다.")
+    void calculateWhereToDown() {
+        Ladder ladder = new Ladder();
+        List<String> people = List.of("pobi", "honux", "crong", "jk");
+        String ladderResult = ladder.make(people, 5);
+
+        System.out.println(ladderResult);
+
+        int startPoint = 2;
+        System.out.println("시작 위치 : " + (startPoint + 1));
+        System.out.println("도작 위치 : " + (ladder.calculateWhereToDown(startPoint) + 1));
+    }
 }

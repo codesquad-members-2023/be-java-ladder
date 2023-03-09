@@ -22,6 +22,14 @@ public class Ladder {
         return drawResult();
     }
 
+    public int calculateWhereToDown(int startLocation) {
+        int currentLocation = startLocation;
+        for (Line line : ladder) {
+            currentLocation += line.calculateNextLocation(currentLocation);
+        }
+        return currentLocation;
+    }
+
     private String drawResult() {
         StringBuilder sb = new StringBuilder();
 

@@ -4,6 +4,10 @@ import java.util.List;
 
 public class Line {
 
+    private static final int RIGHT = 1;
+    private static final int LEFT = -1;
+    private static final int STAY = 0;
+
     private final RandomGenerator randomGenerator = new RandomGenerator();
     private final List<Boolean> points;
 
@@ -35,13 +39,13 @@ public class Line {
 
     public int calculateNextLocation(int currentLocation) {
         if ((currentLocation > 0) && (points.get(currentLocation - 1))) {
-            return currentLocation - 1;
+            return LEFT;
         }
 
         if ((currentLocation < points.size()) && (points.get(currentLocation))) {
-            return currentLocation + 1;
+            return RIGHT;
         }
 
-        return currentLocation;
+        return STAY;
     }
 }
