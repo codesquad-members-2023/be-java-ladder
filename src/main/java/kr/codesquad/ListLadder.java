@@ -14,28 +14,30 @@ public class ListLadder {
         charLadderToListLadderConverter(chars);
     }
 
-    private void ladderInitialization() {
-    }
-
     public void charLadderToListLadderConverter(char[][] charsLadder) {
-        final char VERTICAL_BAR = '|';
-        final int CHARACTER_MULTIPLIER = 5;
 
         for (char[] row : charsLadder) {
             ArrayList<Character> list = new ArrayList<>();
-            startEmptySpaceOfLadderInser(list);
-            for (char ch : row) {
-                if (ch == VERTICAL_BAR) {
-                    list.add(ch);
-                } else {
-                    list.addAll(Collections.nCopies(CHARACTER_MULTIPLIER, ch));
-                }
-            }
+            startEmptySpaceOfLadderInsert(list);
+            insertRowStick(row, list);
             ladder.add(list);
         }
     }
 
-    private void startEmptySpaceOfLadderInser(ArrayList<Character> list) {
+    private void insertRowStick(char[] row, ArrayList<Character> list) {
+        final char VERTICAL_BAR = '|';
+        final int CHARACTER_MULTIPLIER = 5;
+
+        for (char ch : row) {
+            if (ch == VERTICAL_BAR) {
+                list.add(ch);
+            } else {
+                list.addAll(Collections.nCopies(CHARACTER_MULTIPLIER, ch));
+            }
+        }
+    }
+
+    private void startEmptySpaceOfLadderInsert(ArrayList<Character> list) {
         String member = ladderHeader.getMembers()[0];
         int numSpaces = getMemberMiddleIndex(member);
         list.addAll(Collections.nCopies(numSpaces, ' '));
