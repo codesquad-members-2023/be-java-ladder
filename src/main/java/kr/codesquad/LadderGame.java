@@ -1,20 +1,18 @@
 package kr.codesquad;
 
-import static kr.codesquad.OutputView.*;
+import static kr.codesquad.View.*;
 
 public class LadderGame {
-    private InputView inputView;
+    private View view;
     private LadderMaker ladder;
 
     public LadderGame() {
-        inputView = new InputView();
+        view = new View();
     }
 
     public void start() {
-        printWhoDoesParticipate();
-        String[] participants = inputView.getParticipants();
-        printHowMuchHigh();
-        int ladderHeight = inputView.getLadderHeight();
+        String[] participants = asksParticipate();
+        int ladderHeight = asksHeight();
         ladder = new LadderMaker(participants.length, ladderHeight);
         ladder.makesLadder();
         printLadder(ladder.getLadder());
