@@ -50,17 +50,17 @@ class LineTest {
         System.out.println(lineResultSplit);
 
         if (lineResultSplit.get(0).contains("-")) {
-            assertThat(line.calculateNextLocation(1)).isEqualTo(0);     // 실제 만들어진 라인에 따라 다른 테스트를 진행한다.
+            assertThat(line.calculateNextLocation(1)).isEqualTo(-1);     // 실제 만들어진 라인에 따라 다른 테스트를 진행한다.
         } else if (lineResultSplit.get(1).contains("-")) {
-            assertThat(line.calculateNextLocation(1)).isEqualTo(2);
-        } else {
             assertThat(line.calculateNextLocation(1)).isEqualTo(1);
+        } else {
+            assertThat(line.calculateNextLocation(1)).isEqualTo(0);
         }
 
         if (lineResultSplit.get(3).contains("-")) {
-            assertThat(line.calculateNextLocation(4)).isEqualTo(3);     // 가장 자리 테스트
+            assertThat(line.calculateNextLocation(4)).isEqualTo(-1);     // 가장 자리 테스트
         } else {
-            assertThat(line.calculateNextLocation(4)).isEqualTo(4);
+            assertThat(line.calculateNextLocation(4)).isEqualTo(0);
         }
     }
 }
