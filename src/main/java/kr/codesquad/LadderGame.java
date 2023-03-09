@@ -11,11 +11,11 @@ public class LadderGame {
     }
 
     public void start() {
-        printHowManyParticipates();
-        int participantsNum = inputView.getParticipantsNumber();
+        printWhoDoesParticipate();
+        String[] participants = inputView.getParticipants();
         printHowMuchHigh();
         int ladderHeight = inputView.getLadderHeight();
-        ladder = new LadderMaker(participantsNum, ladderHeight);
+        ladder = new LadderMaker(participants.length, ladderHeight);
         ladder.makesLadder();
         printLadder(ladder.getLadder());
     }

@@ -3,22 +3,28 @@ package kr.codesquad;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class InputView {
     private BufferedReader br;
+    // 최소 2명이며 ,로 값을 검증하는 정규식표현
     private final String PATTERN = "^[a-zA-Z]{1,5}(,[a-zA-Z]{1,5})+$";
 
     public InputView() {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public int getParticipants() {
+    public String[] getParticipants() {
         try {
-            String input = isRightFormat(br.readLine());
+            return splitParticipants(isRightFormat(br.readLine()));
         } catch (IllegalArgumentException | IOException e) {
             System.out.println(e.getMessage());
-            return getParticipantsNumber();
+            return getParticipants();
         }
+    }
+
+    private String[] splitParticipants(String input) {
+        return input.split(",");
     }
 
     private String isRightFormat(String input) {
@@ -27,8 +33,6 @@ public class InputView {
         }
         return input;
     }
-
-    private 
 
     public int getLadderHeight() {
         try {

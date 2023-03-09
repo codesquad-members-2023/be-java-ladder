@@ -2,11 +2,11 @@ package kr.codesquad;
 
 public class OutputView {
 
-    private static final String HOW_MANY_PARTICIPATE = "참여할 사람은 몇 명인가요?";
     private static final String HOW_MUCH_HIGH = "최대 사다리 높이는 몇 개인가요?";
+    private static final String WHO_DOES_PARTICIPATE = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
 
-    public static void printHowManyParticipates() {
-        System.out.println(HOW_MANY_PARTICIPATE);
+    public static void printWhoDoesParticipate() {
+        System.out.println(WHO_DOES_PARTICIPATE);
     }
 
     public static void printHowMuchHigh() {
