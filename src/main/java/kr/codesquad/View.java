@@ -1,43 +1,38 @@
 package kr.codesquad;
 
 public class View {
-    public void render(Point[][] pointMap) {
+    public void render(Ladder pointMap) {
         StringBuilder sb = new StringBuilder();
 
-        int lineWidth = pointMap[0].length;
-        int lineHeight = pointMap.length;
-
-        renderPointMap(pointMap, sb, lineWidth, lineHeight);
-
-        System.out.println(sb);
-    }
-
-    private static void renderPointMap(Point[][] pointMap, StringBuilder sb, int lineWidth, int lineHeight) {
-        for (int i = 0; i < lineHeight; i++) {
-            renderRowPoints(pointMap, sb, lineWidth, i);
-            sb.append("\n");
+        String[][] ladderMap = new String[pointMap.getLineHeight()][];
+        for (int i = 0; i < pointMap.getLineHeight(); i++) {
+            ladderMap[i] = new String[pointMap.getLineWidth()];
         }
-    }
 
-    private static void renderRowPoints(Point[][] pointMap, StringBuilder sb, int lineWidth, int positionOfY) {
-        for (int positionOfX = 0; positionOfX < lineWidth; positionOfX++) {
-            renderPoint(pointMap, sb, positionOfY, positionOfX);
-        }
-    }
+        for (Point point : pointMap.getPointMap()) {
+            switch (point.getType()) {
+                case USER -> ladderMap[point.getPositionOfY()][point.getPositionOfX()] = "o";
+                case DESTINATION -> ladderMap[point.getPositionOfY()][point.getPositionOfX()] = "x";
+                case LADDER -> ladderMap[point.getPositionOfY()][point.getPositionOfX()] = "|";
+                case BLOCK -> ladderMap[point.getPositionOfY()][point.getPositionOfX()] = " ";
+                case LINE -> {
+                    if (point.getStatus() == Status.CONNECTED) {
+                        ladderMap[point.getPositionOfY()][point.getPositionOfX()] = "-";
+                        continue;
+                    }
+                    ladderMap[point.getPositionOfY()][point.getPositionOfX()] = " ";
 
-    private static void renderPoint(Point[][] pointMap, StringBuilder sb, int positionOfY, int positionOfX) {
-        switch (pointMap[positionOfY][positionOfX].getType()) {
-            case USER ->        sb.append("o");
-            case DESTINATION -> sb.append("x");
-            case LADDER ->      sb.append("|");
-            case BLOCK ->       sb.append(" ");
-            case LINE -> {
-                if (pointMap[positionOfY][positionOfX].getStatus() == Status.CONNECTED) {
-                    sb.append("-");
-                    return;
                 }
-                sb.append(" ");
             }
         }
+
+        for (int i = 0; i < pointMap.getLineHeight(); i++) {
+            for (int j = 0; j < pointMap.getLineWidth(); j++) {
+                sb.append(ladderMap[i][j]).append(" ");
+            }
+            sb.append("\n");
+        }
+
+        System.out.println(sb);
     }
 }
