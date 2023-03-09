@@ -5,12 +5,12 @@ public class LadderMaker {
     private int ladderHeight;
 
 
-    public int[][] makeLadderFromPointMap(Point[][] pointMap) {
+    public Point[][] makeLadderFromPointMap(Point[][] pointMap) {
         setHeightAndWidthOfLadder(pointMap);
 
         ConnectLineAtRandom(pointMap);
 
-        return pointToIntMap(pointMap);
+        return pointMap;
     }
 
     private void setHeightAndWidthOfLadder(Point[][] pointMap) {
@@ -48,35 +48,6 @@ public class LadderMaker {
     private void connectLineByPositionAtRandom(Point[][] pointMap, int j, int i) {
         if (isValidPosition(i, j)) {
             OpenAtRandom(pointMap[j][i]);
-        }
-    }
-
-    private int[][] pointToIntMap(Point[][] pointMap) {
-        int[][] intMap = new int[ladderHeight][];
-        for (int i = 0; i < ladderHeight; i++) {
-            intMap[i] = new int[ladderWidth];
-        }
-
-        for (int j = 0; j < ladderHeight; j++) {
-            pointToIntForRowPosition(pointMap, intMap, ladderWidth, j);
-        }
-
-        return intMap;
-    }
-
-    private static void pointToIntForRowPosition(Point[][] pointMap, int[][] intMap, int xLength, int j) {
-        for (int i = 0; i < xLength; i++) {
-            pointToIntForPosition(pointMap, intMap, i, j);
-        }
-    }
-
-    private static void pointToIntForPosition(Point[][] pointMap, int[][] intMap, int i, int j) {
-        switch (pointMap[j][i].getType()) {
-            case USER -> intMap[j][i] = 0;
-            case BLOCK -> intMap[j][i] = 1;
-            case DESTINATION -> intMap[j][i] = 2;
-            case LADDER -> intMap[j][i] = 3;
-            case LINE -> intMap[j][i] = pointMap[j][i].getStatus() == Status.CONNECTED ? 4 : 5;
         }
     }
 }

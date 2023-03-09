@@ -1,20 +1,26 @@
 package kr.codesquad;
 
 public class View {
-    public void render(int[][] intMap) {
+    public void render(Point[][] pointMap) {
         StringBuilder sb = new StringBuilder();
 
-        int lineWidth = intMap[0].length;
-        int lineHeight = intMap.length;
+        int lineWidth = pointMap[0].length;
+        int lineHeight = pointMap.length;
 
         for (int i = 0; i < lineHeight; i++) {
             for (int j = 0; j <lineWidth; j++) {
-                switch (intMap[i][j]) {
-                    case 0 -> sb.append("o");
-                    case 1, 5 -> sb.append(" ");
-                    case 2 -> sb.append("x");
-                    case 3 -> sb.append("|");
-                    case 4 -> sb.append("-");
+                switch (pointMap[i][j].getType()) {
+                    case USER -> sb.append("o");
+                    case DESTINATION -> sb.append("x");
+                    case LADDER -> sb.append("|");
+                    case BLOCK -> sb.append(" ");
+                    case LINE -> {
+                        if (pointMap[i][j].getStatus() == Status.CONNECTED) {
+                            sb.append("-");
+                            continue;
+                        }
+                        sb.append(" ");
+                    }
                 }
             }
             sb.append("\n");
