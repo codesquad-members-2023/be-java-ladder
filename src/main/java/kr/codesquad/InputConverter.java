@@ -46,15 +46,19 @@ public class InputConverter {
 
     private void initPointMapForRowLine(Point[][] pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
         for (int i = 0; i < lineWidth; i++) {
-            if (i % 2 == 0) {
-                initPointMapForPosition(pointMap, i, lineHeight,pointTypeOfOddPosition);
-                continue;
-            }
-            initPointMapForPosition(pointMap, i, lineHeight,pointTypeOfEvenPosition);
+            makePointForPosition(pointMap, lineHeight, pointTypeOfOddPosition, pointTypeOfEvenPosition, i);
         }
     }
-    
-    private void initPointMapForPosition(Point[][] pointMap, int positionOfX, int positionOfY, PointType pointType) {
+
+    private void makePointForPosition(Point[][] pointMap, int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition, int i) {
+        if (i % 2 == 0) {
+            makePointForPosition(pointMap, i, lineHeight, pointTypeOfOddPosition);
+            return;
+        }
+        makePointForPosition(pointMap, i, lineHeight, pointTypeOfEvenPosition);
+    }
+
+    private void makePointForPosition(Point[][] pointMap, int positionOfX, int positionOfY, PointType pointType) {
         pointMap[positionOfY][positionOfX] = new Point(pointType);
     }
 
