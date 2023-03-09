@@ -19,8 +19,7 @@ public class Ladder {
         List<String> joinMembersSplit = new ArrayList<>(Arrays.asList(joinMembers.split(",")));
         List<List<String>> ladder = new ArrayList<>();
         init(ladder, maxLadderHeight, joinMembersSplit.size());
-        Queue<String> joinMemberQueue = new LinkedList<>(joinMembersSplit);
-        makeColumn(ladder, joinMemberQueue);
+        makeColumn(ladder, joinMembersSplit);
         return ladder;
     }
 
@@ -33,8 +32,9 @@ public class Ladder {
         }
     }
 
-    public void makeColumn(List<List<String>> ladder, Queue<String> queue) {
-        makeFirstRow(ladder.get(0), queue);
+    public void makeColumn(List<List<String>> ladder, List<String> joinMembersSplit) {
+        Queue<String> joinMemberQueue = new LinkedList<>(joinMembersSplit);
+        makeFirstRow(ladder.get(0), joinMemberQueue);
         for (int i = 1; i < ladder.size(); i++) {
             makeRow(ladder.get(i));
         }
