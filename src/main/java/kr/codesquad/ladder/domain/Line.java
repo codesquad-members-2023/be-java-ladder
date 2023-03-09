@@ -14,6 +14,11 @@ public class Line {
         this.bridges = generateBlocks(RandomBoolean.generate(userNum));
     }
 
+    // 테스트를 위한 생성자
+    public Line(List<Boolean> booleanList) {
+        this.bridges = generateBlocks(booleanList);
+    }
+
     private List<Bridge> generateBlocks(List<Boolean> booleanList) {
         for (int i = 1; i < booleanList.size(); i++) {
             checkDoubleTrue(booleanList.get(i-1), booleanList.get(i));

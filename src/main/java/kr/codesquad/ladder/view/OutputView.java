@@ -13,11 +13,11 @@ public class OutputView {
         stringBuilder = new StringBuilder();
     }
 
-    public String getStringLadder(Ladder ladder) {
+    public void printLadder(Ladder ladder) {
         printUserNames(ladder);
         stringBuilder.append(NEW_LINE);
         printLadderForm(ladder);
-        return stringBuilder.toString();
+        System.out.println(stringBuilder.toString());
     }
 
     private void printLadderForm(Ladder ladder) {

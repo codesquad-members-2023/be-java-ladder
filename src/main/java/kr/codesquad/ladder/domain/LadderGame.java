@@ -23,7 +23,7 @@ public class LadderGame {
 
             ladder = new Ladder(stepNum, userNames);
 
-            System.out.println(outputView.getStringLadder(ladder));
+            outputView.printLadder(ladder);
 
         } catch (IOException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
