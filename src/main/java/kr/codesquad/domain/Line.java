@@ -32,4 +32,16 @@ public class Line {
         }
         return sb.toString();
     }
+
+    public int calculateNextLocation(int currentLocation) {
+        if ((currentLocation > 0) && (points.get(currentLocation - 1))) {
+            return currentLocation - 1;
+        }
+
+        if ((currentLocation < points.size()) && (points.get(currentLocation))) {
+            return currentLocation + 1;
+        }
+
+        return currentLocation;
+    }
 }
