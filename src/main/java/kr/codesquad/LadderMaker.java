@@ -25,20 +25,20 @@ public class LadderMaker {
     }
 
 
-    public List<String> insertBridges(int[] randoms) {
+    public List<String> insertBridges(boolean[] randoms) {
 
         List<String> ladderRow = new ArrayList<>();
 
         ladderRow.add("  |");
-        for (int random : randoms) {
+        for (boolean random : randoms) {
             ladderRow.add(validationBridge(random));
             ladderRow.add("|");
         }
         return ladderRow;
     }
 
-    private String validationBridge(int random) {
-        if (random % 2 == 0) {
+    private String validationBridge(boolean random) {
+        if (random) {
             return "-----";
         }
         return "     ";
