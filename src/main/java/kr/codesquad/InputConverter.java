@@ -28,8 +28,8 @@ public class InputConverter {
     }
 
     private void initPointMapMediumLine(Ladder pointMap) {
-        for (int i = 1; i < pointMap.getLineHeight() - 1; i++) {
-            initPointMapForRowLine(pointMap, i, PointType.LADDER, PointType.LINE);
+        for (int positionOfY = 1; positionOfY < pointMap.getLineHeight() - 1; positionOfY++) {
+            initPointMapForRowLine(pointMap, positionOfY, PointType.LADDER, PointType.LINE);
         }
     }
 
@@ -38,17 +38,17 @@ public class InputConverter {
     }
 
     private void initPointMapForRowLine(Ladder pointMap,int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition) {
-        for (int i = 0; i < pointMap.getLineWidth(); i++) {
-            makePointForPosition(pointMap, lineHeight, pointTypeOfOddPosition, pointTypeOfEvenPosition, i);
+        for (int positionOfX = 0; positionOfX < pointMap.getLineWidth(); positionOfX++) {
+            makePointForPosition(pointMap, lineHeight, pointTypeOfOddPosition, pointTypeOfEvenPosition, positionOfX);
         }
     }
 
-    private void makePointForPosition(Ladder pointMap, int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition, int i) {
-        if (i % 2 == 0) {
-            makePointForPosition(pointMap, i, lineHeight, pointTypeOfOddPosition);
+    private void makePointForPosition(Ladder pointMap, int lineHeight, PointType pointTypeOfOddPosition, PointType pointTypeOfEvenPosition, int positionOfX) {
+        if (positionOfX % 2 == 0) {
+            makePointForPosition(pointMap, positionOfX, lineHeight, pointTypeOfOddPosition);
             return;
         }
-        makePointForPosition(pointMap, i, lineHeight, pointTypeOfEvenPosition);
+        makePointForPosition(pointMap, positionOfX, lineHeight, pointTypeOfEvenPosition);
     }
 
     private void makePointForPosition(Ladder pointMap, int positionOfX, int positionOfY, PointType pointType) {
