@@ -28,13 +28,13 @@ class GameTest {
         assertThatThrownBy(() -> {
             game.start(List.of("pobi", "crong", "honux", "jk", "hyun"), List.of("꽝", "5000", "꽝", "1000"), 7);
         })
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(RuntimeException.class)
                 .hasMessage("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
 
         assertThatThrownBy(() -> {
             game.start(List.of("pobi", "crong", "honux", "jk", "hyun"), List.of("꽝", "5000", "꽝", "1000", "꽝", "꽝"), 7);
         })
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(RuntimeException.class)
                 .hasMessage("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
     }
 

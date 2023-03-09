@@ -59,7 +59,7 @@ class PeopleTest {
         assertThatThrownBy(() -> {
             int destination = people.findDestinationOf("hk");
         })
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(RuntimeException.class)
                 .hasMessage("[ERROR] 해당하는 이름은 없습니다. 입력한 이름 : hk");
     }
 

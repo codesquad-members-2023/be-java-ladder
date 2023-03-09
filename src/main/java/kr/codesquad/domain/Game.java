@@ -42,7 +42,7 @@ public class Game {
 
     private void validateResultsCount(List<String> userInputPeopleNames, List<String> userInputResults) {
         if (userInputPeopleNames.size() != userInputResults.size()) {
-            throw new IllegalArgumentException("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
+            throw new RuntimeException("[ERROR] 사람수와 사다리 결과값의 숫자가 맞지 않습니다!");
         }
     }
 
