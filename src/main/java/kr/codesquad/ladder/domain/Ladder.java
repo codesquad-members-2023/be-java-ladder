@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Ladder {
     private Users users;
-    private List<Line> steps;
+    private List<Line> lines;
 
     public int getNumStep() {
-        return steps.size();
+        return lines.size();
     }
 
     public int getNumUser() {
@@ -16,7 +16,7 @@ public class Ladder {
 
     public Ladder(int stepNum, List<String> userList) {
         this.users = new Users(userList);
-        this.steps = generateStep(userList.size(), stepNum);
+        this.lines = generateStep(userList.size(), stepNum);
     }
 
     private List<Line> generateStep(int userNum, int stepNum) {
@@ -24,7 +24,7 @@ public class Ladder {
     }
 
     public Line getAStep(int i) {
-        return steps.get(i);
+        return lines.get(i);
     }
 
     public String getAUser(int i) {
