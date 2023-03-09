@@ -34,7 +34,7 @@ public class Ladder {
     }
 
     // 출력 호출
-    public void callOutput() {
+    public void callOfLadderOutput() {
         Output output = new Output();
 
         output.printName(names);

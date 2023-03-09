@@ -1,7 +1,6 @@
 package LadderGame.view;
 
 import LadderGame.domain.Line;
-
 import java.util.ArrayList;
 
 public class Output {
@@ -13,17 +12,24 @@ public class Output {
         System.out.println();
     }
 
-    // Boolean(true) -> String("-----")
+    // Boolean(ex: true) -> String("-----")
     public String boolToString(boolean point) {
-        if (point) return "-----";
+        if (point) {
+            return "-----";
+        }
         return "     ";
     }
 
     // 사다리 출력
     public void printLadder(ArrayList<Line> lines) {
         for (Line line : lines) {
-            line.getPoints().forEach(point -> System.out.print("|" + boolToString(point)));
-            System.out.println("|");
+            line.callOfLineOutput();
         }
+    }
+
+    // 라인 출력
+    public void printLine(ArrayList<Boolean> points) {
+        points.forEach(point -> System.out.print("|" + boolToString(point)));
+        System.out.println("|");
     }
 }

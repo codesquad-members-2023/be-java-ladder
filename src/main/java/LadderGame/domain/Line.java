@@ -32,7 +32,7 @@ public class Line {
     }
 
     // 라인 출력 호출
-    public void callOfOutput() {
+    public void callOfLineOutput() {
         Output output = new Output();
 
         output.printLine(points);
