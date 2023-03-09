@@ -29,4 +29,8 @@ public class Point {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public boolean isSamePosition(int positionOfX, int positionOfY) {
+        return (positionOfX == x && positionOfY == y);
+    }
 }
