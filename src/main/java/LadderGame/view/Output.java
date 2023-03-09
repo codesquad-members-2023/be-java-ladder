@@ -15,7 +15,9 @@ public class Output {
 
     // Boolean(ex: true) -> String("-----")
     public String boolToString(boolean point) {
-        if (point) return "-----";
+        if (point) {
+            return "-----";
+        }
         return "     ";
     }
 
