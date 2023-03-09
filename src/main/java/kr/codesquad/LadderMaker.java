@@ -11,7 +11,7 @@ public class LadderMaker {
     public Ladder createLadder(String playersName, int height) {
         ladder = new Ladder(height);
         int width = (fillPlayersNameRow(playersName) * 2) - 1;
-        for (int i = 1; i < ladder.showSizeOfLadder(); i++) {
+        for (int i = 1; i < ladder.getSizeOfLadder(); i++) {
             fillLadderRow(i, width);
         }
         return ladder;

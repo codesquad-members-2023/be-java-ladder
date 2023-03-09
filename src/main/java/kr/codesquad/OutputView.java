@@ -62,7 +62,7 @@ public class OutputView {
     }
 
     private void printBelowPlayersName(Ladder ladder) {
-        for (int i = 1; i < ladder.showSizeOfLadder(); i++) {
+        for (int i = 1; i < ladder.getSizeOfLadder(); i++) {
             printRows(ladder.getLadderRow(i));
             globalNewLine();
         }

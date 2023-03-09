@@ -14,7 +14,7 @@ public class Ladder {
         }
     }
 
-    public int showSizeOfLadder() {
+    public int getSizeOfLadder() {
         return ladder.size();
     }
 
