@@ -1,5 +1,7 @@
 package LadderGame.domain;
 
+import LadderGame.view.Output;
+
 import java.util.ArrayList;
 
 public class Line {
@@ -29,8 +31,10 @@ public class Line {
         return false;
     }
 
-    // 라인값 호출
-    public ArrayList<Boolean> getPoints() {
-        return this.points;
+    // 라인 출력 호출
+    public void callOfOutput() {
+        Output output = new Output();
+
+        output.printLine(points);
     }
 }

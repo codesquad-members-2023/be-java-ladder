@@ -14,6 +14,6 @@ public class Main {
 
         // 사다리 출력
         System.out.println();
-        ladder.callOutput();
+        ladder.callOfOutput();
     }
 }
