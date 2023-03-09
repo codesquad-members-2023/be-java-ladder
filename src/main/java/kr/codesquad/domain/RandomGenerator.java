@@ -8,7 +8,7 @@ public class RandomGenerator {
 
     private final Random random = new Random();
 
-    public List<Boolean> generate(int size) {
+    public List<Boolean> generateRandomBooleans(int size) {
         ArrayList<Boolean> booleans = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             booleans.add(random.nextBoolean());

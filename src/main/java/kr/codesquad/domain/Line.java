@@ -8,9 +8,9 @@ public class Line {
     private final List<Boolean> points;
 
     public Line(List<String> people) {
-        List<Boolean> randomBooleans = randomGenerator.generate(people.size() - 1);
+        List<Boolean> randomBooleans = randomGenerator.generateRandomBooleans(people.size() - 1);
         while (isOverlapping(randomBooleans)) {
-            randomBooleans = randomGenerator.generate(people.size() - 1);
+            randomBooleans = randomGenerator.generateRandomBooleans(people.size() - 1);
         }
 
         points = randomBooleans;
