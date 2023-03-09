@@ -1,10 +1,12 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+
 public class View {
-    public void render(Ladder pointMap) {
+    public void render(Ladder pointMap, ArrayList<String> userNames) {
         String[][] ladderMap = createStringMap(pointMap.getLineWidth(), pointMap.getLineHeight());
 
-        pointToStringMap(pointMap, ladderMap);
+        pointToStringMap(pointMap, ladderMap, userNames);
 
         renderingStringMap(ladderMap);
     }
@@ -34,13 +36,17 @@ public class View {
         }
     }
 
-    private static void pointToStringMap(Ladder pointMap, String[][] ladderMap) {
+    private static void pointToStringMap(Ladder pointMap, String[][] ladderMap, ArrayList<String> userNames) {
         for (Point point : pointMap.getPointMap()) {
-            setStringMapByPoint(ladderMap, point);
+            setStringMapByPoint(ladderMap, point, userNames);
         }
     }
 
-    private static void setStringMapByPoint(String[][] ladderMap, Point point) {
+    private static void setStringMapByPoint(String[][] ladderMap, Point point, ArrayList<String> userNames) {
+        if (point.getType() == PointType.USER) {
+            ladderMap[point.getPositionOfY()][point.getPositionOfX()] = userNames.get(point.getPositionOfX()/2);
+            return;
+        }
         ladderMap[point.getPositionOfY()][point.getPositionOfX()] = point.toString();
     }
 }

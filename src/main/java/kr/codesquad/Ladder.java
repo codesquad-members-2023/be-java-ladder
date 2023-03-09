@@ -38,7 +38,7 @@ public class Ladder {
     public void connectLineByPositionAtRandom(int positionOfX, int positionOfY) {
         if (!(isValidPosition(positionOfX, positionOfY))) return;
         Point point = findPointByPosition(positionOfX, positionOfY);
-        if (Math.random() < 0.2) {
+        if (Math.random() < 0.3) {
             point.setStatus(Status.CONNECTED);
         }
     }

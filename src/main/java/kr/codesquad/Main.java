@@ -1,5 +1,6 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -9,11 +10,12 @@ public class Main {
         LadderMaker ladderMaker = new LadderMaker();
         View view = new View();
 
-        int userNum = inputTerminal.getLineNum();
+        ArrayList<String> userNames = inputTerminal.getUserNames();
         int lineLength = inputTerminal.getLineLength();
 
-        Ladder pointMap = inputConverter.convertToPointMap(userNum, lineLength);
+        int lineWidth = userNames.size();
+        Ladder pointMap = inputConverter.convertToPointMap(lineWidth, lineLength);
         pointMap = ladderMaker.makeLadderFromPointMap(pointMap);
-        view.render(pointMap);
+        view.render(pointMap,userNames);
     }
 }
