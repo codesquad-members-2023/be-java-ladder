@@ -20,8 +20,8 @@ public class Ladder {
 
     private String makeBridgeElement(int index) {
         String STICK = "|";
-        String SPACE = " ";
-        String DASH = "-";
+        String SPACE = "     ";
+        String DASH = "-----";
         if (index % 2 == 0) {
             return STICK;
         }
