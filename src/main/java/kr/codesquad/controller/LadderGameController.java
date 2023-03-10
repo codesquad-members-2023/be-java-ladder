@@ -4,7 +4,7 @@ import static kr.codesquad.view.View.readNames;
 import static kr.codesquad.view.View.readLadderHeight;
 import static kr.codesquad.view.View.printMap;
 import static kr.codesquad.view.View.readResults;
-import static kr.codesquad.view.View.readShowResult;
+import static kr.codesquad.view.View.showResult;
 
 import java.util.List;
 
@@ -24,24 +24,12 @@ public class LadderGameController {
         ladder.initMap(readLadderHeight(), numberOfPlayers, new RandomGenerator());
 
         String map = ladder.getRenderedString(result.getResult());
+
+        result.initResultMap(PlayerRepository.playAll());
+
         printMap(map);
         showResult(result);
     }
 
-    public static void showResult(Result result) {
 
-        String userInput = readShowResult();
-        if (userInput.equals("춘식이")) {
-            return ;
-        }
-        if (userInput.equals("all")) {
-            System.out.println(result.getResultsAll(PlayerRepository.playAll()));
-            showResult(result);
-            return ;
-        }
-        System.out.println("실행 결과");
-        System.out.println(result.getResultByName(PlayerRepository.getPlayerByName(userInput)));
-
-        showResult(result);
-    }
 }

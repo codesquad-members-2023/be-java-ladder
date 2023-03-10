@@ -5,7 +5,15 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import kr.codesquad.domain.PlayerRepository;
+import kr.codesquad.domain.Result;
+
 public class View {
+    private static final String FINISH_GAME_KEYWORD = "춘식이";
+    private static final String RESULT_SHOW_MESSAGE = "결과를 보고 싶은 사람은?";
+    private static final String ALL_KEYWORD = "all";
+    private static final String FINISH_GAME_MESSAGE = "게임을 종료합니다.";
+    private static final String RESULT_MESSAGE = "실행 결과";
     private static Scanner scanner = new Scanner(System.in);
     private static final int MAX_NAME_LENGTH = 5;
     private static final String ILLEGAL_NAME_LIST_MESSAGE = "[ERROR] 2명 이상의 쉼표로 구분한 참여자 이름을 입력해주세요.";
@@ -36,7 +44,7 @@ public class View {
                 .collect(Collectors.toUnmodifiableList());
     }
     public static String readShowResult() {
-        System.out.println("결과를 보고 싶은 사람은?");
+        System.out.println(RESULT_SHOW_MESSAGE);
 
         //예외처리 로직 추가 구현
         String input = scanner.nextLine();
@@ -99,8 +107,28 @@ public class View {
             throw new IllegalArgumentException(NUMBER_FORMAT_ERROR_MESSAGE);
         }
     }
+    public static void showResult(Result result) {
+        String userInput = readShowResult();
+        if (userInput.equals(FINISH_GAME_KEYWORD)) {
+            System.out.println(FINISH_GAME_MESSAGE);
+            return ;
+        }
+        if (userInput.equals(ALL_KEYWORD)) {
+            printResult(result.getResultsAll(PlayerRepository.playAll()));
+            showResult(result);
+            return ;
+        }
+        printResult(result.getResultByName(PlayerRepository.getPlayerByName(userInput)));
+
+        showResult(result);
+    }
 
     public static void printMap(String map) {
         System.out.println(map);
+    }
+
+    public static void printResult(String results) {
+        System.out.println(RESULT_MESSAGE);
+        System.out.println(results);
     }
 }
