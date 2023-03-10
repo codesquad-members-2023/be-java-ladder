@@ -1,6 +1,7 @@
 package kr.codesquad.view;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class View {
@@ -29,6 +30,20 @@ public class View {
         final String SEARCH_RESULT_MESSAGE = "결과를 보고 싶은 사람은? (all : 모든 참여자 결과, 춘식이 : 종료)";
         System.out.println();
         System.out.println(SEARCH_RESULT_MESSAGE);
+    }
+
+    public void printUserSearchResult(String userResult) {
+        System.out.println();
+        final String SEARCH_RESULT_MESSAGE = "실행 결과";
+        System.out.println(SEARCH_RESULT_MESSAGE);
+        System.out.println(userResult);
+    }
+
+    public void printResultMap(Map<String, String> resultMap) {
+        System.out.println();
+        final String SEARCH_RESULT_MESSAGE = "실행 결과";
+        System.out.println(SEARCH_RESULT_MESSAGE);
+        resultMap.entrySet().forEach(System.out::println);
     }
 
     public void printJoinMembersError() {
