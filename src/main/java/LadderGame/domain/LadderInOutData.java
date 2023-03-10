@@ -11,7 +11,6 @@ public class LadderInOutData {
     private final ArrayList<String> names;
     private final ArrayList<String> result;
 
-
     public LadderInOutData(String names, String result) {
         this.names = parsingString(names);
         this.result = parsingString(result);
@@ -25,15 +24,28 @@ public class LadderInOutData {
                 .collect(Collectors.toList());
     }
 
+    // 사다리 넓이(사람수) 도출
     public int getNameSize() {
         return names.size();
     }
 
+    // 이름 출력 호출
     public void callOfNameOutput() {
         output.printData(names);
     }
 
+    // 결과 출력 호출
     public void callOfResultOutput() {
         output.printData(result);
+    }
+
+    // 해당 번호 이름 도출
+    public String getName(int nameOfNum) {
+        return names.get(nameOfNum);
+    }
+
+    // 해당 번호 결과 도출
+    public String getResult(int resultOfNum) {
+        return result.get(resultOfNum);
     }
 }
