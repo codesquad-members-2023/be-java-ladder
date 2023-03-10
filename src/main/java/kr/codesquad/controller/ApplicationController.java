@@ -45,8 +45,9 @@ public class ApplicationController {
 
     public boolean checkInputLength(String input) {
         String[] inputArray = input.split(",");
+        final int LIMIT_USER_NAME_LENGTH = 5;
         int userNumber = (int) Arrays.stream(inputArray)
-                .filter(s -> s.length() <= 5)
+                .filter(s -> s.length() < LIMIT_USER_NAME_LENGTH)
                 .count();
         if (inputArray.length != userNumber) {
             view.printJoinMembersError();
@@ -57,7 +58,8 @@ public class ApplicationController {
 
     public boolean checkInputNumber(String input) {
         String temp = input.replaceAll("[0-9]", "");
-        if (temp.length() != 0) {
+        final int LIMIT_USER_NUMBER_LENGTH = 0;
+        if (temp.length() != LIMIT_USER_NUMBER_LENGTH) {
             view.printMaxLadderHeightError();
             return false;
         }

@@ -24,10 +24,12 @@ public class Ladder {
     }
 
     public void init(List<List<String>> ladder, int maxLadderHeight, int joinMembersSplitSize) {
-        for (int i = 0; i < maxLadderHeight + 1; i++) {
-            ladder.add(new ArrayList<>(Collections.nCopies(joinMembersSplitSize + joinMembersSplitSize + 1, "")));
+        final int SPACE_ABOVE_BELOW = 2;
+        final int SPACE_RIGHT_COLUMN = 1;
+        for (int i = 0; i < maxLadderHeight + SPACE_ABOVE_BELOW; i++) {
+            ladder.add(new ArrayList<>(Collections.nCopies(joinMembersSplitSize + joinMembersSplitSize + SPACE_RIGHT_COLUMN, "")));
         }
-        for (int i = 0; i < maxLadderHeight + 1; i++) {
+        for (int i = 0; i < maxLadderHeight + SPACE_ABOVE_BELOW; i++) {
             ladder.get(i).set(0, " ");
         }
     }
@@ -35,7 +37,8 @@ public class Ladder {
     public void makeRow(List<List<String>> ladder, List<String> joinMembersSplit) {
         Queue<String> joinMemberQueue = new LinkedList<>(joinMembersSplit);
         makeFirstRow(ladder.get(0), joinMemberQueue);
-        for (int i = 1; i < ladder.size(); i++) {
+        final int START_ROW_INDEX = 1;
+        for (int i = START_ROW_INDEX; i < ladder.size(); i++) {
             makeColumn(ladder.get(i));
         }
     }
@@ -55,7 +58,8 @@ public class Ladder {
 
     public void makeColumn(List<String> row) {
         List<Boolean> visited = new ArrayList<>(Collections.nCopies(row.size(), false));
-        for (int i = 2; i < row.size(); i++) {
+        final int START_COLUMN_INDEX = 2;
+        for (int i = START_COLUMN_INDEX; i < row.size(); i++) {
             row.set(i, checkEvenColumn(i, visited));
         }
     }
@@ -76,6 +80,7 @@ public class Ladder {
     }
 
     public boolean checkLine(int idx, List<Boolean> visited) {
-        return idx <= 1 || !visited.get(idx - 2);
+        final int CHECK_PREVIOUS_INDEX = 2;
+        return idx <= 1 || !visited.get(idx - CHECK_PREVIOUS_INDEX);
     }
 }
