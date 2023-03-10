@@ -20,13 +20,6 @@ public class Line {
         points = randomBooleans;
     }
 
-    public boolean isOverlapping(List<Boolean> randomBooleans) {
-        for (int i = 1; i < randomBooleans.size(); i++) {
-            if (randomBooleans.get(i) && randomBooleans.get(i - 1)) return true;
-        }
-        return false;
-    }
-
     public String draw() {
         StringBuilder sb = new StringBuilder();
 
@@ -47,5 +40,12 @@ public class Line {
         }
 
         return STAY;
+    }
+
+    private boolean isOverlapping(List<Boolean> randomBooleans) {
+        for (int i = 1; i < randomBooleans.size(); i++) {
+            if (randomBooleans.get(i) && randomBooleans.get(i - 1)) return true;
+        }
+        return false;
     }
 }
