@@ -4,13 +4,17 @@ import java.util.List;
 
 public class Line {
 
+    private static final int RIGHT = 1;
+    private static final int LEFT = -1;
+    private static final int STAY = 0;
+
     private final RandomGenerator randomGenerator = new RandomGenerator();
     private final List<Boolean> points;
 
-    public Line(List<String> people) {
-        List<Boolean> randomBooleans = randomGenerator.generate(people.size() - 1);
+    public Line(int width) {
+        List<Boolean> randomBooleans = randomGenerator.generateRandomBooleans(width);
         while (isOverlapping(randomBooleans)) {
-            randomBooleans = randomGenerator.generate(people.size() - 1);
+            randomBooleans = randomGenerator.generateRandomBooleans(width);
         }
 
         points = randomBooleans;
@@ -25,9 +29,23 @@ public class Line {
 
     public String draw() {
         StringBuilder sb = new StringBuilder();
+
+        sb.append("  |");
         for (Boolean point : points) {
             sb.append(point ? "-----|" : "     |");
         }
         return sb.toString();
+    }
+
+    public int calculateNextLocation(int currentLocation) {
+        if ((currentLocation > 0) && (points.get(currentLocation - 1))) {
+            return LEFT;
+        }
+
+        if ((currentLocation < points.size()) && (points.get(currentLocation))) {
+            return RIGHT;
+        }
+
+        return STAY;
     }
 }

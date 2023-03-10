@@ -14,6 +14,8 @@
 - 구조 설계 고민
 
 ### 사다리 게임 5단계 시작전에
+- 일급 컬렉션
+  - https://jojoldu.tistory.com/412
 - 루카스 Step2 내용들 학습
 - JVM 학습
   - https://github.com/whiteship/live-study/issues/1

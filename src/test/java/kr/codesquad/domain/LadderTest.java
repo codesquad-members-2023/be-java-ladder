@@ -11,12 +11,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LadderTest {
 
     @Test
-    @DisplayName("사다리 맵의 가로 세로 크기가 정상적으로 만들어졌는지 테스트")
+    @DisplayName("사다리 맵의 높이가 정상적으로 만들어졌는지 테스트한다.")
     void makeBridge() {
         Ladder ladder = new Ladder();
-        List<Line> ladderMap = ladder.make(List.of("pobi", "honux", "crong", "jk"), 5);
+        List<String> people = List.of("pobi", "honux", "crong", "jk");
+        String ladderResult = ladder.make(people, 5);
+        int height = (ladderResult.length() - ladderResult.replace("|", "").length()) / people.size();
 
-        assertThat(ladderMap.size()).isEqualTo(5);
-        assertThat(ladderMap.get(0).getPoints().size()).isEqualTo(3);
+        assertThat(height).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("사다리를 타고 내려가면 도착하는 위치를 제대로 계산하는지 눈으로 확인한다.")
+    void calculateWhereToDown() {
+        Ladder ladder = new Ladder();
+        List<String> people = List.of("pobi", "honux", "crong", "jk");
+        String ladderResult = ladder.make(people, 5);
+
+        System.out.println(ladderResult);
+
+        int startPoint = 2;
+        System.out.println("시작 위치 : " + (startPoint + 1));
+        System.out.println("도작 위치 : " + (ladder.calculateWhereToDown(startPoint) + 1));
     }
 }
