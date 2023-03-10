@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.codesquad.utils.RandomUtils;
 import kr.codesquad.view.Renderer;
@@ -17,8 +18,8 @@ public class Ladder {
         }
     }
 
-    public String getRenderedString() {
-        return Renderer.renderMap(ladderMap);
+    public String getRenderedString(List<String> resultSet) {
+        return Renderer.renderMap(ladderMap, resultSet);
     }
 
     public int move(int playerLocation) {

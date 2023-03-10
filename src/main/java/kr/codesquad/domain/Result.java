@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.List;
-import java.util.Map;
 
 public class Result {
     public Result(List<String> result, List<String> playersList) {
@@ -11,7 +10,6 @@ public class Result {
 
     private List<String> result;
     private List<String> playersList;
-    private Map<String, String> resultMap;
 
     public String getResultByName(Player player) {
         return result.get(player.playGame());

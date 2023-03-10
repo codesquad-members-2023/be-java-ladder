@@ -15,8 +15,7 @@ public class Player {
         return name;
     }
 
-    public void playGame() {
-        location = ladder.move(location);
-        System.out.println(location);
+    public int playGame() {
+        return ladder.move(location);
     }
 }

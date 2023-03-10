@@ -16,7 +16,7 @@ public class Renderer {
     private static final String LADDER_FULL = "-----";
     private static final String LADDER_EMPTY = "     ";
 
-    public static String renderMap(ArrayList<Line> ladderMap) {
+    public static String renderMap(ArrayList<Line> ladderMap, List<String> resultSet) {
         StringBuilder sb = new StringBuilder();
 
         sb.append(getNameList().stream().reduce((str1, str2) -> str1 + TAB_CHAR + str2).get()).append(BREAK_LINE);
@@ -25,6 +25,7 @@ public class Renderer {
             renderFloor(floorMap, sb);
             sb.append(LADDER_BAR).append(BREAK_LINE);
         }
+        sb.append(resultSet.stream().reduce((str1, str2) -> str1 + TAB_CHAR + str2).get()).append(BREAK_LINE);
         return sb.toString();
     }
 

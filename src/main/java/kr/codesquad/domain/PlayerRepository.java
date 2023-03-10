@@ -19,9 +19,20 @@ public class PlayerRepository {
         return players.stream().map(Player::getName).collect(Collectors.toUnmodifiableList());
     }
 
-    public static void playersStartGame() {
+    public static List<Integer> playAll() {
+        List<Integer> resultSet = new ArrayList<>();
         for (Player player : players) {
-            player.playGame();
+            resultSet.add(player.playGame());
         }
+        return resultSet;
+    }
+
+    public static Player getPlayerByName(String name) {
+        for (Player player : players) {
+            if (player.getName().equals(name)) {
+                return player;
+            }
+        }
+        return null;
     }
 }
