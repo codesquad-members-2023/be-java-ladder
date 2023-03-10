@@ -11,6 +11,7 @@ public class View {
     private static final String ILLEGAL_NAME_LIST_MESSAGE = "[ERROR] 2명 이상의 쉼표로 구분한 참여자 이름을 입력해주세요.";
     private static final String EXCEED_NAME_LENGTH_MESSAGE = "[ERROR] 이름은 최대 5글자입니다.";
     private static final String READ_NAMES_MESSAGE = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
+    private static final String READ_RESULTS_MESSAGE = "실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)";
     private static final String NUMBER_FORMAT_ERROR_MESSAGE = "[ERROR] 양의 정수를 입력해주세요.";
     private static final String READ_LADDER_HEIGHT_MESSAGE = "최대 사다리 높이는 몇 개인가요?";
     private static final String COMMA_SEPERATOR = ",";
@@ -23,6 +24,24 @@ public class View {
         return Arrays.stream(input.split(COMMA_SEPERATOR))
                 .map(name -> name.trim())
                 .collect(Collectors.toUnmodifiableList());
+    }
+
+    public static List<String> readResults() {
+        System.out.println(READ_RESULTS_MESSAGE);
+
+        String input = handleNameException();
+
+        return Arrays.stream(input.split(COMMA_SEPERATOR))
+                .map(name -> name.trim())
+                .collect(Collectors.toUnmodifiableList());
+    }
+    public static String readShowResult() {
+        System.out.println("결과를 보고 싶은 사람은?");
+
+        //예외처리 로직 추가 구현
+        String input = scanner.nextLine();
+
+        return input;
     }
 
     private static String handleNameException() {
