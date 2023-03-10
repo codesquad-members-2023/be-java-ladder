@@ -15,11 +15,12 @@ public class Ladder {
         this.random = random;
     }
 
-    public List<List<String>> make(String joinMembers, int maxLadderHeight) {
+    public List<List<String>> make(String joinMembers, int maxLadderHeight, String inputGameResult) {
         List<String> joinMembersSplit = new ArrayList<>(Arrays.asList(joinMembers.split(",")));
+        List<String> inputGameResultSplit = new ArrayList<>(Arrays.asList(inputGameResult.split(",")));
         List<List<String>> ladder = new ArrayList<>();
         init(ladder, maxLadderHeight, joinMembersSplit.size());
-        makeRow(ladder, joinMembersSplit);
+        makeRow(ladder, joinMembersSplit, inputGameResultSplit);
         return ladder;
     }
 
@@ -34,9 +35,11 @@ public class Ladder {
         }
     }
 
-    public void makeRow(List<List<String>> ladder, List<String> joinMembersSplit) {
+    public void makeRow(List<List<String>> ladder, List<String> joinMembersSplit, List<String> inputGameResultSplit) {
         Queue<String> joinMemberQueue = new LinkedList<>(joinMembersSplit);
+        Queue<String> inputGameResultQueue = new LinkedList<>(inputGameResultSplit);
         makeFirstRow(ladder.get(0), joinMemberQueue);
+        makeLastRow(ladder.get(ladder.size() - 1), inputGameResultQueue);
         final int START_ROW_INDEX = 1;
         final int END_ROW_INDEX = 1;
         for (int i = START_ROW_INDEX; i < ladder.size() - END_ROW_INDEX; i++) {
@@ -51,6 +54,19 @@ public class Ladder {
     }
 
     public String checkEvenFirstRowColumn(int idx, Queue<String> queue) {
+        if (idx % 2 == 0 && !queue.isEmpty()) {
+            return queue.poll();
+        }
+        return "  ";
+    }
+
+    public void makeLastRow(List<String> row, Queue<String> queue) {
+        for (int i = 0; i < row.size(); i++) {
+            row.set(i, checkEvenLastRowColumn(i, queue));
+        }
+    }
+
+    public String checkEvenLastRowColumn(int idx, Queue<String> queue) {
         if (idx % 2 == 0 && !queue.isEmpty()) {
             return queue.poll();
         }
