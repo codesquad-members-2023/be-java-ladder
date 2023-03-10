@@ -15,13 +15,13 @@ public class ApplicationController {
     }
 
     public void run() {
-        String joinMembers = validateName();
-        int maxLadderHeight = Integer.parseInt(validateNumber());
+        String joinMembers = promptForValidName();
+        int maxLadderHeight = promptForValidNumber();
         List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight);
         view.printLadderResult(ladderResult);
     }
 
-    public String validateName() {
+    public String promptForValidName() {
         boolean flag = false;
         String input = "";
         while (!flag) {
@@ -32,7 +32,7 @@ public class ApplicationController {
         return input;
     }
 
-    public String validateNumber() {
+    public int promptForValidNumber() {
         boolean flag = false;
         String input = "";
         while (!flag) {
@@ -40,7 +40,7 @@ public class ApplicationController {
             input = view.inputUserString();
             flag = checkInputNumber(input);
         }
-        return input;
+        return Integer.parseInt(input);
     }
 
     public boolean checkInputLength(String input) {
