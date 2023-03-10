@@ -23,7 +23,6 @@ public class Main {
         ladder.callOfLadderOutput();
 
         // 명령어 처리
-        Output output = new Output();
         LadderGameResult gameResult = new LadderGameResult(ladder.setResultMap());
         String command = "";
         do {
@@ -32,13 +31,11 @@ public class Main {
              Output 에 넘김
              */
             if (command.equals("all")) {
-                gameResult
-                output.printResultAll();
-            }
-            if(!command.equals("all")&&ladder.checkName(command)){
-                gameResult.getResult(command);
-            }
 
+            }
+            if (!command.equals("all") && ladder.checkName(command)) {
+                gameResult.callOfResultPrintOne(command);
+            }
 
             command = input.handleCommand();
         } while (!command.equals("춘식이"));

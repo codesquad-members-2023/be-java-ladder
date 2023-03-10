@@ -1,5 +1,7 @@
 package LadderGame.domain;
 
+import LadderGame.view.Output;
+
 import java.util.HashMap;
 
 public class LadderGameResult {
@@ -13,5 +15,9 @@ public class LadderGameResult {
         return resultMap.get(name);
     }
 
+    public void callOfResultPrintOne(String name) {
+        Output output = new Output();
 
+        output.printResultOne(getResult(name));
+    }
 }
