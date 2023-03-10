@@ -18,23 +18,23 @@ public class View {
     public static List<String> readNames() {
         System.out.println(READ_NAMES_MESSAGE);
 
-        String input = scanner.nextLine();
-
-        handleNameException(input);
+        String input = handleNameException();
 
         return Arrays.stream(input.split(COMMA_SEPERATOR))
                 .map(name -> name.trim())
                 .collect(Collectors.toUnmodifiableList());
     }
 
-    private static void handleNameException(String input) {
+    private static String handleNameException() {
+        String input = scanner.nextLine();
         try {
             hasMoreThanTwoNames(input);
             exceedMaxNameLength(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            readNames();
+            return handleNameException();
         }
+        return input;
     }
 
     private static void exceedMaxNameLength(String input) {
