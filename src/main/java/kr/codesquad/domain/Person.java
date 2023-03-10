@@ -2,6 +2,8 @@ package kr.codesquad.domain;
 
 public class Person {
 
+    public static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
     private final Ladder ladder;
 
@@ -20,7 +22,7 @@ public class Person {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new RuntimeException("[ERROR] 이름의 길이는 최대 5글자입니다. 입력한 이름 : " + name);
         }
     }
