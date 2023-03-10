@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.view.View;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,23 +11,29 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class PeopleTest {
 
+    private Ladder ladder;
+    private View view;
+    private People people;
+
+    @BeforeEach
+    void init() {
+        ladder = new Ladder();
+        view = new View();
+
+        List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
+        people = new People(peopleNames, ladder);
+    }
+
     @Test
     @DisplayName("이름으로 사람을 검색하여 해당 사람의 사다리타기 결과값을 제대로 받는 지 확인한다.")
     void findDestinationOf() {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
         List<String> results = List.of("꽝", "5000", "꽝", "10000", "꽝");
 
-        Ladder ladder = new Ladder();
-
-        People people = new People(peopleNames, ladder);
-
         String ladderResult = ladder.make(peopleNames, 5);
-
-        View view = new View();
         view.printLadder(peopleNames, ladderResult, results);
 
         int destination = people.findDestinationOf("jk");
-
         System.out.println("시작하는 사람 : jk");
         System.out.println("도착위치 : " + (destination + 1));
     }
@@ -37,13 +44,7 @@ class PeopleTest {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
         List<String> results = List.of("꽝", "5000", "꽝", "10000", "꽝");
 
-        Ladder ladder = new Ladder();
-
-        People people = new People(peopleNames, ladder);
-
         String ladderResult = ladder.make(peopleNames, 5);
-
-        View view = new View();
         view.printLadder(peopleNames, ladderResult, results);
 
         assertThatThrownBy(() -> {
@@ -59,17 +60,10 @@ class PeopleTest {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
         List<String> results = List.of("꽝", "5000", "꽝", "10000");
 
-        Ladder ladder = new Ladder();
-
-        People people = new People(peopleNames, ladder);
-
         String ladderResult = ladder.make(peopleNames, 5);
-
-        View view = new View();
         view.printLadder(peopleNames, ladderResult, results);
 
         List<Integer> destinations = people.findAllDestinations();
-
         System.out.println(destinations);
     }
 }

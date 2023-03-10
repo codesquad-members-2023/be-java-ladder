@@ -1,6 +1,6 @@
 package kr.codesquad.domain;
 
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +10,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LadderTest {
 
+    private Ladder ladder;
+
+    @BeforeEach
+    void init() {
+        ladder = new Ladder();
+    }
+
     @Test
     @DisplayName("사다리 맵의 높이가 정상적으로 만들어졌는지 테스트한다.")
     void makeBridge() {
-        Ladder ladder = new Ladder();
         List<String> people = List.of("pobi", "honux", "crong", "jk");
         String ladderResult = ladder.make(people, 5);
         int height = (ladderResult.length() - ladderResult.replace("|", "").length()) / people.size();
@@ -24,7 +30,6 @@ class LadderTest {
     @Test
     @DisplayName("사다리를 타고 내려가면 도착하는 위치를 제대로 계산하는지 눈으로 확인한다.")
     void calculateWhereToDown() {
-        Ladder ladder = new Ladder();
         List<String> people = List.of("pobi", "honux", "crong", "jk");
         String ladderResult = ladder.make(people, 5);
 
