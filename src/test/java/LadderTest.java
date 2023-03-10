@@ -1,8 +1,17 @@
 import LadderGame.domain.Ladder;
+import LadderGame.domain.LadderInOutData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class LadderTest {
+    @Test
+    @DisplayName("예제 입력 테스트(출력으로 보여줌)")
+    void test01() {
+        LadderInOutData data = new LadderInOutData("pobi,honux,crong,jk", "꽝,5000,꽝,3000");
+        Ladder ladder = new Ladder(data, 5);
+        ladder.makeLadder();
+        ladder.callOfLadderOutput();
+    }
 //    @Test
 //    @DisplayName("00. 기본 테스트")
 //    void test00() {
