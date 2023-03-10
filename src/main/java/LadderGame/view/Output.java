@@ -23,7 +23,6 @@ public class Output {
 
     // 사다리 출력
     public void printLadder(ArrayList<Line> lines) {
-        System.out.println();
         for (Line line : lines) {
             line.callOfLineOutput();
         }
