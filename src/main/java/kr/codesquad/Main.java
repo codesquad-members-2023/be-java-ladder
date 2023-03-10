@@ -1,20 +1,21 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        InputTerminal inputTerminal = new InputTerminal();
         InputConverter inputConverter = new InputConverter();
         LadderMaker ladderMaker = new LadderMaker();
         View view = new View();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("사용자의 수와 라인의 길이를 입력해주세요");
-        int userNum = Integer.parseInt(sc.next());
-        int lineLength = Integer.parseInt(sc.next());
+        ArrayList<String> userNames = inputTerminal.getUserNames();
+        int lineLength = inputTerminal.getLineLength();
 
-        Point[][] pointMap = inputConverter.convertToPointMap(userNum, lineLength);
-        int[][] intMap = ladderMaker.makeLadderFromPointMap(pointMap);
-        view.render(intMap);
+        int lineWidth = userNames.size();
+        Ladder pointMap = inputConverter.convertToPointMap(lineWidth, lineLength);
+        pointMap = ladderMaker.makeLadderFromPointMap(pointMap);
+        view.render(pointMap,userNames);
     }
 }
