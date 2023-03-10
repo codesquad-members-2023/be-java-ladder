@@ -57,9 +57,9 @@ class LadderTest {
             //Random 주입
             ladder.initMap(5, numberOfPlayers,new TestRandomGenerator());
 
-            //System.out.println(ladder.getRenderedString());
+            System.out.println(ladder.getRenderedString());
 
-            assertThat(ladder.move(0)).isEqualTo(1);
+            assertThat(ladder.move(2)).isEqualTo(3);
         }
     }
 }

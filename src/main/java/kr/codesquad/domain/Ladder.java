@@ -30,7 +30,7 @@ public class Ladder {
 
     private int moveDown(int playerLocation, int floor) {
         //has right connection
-        if (playerLocation < ladderMap.get(0).getSize() - 1 && ladderMap.get(floor).hasConnection(playerLocation)) {
+        if (playerLocation < ladderMap.get(0).getSize() && ladderMap.get(floor).hasConnection(playerLocation)) {
             return ++playerLocation;
         }
         //has left connection
