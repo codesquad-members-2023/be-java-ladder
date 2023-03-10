@@ -10,6 +10,8 @@ public class Controller {
     private final Ladder ladder;
     private final LadderView ladderView;
 
+    Validator validator = new Validator();
+
     public Controller(Ladder ladder, LadderView ladderView) {
         this.ladder = ladder;
         this.ladderView = ladderView;
@@ -19,8 +21,11 @@ public class Controller {
         ladderView.askPeopleNumber();
         List<String> names = Arrays.asList(peopleName());
 
-        ladderView.askLadderHeight();
-        int height = ladderView.inputInt();
+        int height = 0;
+        while (height < names.size()) {
+            ladderView.askLadderHeight();
+            height = validator.validatedHeight(height, names.size(), ladderView);
+        }
 
         String ladderResult = ladder.makeLadder(names, height);
         ladderView.printLadder(names, ladderResult);
@@ -29,5 +34,6 @@ public class Controller {
     private String[] peopleName() {
         return ladderView.inputName().split(",");
     }
+
 
 }
