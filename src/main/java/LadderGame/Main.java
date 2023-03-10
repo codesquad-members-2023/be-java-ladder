@@ -15,5 +15,8 @@ public class Main {
         // 사다리 출력
         System.out.println();
         ladder.callOfLadderOutput();
+
+        // 명령어 부분
+        input.handleCommand();
     }
 }
