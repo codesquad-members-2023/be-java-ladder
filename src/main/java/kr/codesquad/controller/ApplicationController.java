@@ -18,7 +18,7 @@ public class ApplicationController {
         String joinMembers = promptForValidName();
         String inputGameResult = promptForValidResult(joinMembers);
         int maxLadderHeight = promptForValidNumber();
-        List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight);
+        List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight, inputGameResult);
         view.printLadderResult(ladderResult);
     }
 
