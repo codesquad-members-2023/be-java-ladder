@@ -13,13 +13,11 @@ public class Controller {
     public Controller(Ladder ladder, LadderView ladderView) {
         this.ladder = ladder;
         this.ladderView = ladderView;
-
     }
 
     public void startGame() {
         ladderView.askPeopleNumber();
         List<String> names = Arrays.asList(peopleName());
-
 
         ladderView.askLadderHeight();
         int height = ladderView.inputInt();
