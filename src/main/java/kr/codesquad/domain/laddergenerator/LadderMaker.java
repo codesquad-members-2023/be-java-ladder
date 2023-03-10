@@ -6,33 +6,29 @@ import java.util.Random;
 
 public class LadderMaker {
 
-    public List<List<Boolean>> makeBooleanLadder(int peopleNumber, int height) {
-        List<List<Boolean>> ladder = new ArrayList<>();
+    private List<Line> ladder;
+    private int people;
+    private int height;
+
+
+    public String makeLadder(List<String> people, int height){
+        this.people = people.size() - 1;
+        this.height = height;
+
+        ladder = new ArrayList<>();
         for (int i = 0; i < height; i++) {
-            ladder.add(moveNextElement(peopleNumber));
+            ladder.add(new Line(this.people));
         }
-        return ladder;
+        return makeLadderToString();
     }
 
-    private boolean randomGenerateLadder() {
-        Random random = new Random();
-        return random.nextBoolean();
-    }
+    private String makeLadderToString(){
+        StringBuilder ladderResult = new StringBuilder();
 
-    private List<Boolean> moveNextElement(int peopleNumber) {
-        List<Boolean> oneRow = new ArrayList<>();
-        oneRow.add(randomGenerateLadder());
-        for (int i = 0; i < peopleNumber - 2; i++) {
-            oneRow.add(addNextElement(oneRow));
+        for (int i = 0; i < ladder.size(); i++) {
+            ladderResult.append(ladder.get(i).makeLineShape()).append("\n");
         }
-        return oneRow;
-    }
-
-    private boolean addNextElement(List<Boolean> oneRow) {
-        if (oneRow.get(oneRow.size() - 1)) {
-            return false;
-        }
-        return randomGenerateLadder();
+        return ladderResult.toString();
     }
 
 }
