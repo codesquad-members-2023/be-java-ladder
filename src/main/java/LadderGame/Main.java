@@ -1,13 +1,16 @@
 package LadderGame;
 
 import LadderGame.domain.Ladder;
+import LadderGame.domain.LadderInOutData;
 import LadderGame.view.Input;
 
 public class Main {
     public static void main(String[] args) {
         // 사다리 값 입력
         Input input = new Input();
-        Ladder ladder = new Ladder(input.inputNames(), input.inputHeight());
+        LadderInOutData data = new LadderInOutData(input.inputNames()
+                , input.inputResult());
+        Ladder ladder = new Ladder(data, input.inputHeight());
 
         // 사다리 설정
         ladder.makeLadder();
@@ -16,7 +19,15 @@ public class Main {
         System.out.println();
         ladder.callOfLadderOutput();
 
-        // 명령어 부분
-        input.handleCommand();
+        // 명령어 처리
+        String command = "";
+        do {
+            /*
+            TODO
+             Output 에 넘김
+             */
+
+            command = input.handleCommand();
+        } while (!command.equals("춘식이"));
     }
 }

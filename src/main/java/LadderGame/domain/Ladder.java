@@ -10,7 +10,7 @@ public class Ladder {
     private final LadderInOutData ladderData;
 
     // 초기값 세팅
-    public Ladder(String names, int ladderHeight, LadderInOutData ladderData) {
+    public Ladder(LadderInOutData ladderData, int ladderHeight) {
         this.ladderHeight = ladderHeight;
         this.ladderData = ladderData;
         ladderSet = new ArrayList<>();

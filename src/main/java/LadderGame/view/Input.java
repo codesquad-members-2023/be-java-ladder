@@ -1,6 +1,5 @@
 package LadderGame.view;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Input {
@@ -25,19 +24,8 @@ public class Input {
     }
 
     // 명령어 처리
-    public void handleCommand() {
-        Output output = new Output();
-
-        String command = in.nextLine();
-        while(!command.equals("춘식이")){
-            System.out.println("결과를 보고 싶은 사람은?");
-
-            /*
-            TODO
-             Output 에 넘김
-             */
-
-            command = in.nextLine();
-        }
+    public String handleCommand() {
+        System.out.println("결과를 보고 싶은 사람은?");
+        return in.next();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class LadderInOutData {
-    Output output = new Output();
+    private final Output output = new Output();
     private final ArrayList<String> names;
     private final ArrayList<String> result;
 
@@ -29,11 +29,11 @@ public class LadderInOutData {
         return names.size();
     }
 
-    public void callOfNameOutput(){
-        output.printName(names);
+    public void callOfNameOutput() {
+        output.printData(names);
     }
 
-    public void callOfResultOutput(){
-        output.printName(result);
+    public void callOfResultOutput() {
+        output.printData(result);
     }
 }
