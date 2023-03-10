@@ -39,6 +39,7 @@ class GameTest {
     }
 
     @Test
+    @DisplayName("한 사람의 결과를 검색할 때, 제대로 사다리타기 결과값을 출력하는지 확인한다.")
     void findDestinationOf() {
         Ladder ladder = new Ladder();
         View view = new View();
@@ -52,6 +53,7 @@ class GameTest {
     }
 
     @Test
+    @DisplayName("모든 사람의 사다리타기 결과값이 정확히 출력되는지 확인한다.")
     void findAllDestinations() {
         Ladder ladder = new Ladder();
         View view = new View();

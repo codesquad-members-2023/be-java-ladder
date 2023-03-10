@@ -11,16 +11,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class PeopleTest {
 
     @Test
-    void getPeople() {
-        List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
-        Ladder ladder = new Ladder();
-
-        People people = new People(peopleNames, ladder);
-
-        System.out.println("디버그 포인트");
-    }
-
-    @Test
     @DisplayName("이름으로 사람을 검색하여 해당 사람의 사다리타기 결과값을 제대로 받는 지 확인한다.")
     void findDestinationOf() {
         List<String> peopleNames = List.of("honux", "jk", "pobi", "crong");
