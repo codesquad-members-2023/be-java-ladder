@@ -15,7 +15,6 @@ public class ListLadder {
     }
 
     public void charLadderToListLadderConverter(char[][] charsLadder) {
-
         for (char[] row : charsLadder) {
             ArrayList<Character> list = new ArrayList<>();
             startEmptySpaceOfLadderInsert(list);
