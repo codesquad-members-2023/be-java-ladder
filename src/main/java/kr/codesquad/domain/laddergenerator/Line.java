@@ -11,6 +11,15 @@ public class Line {
         oneRow = makeOneRow(people);
     }
 
+    public String makeLineShape(){
+        StringBuilder oneLine = new StringBuilder();
+        oneLine.append("|");
+        for (int i = 0; i < oneRow.size(); i++) {
+            oneLine.append(connect(oneRow.get(i)));
+        }
+        return oneLine.toString();
+    }
+
     private List<Boolean> makeOneRow(int people){
         oneRow = generateRandomRow(people);
 
@@ -23,7 +32,7 @@ public class Line {
 
     private List<Boolean> generateRandomRow(int people) {
         List<Boolean> booleanLine = new ArrayList<>();
-        for (int i = 0; i < people - 1; i++) {
+        for (int i = 0; i < people; i++) {
             booleanLine.add(randomConnect());
         }
         return booleanLine;
@@ -43,4 +52,10 @@ public class Line {
         return random.nextBoolean();
     }
 
+    private String connect(boolean connection){
+        if (connection) {
+            return "-----|";
+        }
+        return "     |";
+    }
 }
