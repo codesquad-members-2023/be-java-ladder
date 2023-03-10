@@ -7,26 +7,40 @@ import java.util.Random;
 public class Line {
     List<Boolean> oneRow;
 
+    public Line(int people) {
+        oneRow = makeOneRow(people);
+    }
 
-    private List<Boolean> moveNextElement(int peopleNumber) {
-        List<Boolean> oneRow = new ArrayList<>();
-        oneRow.add(randomConnect());
-        for (int i = 0; i < peopleNumber - 2; i++) {
-            oneRow.add(addNextElement(oneRow));
+    private List<Boolean> makeOneRow(int people){
+        oneRow = generateRandomRow(people);
+
+        while (checkCorrectLadder(oneRow)) {
+            oneRow = generateRandomRow(people);
         }
+
         return oneRow;
     }
 
-    private boolean addNextElement(List<Boolean> oneRow) {
-        if (oneRow.get(oneRow.size() - 1)) {
-            return false;
+    private List<Boolean> generateRandomRow(int people) {
+        List<Boolean> booleanLine = new ArrayList<>();
+        for (int i = 0; i < people - 1; i++) {
+            booleanLine.add(randomConnect());
         }
-        return randomConnect();
+        return booleanLine;
     }
 
+    private boolean checkCorrectLadder(List<Boolean> oneLine) {
+        for (int i = 1; i < oneLine.size(); i++) {
+            if (oneLine.get(i) && oneLine.get(i - 1)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private Boolean randomConnect(){
         Random random = new Random();
         return random.nextBoolean();
     }
+
 }
