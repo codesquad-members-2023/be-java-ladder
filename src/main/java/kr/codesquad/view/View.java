@@ -25,6 +25,12 @@ public class View {
         System.out.println(MAX_MEMBER_HEIGHT_MESSAGE);
     }
 
+    public void printSearchResult() {
+        final String SEARCH_RESULT_MESSAGE = "결과를 보고 싶은 사람은? (all : 모든 참여자 결과, 춘식이 : 종료)";
+        System.out.println();
+        System.out.println(SEARCH_RESULT_MESSAGE);
+    }
+
     public void printJoinMembersError() {
         final String JOIN_MEMBER_MESSAGE_ERROR = "5글자 이하 이름만 입력해 주세요.";
         System.out.println(JOIN_MEMBER_MESSAGE_ERROR);
@@ -47,8 +53,15 @@ public class View {
         System.out.println();
     }
 
+    public void printSearchResultError() {
+        final String SEARCH_RESULT_ERROR_MESSAGE = "참여한 사람의 이름, all, 춘식이만 입력해주세요";
+        System.out.println(SEARCH_RESULT_ERROR_MESSAGE);
+    }
+
     public void printLadderResult(List<List<String>> ladderResult) {
+        final String LADDER_RESULT_MESSAGE = "사다리 결과";
         System.out.println();
+        System.out.println(LADDER_RESULT_MESSAGE);
         StringBuilder stringBuilder = new StringBuilder();
         for (List<String> strings : ladderResult) {
             strings.forEach(stringBuilder::append);
