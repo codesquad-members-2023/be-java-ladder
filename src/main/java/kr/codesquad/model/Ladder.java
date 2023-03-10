@@ -3,8 +3,10 @@ package kr.codesquad.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
 
@@ -99,5 +101,44 @@ public class Ladder {
     public boolean checkLine(int idx, List<Boolean> visited) {
         final int CHECK_PREVIOUS_INDEX = 2;
         return idx <= 1 || !visited.get(idx - CHECK_PREVIOUS_INDEX);
+    }
+
+    public Map<String, String> makeResultMap(List<List<String>> ladderResult) {
+        Map<String, String> resultMap = new HashMap<>();
+        int userStartIndex = 0;
+        for (int i = 0; i < ladderResult.get(0).size() - 1; i+=2) {
+            if(i == 0) {
+                userStartIndex += 2;
+            }
+            String userResult = findDirection(ladderResult, userStartIndex + i);
+            resultMap.put(ladderResult.get(0).get(i), userResult);
+        }
+        return resultMap;
+    }
+
+    public String findDirection(List<List<String>> ladderResult, int userStartIndex) {
+        final int START_FIND_INDEX = 1;
+        int userNowIndex = userStartIndex;
+        for (int i = START_FIND_INDEX; i < ladderResult.size(); i++) {
+            userNowIndex = checkLeftRight(ladderResult.get(i), userNowIndex);
+        }
+        return ladderResult.get(ladderResult.size() - 1).get(userNowIndex - 2);
+    }
+
+    public int checkLeftRight(List<String> ladderResultRow, int userNowIndex) {
+        final int MOVE = 1;
+        if(userNowIndex - MOVE < 0) {
+            return userNowIndex;
+        }
+        if(ladderResultRow.get(userNowIndex - MOVE).equals("----")) {
+            return userNowIndex - 2;
+        }
+        if(userNowIndex + MOVE >= ladderResultRow.size()) {
+            return userNowIndex;
+        }
+        if(ladderResultRow.get(userNowIndex + MOVE).equals("----")) {
+            return userNowIndex + 2;
+        }
+        return userNowIndex;
     }
 }
