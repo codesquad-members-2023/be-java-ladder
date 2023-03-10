@@ -38,20 +38,33 @@ public class Ladder {
 
     // 사람별 결과 도출
     public int parsingResult(int nameOfNum) {
-        int lineOfNum = nameOfNum;
-
+        int point = nameOfNum;
         for (int i = 0; i < ladderHeight; i++) {
-            lineOfNum +=checkMoveLine(lineOfNum);
+            point += checkMoveLine(point, i);
         }
 
-        return lineOfNum;
+        return point;
     }
 
     // 사다리 이동 체크
-    public int checkMoveLine(int lineOfNum){
-        if(lineOfNum != ladderData.getNameSize()-1){
-            return
+    public int checkMoveLine(int nameOfNum, int lineOfNum) {
+        boolean moveToLine = false;
+        // 최대 너비 보다 작은 경우(+ 이동 체크)
+        if (nameOfNum < ladderData.getNameSize() - 1) {
+            moveToLine = ladderSet.get(lineOfNum).checkToLine(nameOfNum);
         }
+        if (moveToLine) {
+            return 1;
+        }
+        // 0보다 큰 경우(- 이동 체크)
+        if (nameOfNum > 0) {
+            moveToLine = ladderSet.get(lineOfNum).checkToLine(nameOfNum - 1);
+        }
+        if (moveToLine) {
+            return -1;
+        }
+        // 아무것도 없으면 이동X
+        return 0;
     }
 
     // 출력 호출

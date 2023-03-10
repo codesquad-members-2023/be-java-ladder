@@ -25,10 +25,7 @@ public class Line {
 
     // 라인의 좌표 값에 선이 있는지 유무를 판단하는 로직 추가
     public boolean checkToLine(int countOfPoint) {
-        if (points.get(countOfPoint)) {
-            return true;
-        }
-        return false;
+        return points.get(countOfPoint);
     }
 
     // 라인 출력 호출
