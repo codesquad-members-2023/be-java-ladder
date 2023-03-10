@@ -16,7 +16,6 @@ public class Main {
         ladder.makeLadder();
 
         // 사다리 출력
-        System.out.println();
         ladder.callOfLadderOutput();
 
         // 명령어 처리

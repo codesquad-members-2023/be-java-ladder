@@ -13,7 +13,7 @@ public class Input {
 
     // 결과 입력
     public String inputResult() {
-        System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)\n");
+        System.out.print("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)\n");
         return in.nextLine();
     }
 
@@ -25,7 +25,7 @@ public class Input {
 
     // 명령어 처리
     public String handleCommand() {
-        System.out.println("결과를 보고 싶은 사람은?");
+        System.out.print("\n결과를 보고 싶은 사람은?\n");
         return in.next();
     }
 }
