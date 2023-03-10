@@ -1,26 +1,40 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.domain.laddergenerator.Ladder;
+import kr.codesquad.domain.laddergenerator.LadderMaker;
 import kr.codesquad.view.LadderView;
 
-public class Controller {
-    private final Ladder ladderGenerator;
-    private final LadderView ladderView;
+import java.util.List;
 
-    public Controller(Ladder ladder, LadderView ladderView) {
-        this.ladderGenerator = ladder;
+public class Controller {
+    private final Ladder ladder;
+    private final LadderView ladderView;
+    private final LadderMaker ladderMaker;
+
+    public Controller(Ladder ladder, LadderView ladderView, LadderMaker ladderMaker) {
+        this.ladder = ladder;
         this.ladderView = ladderView;
+        this.ladderMaker = ladderMaker;
+
     }
 
     public void startGame() {
         ladderView.askPeopleNumber();
-        int people = ladderView.inputInt();
+        String[] names = peopleName();
+
+        int peopleNumber = names.length;
 
         ladderView.askLadderHeight();
         int height = ladderView.inputInt();
 
-        String[][] ladder = ladderGenerator.makeRandomLadder(people, height);
-        ladderView.printLadder(ladder);
+        List<List<String>> lists = ladder.makeLadder(ladderMaker.makeBooleanLadder(peopleNumber, height));
+
+        ladderView.printNames(names);
+        ladderView.printLadder(lists);
+    }
+
+    private String[] peopleName() {
+        return ladderView.inputName().split(",");
     }
 
 }

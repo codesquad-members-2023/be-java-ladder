@@ -1,46 +1,44 @@
 package kr.codesquad.domain.laddergenerator;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ladder {
 
-    private final String STICK = "|";
-    private final String SPACE = " ";
-    private final String DASH = "-";
+    public List<List<String>> makeLadder(List<List<Boolean>> booleanLadder){
+        // people 의 경우 몇 번째를 가져오나 똑같은 size 가 도출되기 때문에 첫 번째 인덱스 사용
+        int people = booleanLadder.get(0).size();
+        int height = booleanLadder.size();
 
-    public boolean randomGenerateLadder() {
-        Random random = new Random();
-
-        return random.nextBoolean();
-    }
-
-    public String[][] makeRandomLadder(int people, int height) {
-        String[][] ladder = new String[height][people * 2 - 1];
-
-        moveNextRow(ladder);
+        List<List<String>> ladder = new ArrayList<>();
+        for (int i = 0; i < height; i++) {
+            ladder.add(makeOneRaw(people ,booleanLadder.get(i)));
+        }
 
         return ladder;
     }
 
-    private String makeBridgeElement(int index) {
-        if (index % 2 == 0) {
-            return STICK;
+    private List<String> makeOneRaw(int people, List<Boolean> oneRawBooleanLadder) {
+        List<String> oneRaw = new ArrayList<>();
+        String divisionLine = "|";
+
+        oneRaw.add(divisionLine);
+        for (int i = 0; i < people; i++) {
+            oneRaw.add(convertLadderToString(oneRawBooleanLadder.get(i)));
+            oneRaw.add(divisionLine);
         }
-        if (randomGenerateLadder()) {
-            return DASH;
-        }
-        return SPACE;
+
+        return oneRaw;
     }
 
-    private void moveNextRow(String[][] ladder) {
-        for (int i = 0; i < ladder.length; i++) {
-            moveNextElement(i, ladder);
+    private String convertLadderToString(boolean element){
+        String connect = "-----";
+        String notConnect = "     ";
+
+        if (element) {
+            return connect;
         }
+        return notConnect;
     }
 
-    private void moveNextElement(int index, String[][] ladder) {
-        for (int i = 0; i < ladder[index].length; i++) {
-            ladder[index][i] = makeBridgeElement(i);
-        }
-    }
 }
