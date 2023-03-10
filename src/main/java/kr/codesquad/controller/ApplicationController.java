@@ -2,7 +2,9 @@ package kr.codesquad.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import kr.codesquad.model.Ladder;
 import kr.codesquad.view.View;
 
@@ -21,15 +23,27 @@ public class ApplicationController {
         int maxLadderHeight = promptForValidNumber();
         List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight, inputGameResult);
         view.printLadderResult(ladderResult);
-        searchGameResult(joinMembers);
+        searchGameResult(ladderResult, joinMembers);
     }
 
-    public void searchGameResult(String joinMembers) {
+    public void searchGameResult(List<List<String>> ladderResult, String joinMembers) {
         String inputSearchResult = "";
         final String COMMEND_QUIT = "춘식이";
         while (!inputSearchResult.equals(COMMEND_QUIT)) {
+            Map<String, String> resultMap = new HashMap<>(ladder.makeResultMap(ladderResult));
             inputSearchResult = promptForSearchResult(joinMembers);
+            if(!inputSearchResult.equals(COMMEND_QUIT)) {
+                checkCommand(inputSearchResult, resultMap);
+            }
         }
+    }
+
+    public void checkCommand(String inputSearchResult, Map<String, String> resultMap) {
+        if(inputSearchResult.equals("all")) {
+            view.printResultMap(resultMap);
+            return;
+        }
+        view.printUserSearchResult(resultMap.get(inputSearchResult));
     }
 
     public String promptForValidName() {
@@ -82,7 +96,7 @@ public class ApplicationController {
         String[] inputArray = input.split(",");
         final int LIMIT_USER_NAME_LENGTH = 5;
         int userNumber = (int) Arrays.stream(inputArray)
-                .filter(s -> s.length() < LIMIT_USER_NAME_LENGTH)
+                .filter(s -> s.length() <= LIMIT_USER_NAME_LENGTH)
                 .count();
         if (inputArray.length != userNumber) {
             view.printJoinMembersError();
