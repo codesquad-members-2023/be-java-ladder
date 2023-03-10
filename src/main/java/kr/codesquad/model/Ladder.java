@@ -38,7 +38,8 @@ public class Ladder {
         Queue<String> joinMemberQueue = new LinkedList<>(joinMembersSplit);
         makeFirstRow(ladder.get(0), joinMemberQueue);
         final int START_ROW_INDEX = 1;
-        for (int i = START_ROW_INDEX; i < ladder.size(); i++) {
+        final int END_ROW_INDEX = 1;
+        for (int i = START_ROW_INDEX; i < ladder.size() - END_ROW_INDEX; i++) {
             makeColumn(ladder.get(i));
         }
     }
