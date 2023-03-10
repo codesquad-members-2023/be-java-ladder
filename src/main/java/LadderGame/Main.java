@@ -1,8 +1,10 @@
 package LadderGame;
 
 import LadderGame.domain.Ladder;
+import LadderGame.domain.LadderGameResult;
 import LadderGame.domain.LadderInOutData;
 import LadderGame.view.Input;
+import LadderGame.view.Output;
 
 import java.util.HashMap;
 
@@ -21,17 +23,22 @@ public class Main {
         ladder.callOfLadderOutput();
 
         // 명령어 처리
+        Output output = new Output();
+        LadderGameResult gameResult = new LadderGameResult(ladder.setResultMap());
         String command = "";
-        HashMap<String, String> temp = ladder.setResultMap();
-        System.out.println(temp);
         do {
             /*
             TODO
              Output 에 넘김
              */
-            if(!command.equals("")){
-                System.out.println(temp.get(command));
+            if (command.equals("all")) {
+                gameResult
+                output.printResultAll();
             }
+            if(!command.equals("all")&&ladder.checkName(command)){
+                gameResult.getResult(command);
+            }
+
 
             command = input.handleCommand();
         } while (!command.equals("춘식이"));

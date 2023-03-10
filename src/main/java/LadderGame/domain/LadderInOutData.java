@@ -48,4 +48,12 @@ public class LadderInOutData {
     public String getResult(int resultOfNum) {
         return result.get(resultOfNum);
     }
+
+    // 이름 유무 체크
+    public boolean checkName(String name) {
+        if (names.indexOf(name) != -1) {
+            return true;
+        }
+        return false;
+    }
 }

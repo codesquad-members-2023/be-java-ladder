@@ -33,4 +33,14 @@ public class Output {
         points.forEach(point -> System.out.print("|" + boolToString(point)));
         System.out.println("|");
     }
+
+    // 모든 게임 결과 출력
+    public void printResultAll(String name, String result) {
+        System.out.println(name + " : " + result);
+    }
+
+    // 부분 게임 결과 출력
+    public void printResultOne(String result) {
+        System.out.println("\n실행 결과\n" + result);
+    }
 }

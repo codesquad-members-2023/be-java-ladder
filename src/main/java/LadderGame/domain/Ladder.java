@@ -67,6 +67,10 @@ public class Ladder {
         return 0;
     }
 
+    public boolean checkName(String name) {
+        return ladderData.checkName(name);
+    }
+
     // 출력 호출
     public void callOfLadderOutput() {
         Output output = new Output();
