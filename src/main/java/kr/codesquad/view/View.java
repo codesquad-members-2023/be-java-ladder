@@ -36,6 +36,11 @@ public class View {
         System.out.println(INPUT_GAME_RESULT_ERROR_MESSAGE);
     }
 
+    public void printInputGameResultCountError() {
+        final String INPUT_GAME_RESULT_COUNT_ERROR_MESSAGE = "참여하는 사람의 숫자와 같은 숫자의 결과를 입력해주세요.";
+        System.out.println(INPUT_GAME_RESULT_COUNT_ERROR_MESSAGE);
+    }
+
     public void printMaxLadderHeightError() {
         final String MAX_MEMBER_HEIGHT_MESSAGE_ERROR = "숫자만 입력해 주세요.";
         System.out.println(MAX_MEMBER_HEIGHT_MESSAGE_ERROR);
