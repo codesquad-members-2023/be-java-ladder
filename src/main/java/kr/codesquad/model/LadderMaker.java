@@ -18,9 +18,9 @@ public class LadderMaker {
     }
 
     private int fillPlayersNameRow(String playersName) {
-        String[] splittedPlayersName = playersName.split("[%-@#]");
+        String[] splittedPlayersName = playersName.split(",");
         for (String name : splittedPlayersName) {
-            ladder.getPlayersNameRow().add(name);
+            ladder.getPlayersNameRow().add(name.trim());
         }
         return ladder.getPlayersNameRow().size();
     }
