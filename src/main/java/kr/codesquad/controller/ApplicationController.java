@@ -1,5 +1,6 @@
 package kr.codesquad.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import kr.codesquad.model.Ladder;
@@ -20,6 +21,15 @@ public class ApplicationController {
         int maxLadderHeight = promptForValidNumber();
         List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight, inputGameResult);
         view.printLadderResult(ladderResult);
+        searchGameResult(joinMembers);
+    }
+
+    public void searchGameResult(String joinMembers) {
+        String inputSearchResult = "";
+        final String COMMEND_QUIT = "춘식이";
+        while (!inputSearchResult.equals(COMMEND_QUIT)) {
+            inputSearchResult = promptForSearchResult(joinMembers);
+        }
     }
 
     public String promptForValidName() {
@@ -55,6 +65,17 @@ public class ApplicationController {
             flag = checkInputNumber(input);
         }
         return Integer.parseInt(input);
+    }
+
+    public String promptForSearchResult(String joinMembers) {
+        boolean flag = false;
+        String input = "";
+        while (!flag) {
+            view.printSearchResult();
+            input = view.inputUserString();
+            flag = checkSearchResult(input, joinMembers);
+        }
+        return input;
     }
 
     public boolean checkInputLength(String input) {
@@ -98,6 +119,18 @@ public class ApplicationController {
         final int LIMIT_USER_NUMBER_LENGTH = 0;
         if (temp.length() != LIMIT_USER_NUMBER_LENGTH) {
             view.printMaxLadderHeightError();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkSearchResult(String input, String joinMembers) {
+        List<String> joinMembersArray = new ArrayList<>(List.of(joinMembers.split(",")));
+        final String COMMEND_ALL = "all";
+        final String COMMEND_QUIT = "춘식이";
+
+        if (!(joinMembersArray.contains(input) || input.equals(COMMEND_ALL) || input.equals(COMMEND_QUIT))) {
+            view.printSearchResultError();
             return false;
         }
         return true;
