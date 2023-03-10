@@ -30,11 +30,9 @@ public class CharLadder {
     }
 
     private void insertRowStick(char[] col) {
-        for (int row = 1; row < col.length; row += 2) {
-            if (isValidationRowPossibleInsertRandomStick(col, row)) {
-                row += 2;
-            }
-        }
+        IntStream.iterate(1, row -> row < col.length, row -> row + 2)
+                .filter(row -> isValidationRowPossibleInsertRandomStick(col, row))
+                .forEach(row -> row += 2);
     }
 
     private boolean isValidationRowPossibleInsertRandomStick(char[] col, int row) {
