@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Line;
+import kr.codesquad.domain.PlayerRepository;
 import kr.codesquad.view.Renderer;
 
 @Nested
@@ -21,6 +23,8 @@ class RendererTest {
         @Test
         @DisplayName("이름 리스트와 Line들을 입력받아 사다리를 그린다.")
         public void renderMapTest() {
+            Ladder ladder = new Ladder();
+            PlayerRepository.init(List.of("pobi","honux","crong"),ladder);
             ArrayList<Line> ladderMap = new ArrayList<>();
             Line first = new Line();
             Line second = new Line();
@@ -29,7 +33,7 @@ class RendererTest {
 
             ladderMap.add(first);
             ladderMap.add(second);
-            String result = Renderer.renderMap(ladderMap,List.of("pobi","honux","crong"));
+            String result = Renderer.renderMap(ladderMap);
             System.out.println(result);
             assertThat(result)
                     .contains("|-----|     |");
