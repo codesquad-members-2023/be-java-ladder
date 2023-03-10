@@ -30,12 +30,15 @@ public class CharLadder {
     }
 
     private void insertRowStick(char[] col) {
-        IntStream.iterate(1, row -> row < col.length, row -> row + 2)
-                .filter(row -> isValidationRowPossibleInsertRandomStick(col, row))
-                .forEach(row -> row += 2);
+        //Todo 깊이를 어떻게 해야 줄일수 있을까?
+        for (int row = 1; row < col.length; row += 2) {
+            if (canInsertRandomStickInRow(col, row)) {
+                row += 2;
+            }
+        }
     }
 
-    private boolean isValidationRowPossibleInsertRandomStick(char[] col, int row) {
+    private boolean canInsertRandomStickInRow(char[] col, int row) {
         Random random = new Random();
         if (random.nextBoolean()) {
             insertRandomStick(col, row);
