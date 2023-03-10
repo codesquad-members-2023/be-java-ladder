@@ -1,6 +1,7 @@
 package kr.codesquad;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public class CharLadder {
@@ -30,15 +31,23 @@ public class CharLadder {
 
     private void insertRowStick(char[] col) {
         for (int row = 1; row < col.length; row += 2) {
-            insertRandomStick(col, row);
+            if (isValidationRowPossibleInsertRandomStick(col, row)) {
+                row += 2;
+            }
         }
     }
 
-    private void insertRandomStick(char[] col, int row) {
+    private boolean isValidationRowPossibleInsertRandomStick(char[] col, int row) {
         Random random = new Random();
         if (random.nextBoolean()) {
-            col[row] = '-';
+            insertRandomStick(col, row);
+            return true;
         }
+        return false;
+    }
+
+    private void insertRandomStick(char[] col, int row) {
+        col[row] = '-';
     }
 
     private void insertEmptySpaceToLadder() {
