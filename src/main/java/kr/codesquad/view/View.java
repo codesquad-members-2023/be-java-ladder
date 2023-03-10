@@ -15,6 +15,11 @@ public class View {
         System.out.println(JOIN_MEMBER_MESSAGE);
     }
 
+    public void printInputGameResult() {
+        final String INPUT_GAME_RESULT_MESSAGE = "실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)";
+        System.out.println(INPUT_GAME_RESULT_MESSAGE);
+    }
+
     public void printMaxLadderHeight() {
         final String MAX_MEMBER_HEIGHT_MESSAGE = "최대 사다리 높이는 몇 개인가요?";
         System.out.println(MAX_MEMBER_HEIGHT_MESSAGE);
@@ -24,6 +29,11 @@ public class View {
         final String JOIN_MEMBER_MESSAGE_ERROR = "5글자 이하 이름만 입력해 주세요.";
         System.out.println(JOIN_MEMBER_MESSAGE_ERROR);
         System.out.println();
+    }
+
+    public void printInputGameResultError() {
+        final String INPUT_GAME_RESULT_ERROR_MESSAGE = "꽝 또는 숫자만 입력해 주세요.";
+        System.out.println(INPUT_GAME_RESULT_ERROR_MESSAGE);
     }
 
     public void printMaxLadderHeightError() {
