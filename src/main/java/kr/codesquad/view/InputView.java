@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,11 +18,15 @@ public class InputView {
         return input;
     }
 
-    public int userInputNumberOfPeople() {
-        return Integer.parseInt(globalReadLine());
-    }
+//    public int userInputNumberOfPeople() {        // 사용하지 않는 메서드
+//        return Integer.parseInt(globalReadLine());
+//    }
 
     public int userInputHeightOfLadder() {
         return Integer.parseInt(globalReadLine());
+    }
+
+    public String userInputPlayersName() {
+        return globalReadLine();
     }
 }
