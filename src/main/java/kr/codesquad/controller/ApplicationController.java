@@ -16,6 +16,7 @@ public class ApplicationController {
 
     public void run() {
         String joinMembers = promptForValidName();
+        String inputGameResult = promptForValidResult(joinMembers);
         int maxLadderHeight = promptForValidNumber();
         List<List<String>> ladderResult = ladder.make(joinMembers, maxLadderHeight);
         view.printLadderResult(ladderResult);
@@ -28,6 +29,19 @@ public class ApplicationController {
             view.printJoinMembers();
             input = view.inputUserString();
             flag = checkInputLength(input);
+        }
+        return input;
+    }
+
+    public String promptForValidResult(String joinMembers) {
+        boolean firstFlag = false;
+        boolean secondFlag = false;
+        String input = "";
+        while (!(firstFlag && secondFlag)) {
+            view.printInputGameResult();
+            input = view.inputUserString();
+            firstFlag = checkInputResult(input);
+            secondFlag = checkInputResultCount(input, joinMembers);
         }
         return input;
     }
@@ -51,6 +65,29 @@ public class ApplicationController {
                 .count();
         if (inputArray.length != userNumber) {
             view.printJoinMembersError();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkInputResult(String input) {
+        String[] inputArray = input.split(",");
+        final String ALLOW_WORD = "꽝";
+        int expectNumber = (int) Arrays.stream(inputArray)
+                .filter(s -> s.equals(ALLOW_WORD) || checkInputNumber(s))
+                .count();
+        if (inputArray.length != expectNumber) {
+            view.printInputGameResultError();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkInputResultCount(String input, String joinMembers) {
+        String[] inputArray = input.split(",");
+        String[] joinMembersArray = joinMembers.split(",");
+        if (inputArray.length != joinMembersArray.length) {
+            view.printInputGameResultCountError();
             return false;
         }
         return true;
