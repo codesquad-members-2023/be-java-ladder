@@ -2,6 +2,7 @@ package LadderGame.domain;
 
 import LadderGame.view.Output;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LadderGameResult {
@@ -11,7 +12,7 @@ public class LadderGameResult {
         this.resultMap = resultMap;
     }
 
-    public String getResult(String name){
+    public String getResult(String name) {
         return resultMap.get(name);
     }
 

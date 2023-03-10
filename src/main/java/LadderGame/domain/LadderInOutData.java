@@ -51,7 +51,7 @@ public class LadderInOutData {
 
     // 이름 유무 체크
     public boolean checkName(String name) {
-        if (names.indexOf(name) != -1) {
+        if (names.contains(name)) {
             return true;
         }
         return false;
