@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,29 +19,9 @@ public class LadderMaker {
             List<String> ladderRow;
 
             RandomsGenerator randomsGenerator = new RandomsGenerator();
-            ladderRow = insertBridges(randomsGenerator.generateRandoms(numOfParticipants));
+            ladderRow = randomsGenerator.generateRandoms(numOfParticipants);
             ladder.add(ladderRow);
         }
-    }
-
-
-    public List<String> insertBridges(int[] randoms) {
-
-        List<String> ladderRow = new ArrayList<>();
-
-        ladderRow.add("  |");
-        for (int random : randoms) {
-            ladderRow.add(validationBridge(random));
-            ladderRow.add("|");
-        }
-        return ladderRow;
-    }
-
-    private String validationBridge(int random) {
-        if (random % 2 == 0) {
-            return "-----";
-        }
-        return "     ";
     }
 
     public String stringLadder() {

@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import kr.codesquad.view.Viewer;
+
 import java.io.IOException;
 
 public class Main {
