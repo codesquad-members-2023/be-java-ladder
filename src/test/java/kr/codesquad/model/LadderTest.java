@@ -35,7 +35,7 @@ class LadderTest {
         Ladder ladder = new Ladder(new Random());
 
         //when
-        List<List<String>> result = ladder.make("roy,birdie,hana,mung,honux", 8);
+        List<List<String>> result = ladder.make("roy,birdie,hana,mung,honux", 8, "100,200,300,꽝,꽝");
 
         //then
         assertFalse(result.isEmpty());
@@ -48,7 +48,7 @@ class LadderTest {
         Ladder ladder = new Ladder(new Random());
 
         //when
-        List<List<String>> result = ladder.make("roy,birdie,hana", 3);
+        List<List<String>> result = ladder.make("roy,birdie,hana", 3, "100,꽝,300");
 
         //then
         assertNotNull(result);
@@ -81,7 +81,7 @@ class LadderTest {
         Ladder ladder = new Ladder(new Random());
 
         //when
-        List<List<String>> result = ladder.make("roy,birdie,hana,mung,honux", 6);
+        List<List<String>> result = ladder.make("roy,birdie,hana,mung,honux", 6, "100,꽝,300,400,500");
 
         //then
         assertEquals(result.get(0),
