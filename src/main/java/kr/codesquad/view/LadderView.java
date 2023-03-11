@@ -64,7 +64,7 @@ public class LadderView {
     }
 
     private String appropriateSpace(String name) {
-        StringBuilder spaces = new StringBuilder().append(" ");
+        StringBuilder spaces = new StringBuilder().append(name).append(" ");
         int maxLength = 5;
         int space = maxLength - name.length();
 
@@ -72,5 +72,16 @@ public class LadderView {
             spaces.append(" ");
         }
         return spaces.toString();
+    }
+
+    public void printLadder(List<String> names, String ladder) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < names.size(); i++) {
+            result.append(appropriateSpace(names.get(i)));
+        }
+        result.append("\n").append(ladder);
+
+        System.out.println(result);
     }
 }
