@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.codesquad.domain.Line;
+import kr.codesquad.domain.PlayerRepository;
+
+import static kr.codesquad.domain.PlayerRepository.getNameList;
 
 public class Renderer {
 
@@ -13,15 +16,16 @@ public class Renderer {
     private static final String LADDER_FULL = "-----";
     private static final String LADDER_EMPTY = "     ";
 
-    public static String renderMap(ArrayList<Line> ladderMap, List<String> names) {
+    public static String renderMap(ArrayList<Line> ladderMap, List<String> resultSet) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(names.stream().reduce((str1, str2) -> str1 + TAB_CHAR + str2).get()).append(BREAK_LINE);
+        sb.append(getNameList().stream().reduce((str1, str2) -> str1 + TAB_CHAR + str2).get()).append(BREAK_LINE);
 
         for (Line floorMap : ladderMap) {
             renderFloor(floorMap, sb);
             sb.append(LADDER_BAR).append(BREAK_LINE);
         }
+        sb.append(resultSet.stream().reduce((str1, str2) -> str1 + TAB_CHAR + str2).get()).append(BREAK_LINE);
         return sb.toString();
     }
 

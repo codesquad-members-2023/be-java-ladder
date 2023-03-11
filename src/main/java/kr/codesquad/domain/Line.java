@@ -30,6 +30,7 @@ public class Line {
         return sections.get(section).equals(Boolean.TRUE);
     }
 
+
     public List<Boolean> getSections() {
         return Collections.unmodifiableList(sections);
     }
