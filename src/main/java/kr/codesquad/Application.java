@@ -1,8 +1,13 @@
 package kr.codesquad;
 
+import kr.codesquad.ladder.domain.CharLadder;
+import kr.codesquad.ladder.domain.LadderHeader;
+import kr.codesquad.ladder.domain.ListLadder;
+import kr.codesquad.ladder.view.Command;
+
 import java.util.Scanner;
 
-import static kr.codesquad.OutputView.*;
+import static kr.codesquad.ladder.view.OutputView.*;
 
 
 public class Application {

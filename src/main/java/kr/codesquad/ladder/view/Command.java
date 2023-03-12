@@ -1,8 +1,8 @@
-package kr.codesquad;
+package kr.codesquad.ladder.view;
 
 import java.util.Scanner;
 
-import static kr.codesquad.Message.*;
+import static kr.codesquad.ladder.view.Message.*;
 
 public class Command {
     public static final int NAME_MIN_LENGTH = 1;
