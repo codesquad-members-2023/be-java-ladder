@@ -12,19 +12,12 @@ public class Main {
                 , input.inputResult());
         Ladder ladder = new Ladder(data, input.inputHeight());
 
-        // 사다리 설정
-        ladder.makeLadder();
-
         // 사다리 출력
         ladder.callOfLadderOutput();
 
         // 명령어 처리
         String command = "";
         do {
-            /*
-            TODO
-             Output 에 넘김
-             */
             if (command.equals("all")) {
                 ladder.callOfLadderResultAll();
             }

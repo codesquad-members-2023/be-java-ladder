@@ -73,10 +73,12 @@ public class Ladder {
         return 0;
     }
 
+    // 이름 유무 체클르 위한 메소드
     public boolean checkName(String name) {
         return ladderData.checkName(name);
     }
 
+    // 모든 결과 출력 호출
     public void callOfLadderResultAll() {
         for (int i = 0; i < ladderData.getNameSize(); i++) {
             String tempStr = ladderData.getName(i);
@@ -84,6 +86,7 @@ public class Ladder {
         }
     }
 
+    // 일부 결과 출력 호출
     public void callOfLadderResultOne(String command) {
         gameResult.callOfResultPrintOne(command);
     }
