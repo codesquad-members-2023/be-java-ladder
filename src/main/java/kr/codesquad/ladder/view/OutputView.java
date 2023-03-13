@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.ladder.view;
 
 import java.util.ArrayList;
 import java.util.List;

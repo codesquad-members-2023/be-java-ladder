@@ -1,4 +1,6 @@
-package kr.codesquad;
+package kr.codesquad.ladder.domain;
+
+import kr.codesquad.ladder.domain.LadderHeader;
 
 import java.util.ArrayList;
 import java.util.Collections;

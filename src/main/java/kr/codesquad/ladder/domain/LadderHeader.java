@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.ladder.domain;
 
 public class LadderHeader {
     private String[] members;

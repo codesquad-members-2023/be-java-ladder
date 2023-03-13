@@ -1,32 +1,21 @@
-package kr.codesquad;
+package kr.codesquad.ladder.exception;
 
-import java.util.Scanner;
-
-import static kr.codesquad.Message.*;
-
-public class Command {
+public class CommandException {
     public static final int NAME_MIN_LENGTH = 1;
     public static final int NAME_MAX_LENGTH = 6;
-    private Scanner scanner;
 
-    public Command(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public String countMembers() {
-        System.out.println(START_MESSAGE1);
-        String headLine = scanner.nextLine();
-        return headLineValidation(headLine);
-    }
-
-    private String headLineValidation(String headLine) {
+    public String headLineValidation(String headLine) {
         try {
             validationMembersArray(headLine.split(","));
             return headLine;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return countMembers();
+            return callbackCountMembers();
         }
+    }
+
+    private String callbackCountMembers() {
+        return "다시 커맨드를 호출합니다";
     }
 
     private void validationMembersArray(String[] members) throws IllegalArgumentException {
@@ -45,9 +34,4 @@ public class Command {
         return name.length() < NAME_MIN_LENGTH || name.length() > NAME_MAX_LENGTH;
     }
 
-    public int countLadder() {
-        System.out.println(START_MESSAGE2);
-        System.out.println();
-        return Integer.parseInt(scanner.nextLine());
-    }
 }
