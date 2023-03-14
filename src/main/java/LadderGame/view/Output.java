@@ -1,13 +1,14 @@
 package LadderGame.view;
 
 import LadderGame.domain.Line;
+
 import java.util.ArrayList;
 
 public class Output {
     // 이름 출력
-    public void printName(ArrayList<String> names) {
-        for (String name : names) {
-            System.out.printf("%-6s", name); // 빈공간 출력 메소드 한줄로 표현
+    public void printData(ArrayList<String> datas) {
+        for (String data : datas) {
+            System.out.printf("%-6s", data); // 빈공간 출력 메소드 한줄로 표현
         }
         System.out.println();
     }
@@ -31,5 +32,15 @@ public class Output {
     public void printLine(ArrayList<Boolean> points) {
         points.forEach(point -> System.out.print("|" + boolToString(point)));
         System.out.println("|");
+    }
+
+    // 모든 게임 결과 출력
+    public void printResultAll(String name, String result) {
+        System.out.println(name + " : " + result);
+    }
+
+    // 부분 게임 결과 출력
+    public void printResultOne(String result) {
+        System.out.println("\n실행 결과\n" + result);
     }
 }
